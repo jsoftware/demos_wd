@@ -1,0 +1,93 @@
+NB. demosel.ijs      - main selection dialog
+
+require 'gui/gtkwd gui/gtkwd/wdjview gl2 numeric stats'
+
+18!:55 <'jdemos'
+coclass 'jdemos'
+coinsert 'jgl2'
+
+sububar=: I. @(e.&'_')@]}
+maketitle=: ' '&sububar each @ cutopen ;._2
+fexist=: 1:@(1!:4)@boxopen ::0:
+
+NB. allout dallout
+
+TITLES=: maketitle 0 : 0
+cities dcities
+coins dcoins
+controls dcontrols
+eigenpictures deigenpic
+events devents
+life dlife
+isigraph... disigraph
+pousse dpousse
+solitaire dsolitaire
+unicode_simple dunisimple
+)
+
+NB. =========================================================
+DEMOS=: 0 : 0
+pc demos closeok;pn "Demos Select";
+xywh 114 24 42 12;cc ok button leftmove rightmove;cn "OK";
+xywh 114 41 42 12;cc cancel button leftmove rightmove;cn "Cancel";
+xywh 6 22 100 200;cc listbox listbox ws_border ws_vscroll rightmove bottommove;
+xywh 7 9 150 11;cc static1 static;cn "static1";
+pas 4 2;pcenter;
+rem form end;
+)
+
+NB. =========================================================
+demos_run=: 3 : 0
+if. wdisparent 'demos' do.
+  wd 'psel demos;pshow;pactive' return.
+end.
+wd DEMOS
+wd 'set static1 *Select a demo from the list below:'
+wd 'set listbox ',;DEL,each ({."1 TITLES),each DEL
+wd 'setselect listbox 0'
+wd 'setfocus listbox'
+wd 'pshow;'
+)
+
+NB. =========================================================
+demos_close=: 3 : 0
+wd 'pclose'
+)
+
+NB. =========================================================
+demos_listbox_button=: 3 : 0
+fn=. > {: (".listbox_select) { TITLES
+fn~0
+)
+
+NB. =========================================================
+demos_enter=: demos_ok_button=: demos_listbox_button
+demos_cancel_button=: demos_close
+
+NB. =========================================================
+dallout=: load bind (jpath '~addons/demos/wd/allout.ijs')
+dcities=: load bind (jpath '~addons/demos/wd/citydemo.ijs')
+dcoins=: load bind (jpath '~addons/demos/wd/coins.ijs')
+dcontrols=: load bind (jpath '~addons/demos/wd/controls.ijs')
+ddialogs=: load bind (jpath '~addons/demos/wd/demoall.ijs')
+deigenpic=: load bind (jpath '~addons/math/eigenpic/eigenpic.ijs')
+devents=: load bind (jpath '~addons/demos/wd/events.ijs')
+dgrid=: load bind (jpath '~addons/demos/grid/sgrid.ijs')
+dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
+disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
+dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
+dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
+dsolitaire=: load bind (jpath '~addons/games/solitaire/solitaire.ijs')
+dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
+dunicode=: load bind (jpath '~addons/demos/wd/unicode.ijs')
+
+NB. =========================================================
+deigenpic=: 3 : 0
+if. fexist jpath '~addons/math/lapack/lapack.ijs' do.
+  load '~addons/math/eigenpic/eigenpic.ijs'
+else.
+  wdinfo 'Eigenpicture';'This demo requires the LAPACK Addon'
+end.
+)
+
+demos_run''
