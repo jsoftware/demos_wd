@@ -2,16 +2,17 @@ NB. griddemo class
 NB. built from project: ~Source/grid/dev/demo/demo
 NB. init
 
-script_z_ '~system/main/dates.ijs'
-script_z_ '~system/main/dll.ijs'
-script_z_ '~system/packages/misc/font.ijs'
-script_z_ '~system/main/gl2.ijs'
-script_z_ '~system/classes/grid/jdgrid.ijs'
-script_z_ '~system/classes/grid/jsgrid.ijs'
-script_z_ '~system/classes/grid/jtgrid.ijs'
-script_z_ '~system/classes/grid/jvgrid.ijs'
-script_z_ '~system/classes/grid/jzgrid.ijs'
-script_z_ '~system/main/pack.ijs'
+NB. script_z_ '~system/main/dates.ijs'
+NB. script_z_ '~system/main/dll.ijs'
+NB. script_z_ '~system/packages/misc/font.ijs'
+NB. script_z_ '~system/main/gl2.ijs'
+NB. script_z_ '~system/classes/grid/jdgrid.ijs'
+NB. script_z_ '~system/classes/grid/jsgrid.ijs'
+NB. script_z_ '~system/classes/grid/jtgrid.ijs'
+NB. script_z_ '~system/classes/grid/jvgrid.ijs'
+NB. script_z_ '~system/classes/grid/jzgrid.ijs'
+NB. script_z_ '~system/main/pack.ijs'
+require 'general/misc/font pack jzgrid jdgrid jsgrid jtgrid jvgrid'
 
 coclass 'jgriddemo'
 
