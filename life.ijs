@@ -23,7 +23,7 @@ coclass 'jlife'
 
 coinsert 'jgl2'
 
-wdfit=: 0:
+NB. wdfit=: 0:
 
 SCALE=: 4 
 BOARD=: 128 160 
@@ -1105,7 +1105,7 @@ wd LIFE
 if. (<HWNDP) e. 1 {"1 wdforms'' do. return. end.
 HWNDP=: wd 'qhwndp'
 FORMX=: 0 ". wd 'qformx'
-GXYWHX=: 0 ". wd 'qchildxywhx g'
+GXYWHX=: 0 39 0 0 >. 0 ". wd 'qchildxywhx g'
 if. IFJAVA do.
   MAXXYWHX=: _10 _100 + 2 {. 0 ". wd 'qm'
 else.
