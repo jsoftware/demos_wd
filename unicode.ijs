@@ -12,7 +12,7 @@ CELLFMT=: ',c'
 CELLVALS=: 6146 35755 22079 12852 42854 92439
 GRIDNAMES=: 'cellalign celldata cellfmt'
 
-require 'jview'
+require 'gui/gtkwd/wdjview'
 
 NB. util
 
@@ -105,10 +105,10 @@ NB. =========================================================
 unicode_run=: 3 : 0
 wd UNIDEMO
 wd 'set notes *',NOTES
+wd 'pshow;'
 grid=: '' conew 'jzgrid'
 plot=: '' conew 'jzplot'
 show''
-wd 'pshow;'
 )
 
 NB. =========================================================
@@ -151,6 +151,7 @@ show__grid GRIDNAMES
 
 NB. =========================================================
 unicode_plot_paint=: 3 : 0
+return.  NB. TODO
 loc=. coname''
 cocurrent plot
 PForm=: 'unicode'

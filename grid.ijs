@@ -55,7 +55,8 @@ gridruns=: 3 : '1 gridinit y'  NB. run by name
 
 NB. =========================================================
 gridinit=: 4 : 0
-wd 'psel griddemo'
+NB. wd 'psel griddemo'
+wd 'psel ', Pgriddemo
 griddemo_pn > GRIDNAMES {~ GRIDEXAMS i. <GRIDDEMOSEL
 glsel_jgl2_ 'grid'
 erase DEVOPTS
@@ -1116,6 +1117,7 @@ PForm=: wd'qhwndp'
 gridruns GRIDDEMOSEL
 wd 'setfocus grid'
 wd 'pshow;'
+Pgriddemo=: wd 'qhwndp'
 )
 
 NB. =========================================================

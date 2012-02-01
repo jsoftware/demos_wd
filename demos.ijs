@@ -10,6 +10,29 @@ sububar=: I. @(e.&'_')@]}
 maketitle=: ' '&sububar each @ cutopen ;._2
 fexist=: 1:@(1!:4)@boxopen ::0:
 
+TITLESWIN=: maketitle 0 : 0
+cities dcities
+coins dcoins
+controls dcontrols
+eigenpictures deigenpic
+events devents
+grid dgrid
+life dlife
+isigraph... disigraph
+opengl_simple... dopengllab
+opengl dopengl
+plot dplot
+pousse dpousse
+regular_expressions dregex
+solitaire dsolitaire
+socket_server dsockserver
+socket_client dsockclient
+splitter dsplitter
+treeview dtreeview
+unicode_simple dunisimple
+unicode dunicode
+)
+
 NB. allout dallout
 
 TITLES=: maketitle 0 : 0
@@ -23,6 +46,7 @@ isigraph... disigraph
 pousse dpousse
 solitaire dsolitaire
 unicode_simple dunisimple
+unicode dunicode
 )
 
 NB. =========================================================
@@ -72,7 +96,7 @@ dcontrols=: load bind (jpath '~addons/demos/wd/controls.ijs')
 ddialogs=: load bind (jpath '~addons/demos/wd/demoall.ijs')
 deigenpic=: load bind (jpath '~addons/math/eigenpic/eigenpic.ijs')
 devents=: load bind (jpath '~addons/demos/wd/events.ijs')
-dgrid=: load bind (jpath '~addons/demos/grid.ijs')
+dgrid=: load bind (jpath '~addons/demos/wd/grid.ijs')
 dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
 disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
 dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
