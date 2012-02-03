@@ -1,23 +1,6 @@
-NB. griddemo class
-NB. built from project: ~Source/grid/dev/demo/demo
-NB. init
-
-NB. script_z_ '~system/main/dates.ijs'
-NB. script_z_ '~system/main/dll.ijs'
-NB. script_z_ '~system/packages/misc/font.ijs'
-NB. script_z_ '~system/main/gl2.ijs'
-NB. script_z_ '~system/classes/grid/jdgrid.ijs'
-NB. script_z_ '~system/classes/grid/jsgrid.ijs'
-NB. script_z_ '~system/classes/grid/jtgrid.ijs'
-NB. script_z_ '~system/classes/grid/jvgrid.ijs'
-NB. script_z_ '~system/classes/grid/jzgrid.ijs'
-NB. script_z_ '~system/main/pack.ijs'
-require 'general/misc/font pack jzgrid jdgrid jsgrid jtgrid jvgrid'
-
 coclass 'jgriddemo'
 
-IFWINCE=: 0
-
+load 'jdgrid jsgrid jtgrid jvgrid jzgrid'
 grid=: ''
 
 DEVOPTS=: OPTIONS_jzgrid_,cutopen 0 : 0
@@ -26,13 +9,9 @@ HDRCOL2
 VERB
 XPRECISION
 )
-
-NB. =========================================================
 create=: 3 : 0
 griddemo_run''
 )
-
-NB. =========================================================
 destroy=: 3 : 0
 destroy__grid''
 wd ::] 'psel gridedit;pclose'
@@ -40,23 +19,16 @@ wd ::] 'psel gridnotes;pclose'
 wd ::] 'psel griddemo;pclose'
 codestroy''
 )
-
-NB. =========================================================
 griddemo=: 3 : 0
 if. 0 ~: 4!:0 <'GRIDDEMOSEL' do.
   GRIDDEMOSEL=: 'GRID'
 end.
 griddemo_run''
 )
-
-NB. =========================================================
-gridrun=: 3 : '0 gridinit y'   NB. run by value (rerun)
-gridruns=: 3 : '1 gridinit y'  NB. run by name
-
-NB. =========================================================
+gridrun=: 3 : '0 gridinit y'
+gridruns=: 3 : '1 gridinit y'
 gridinit=: 4 : 0
-NB. wd 'psel griddemo'
-wd 'psel ', Pgriddemo
+wd 'psel griddemo'
 griddemo_pn > GRIDNAMES {~ GRIDEXAMS i. <GRIDDEMOSEL
 glsel_jgl2_ 'grid'
 erase DEVOPTS
@@ -75,33 +47,21 @@ end.
 grid=: '' conew CLASS
 show__grid pkg
 )
-
-NB. util
-
-NB. =========================================================
 assign=: 4 : '".x,''=:y'''
 
 fexist=: 1:@(1!:4)@boxopen ::0:
-
-NB. =========================================================
 gridfix=: 3 : 0
 y=. toJ y
 y=. <;.2 y,LF
 m=. y = <'()',LF
 ;(<')',LF) (I.m) } y
 )
-
-NB. =========================================================
 gridunfix=: 3 : 0
 y=. toJ y
 y=. <;.2 y,LF
 m=. y = <')',LF
 ;(<'()',LF) (I.m) } y
 )
-
-
-NB. grid demo data
-
 ALPHAS=: (' ',LF) cutopen 0 : 0
 Alpha Bravo Charlie Delta Echo Foxtrot Golf Hotel India Juliet
 Kilo Lima Mike November Oscar Papa Quebec Romeo Sierra Tango
@@ -122,31 +82,6 @@ October
 November
 December
 )
-
-NB. =========================================================
-NB. countries
-NB.
-NB. 208 countries:
-NB.
-NB. includes independent states from CIA world fact book 2004
-NB. plus:
-NB.
-NB. Anguilla
-NB. Bermuda
-NB. British Virgin Islands
-NB. Cayman Islands
-NB. French Guiana
-NB. Greenland
-NB. Guadeloupe
-NB. Hong Kong
-NB. Macau
-NB. Martinique
-NB. Montserrat
-NB. Puerto Rico
-NB. Taiwan
-NB. Turks and Caicos Islands
-NB. US Virgin Islands
-
 COUNTRIES=: <;._2 (0 : 0)
 Afghanistan
 Albania
@@ -357,9 +292,6 @@ Yugoslavia
 Zambia
 Zimbabwe
 )
-
-NB. =========================================================
-NB. maindir
 j=. <;._2 (0 : 0)
 colib.ijs 41129170540 3610 rw- -----a
 compare.ijs 40910082404 5147 rw- -----a
@@ -405,11 +337,6 @@ prm=. > 3 {"1 j
 att=. > 4 {"1 j
 
 MAINDIR=: nms;dat;siz;prm;att
-
-
-NB. edit grid definition
-
-NB. =========================================================
 GRIDEDIT=: 0 : 0
 pc gridedit;pn "View Definition";
 xywh 0 13 308 150;cc gdef editm ws_vscroll rightmove bottommove;
@@ -419,9 +346,6 @@ xywh 266 1 42 12;cc close button leftmove rightmove;cn "&Close";
 pas 0 0;
 rem form end;
 )
-
-NB. =========================================================
-NB. argument is name of definition
 gridedit_run=: 3 : 0
 GNAME=: 'D',y,(0=#y)#'GRID'
 if. wdisparent 'gridedit' do.
@@ -434,18 +358,12 @@ wd 'set gdef *',gridfix ".GNAME
 wd 'setfocus gdef'
 wd 'pshow;'
 )
-
-NB. =========================================================
 gridedit_close_button=: 3 : 0
 GDEF=: gdef
 GNAME assign gdef
 wd 'pclose'
 )
-
-NB. =========================================================
 gridedit_close=: gridedit_close_button
-
-NB. =========================================================
 GRIDEDITHELP=: 0 : 0
 To experiment, modify the commands, then Redisplay.
 )
@@ -453,12 +371,8 @@ To experiment, modify the commands, then Redisplay.
 gridedit_help_button=: 3 : 0
 wdinfo 'Grid Demo';GRIDEDITHELP
 )
-
-NB. =========================================================
 gridedit_redisplay_button=: 3 : 0
 GDEF=: gdef
-NB. gridrun gdef
-NB. wd 'psel gridedit'
 try.
   wd 'psel ',PForm
   gridrun gdef
@@ -469,10 +383,6 @@ catch.
 end.
 1
 )
-
-NB. =========================================================
-NB. gridedit_sctrlshift_fkey
-NB. for development only
 gridedit_sctrlshift_fkey=: 3 : 0
 grf=. gridunfix gdef
 grf=. (+./\. grf ~: LF) # grf
@@ -491,13 +401,7 @@ new=. hdr,grf,ftr
 new fwrites f
 wdinfo 'Grid';'Saved: ',GNAME
 )
-
-
-NB. Grid examples
-
 sumdata=: (,+/) @: (,.+/"1)
-
-NB. =========================================================
 j=. <;._2 (0 : 0)
 GRID Report
 DIR Directory List
@@ -527,8 +431,6 @@ end.
 )
 
 GRIDALL=: 'D', each GRIDEXAMS
-
-NB. =========================================================
 CCOLORS=: 'jzgrid'
 NCOLORS=: 0 : 0
 Shows examples of cell colors and fonts.
@@ -553,8 +455,6 @@ CELLFONT=: +/ 9 35 38 38 49 75 94 =/ CELLDATA
 HDRCOL=: HDRROW=: 0
 )
 
-
-NB. =========================================================
 CCOLSIZE=: 'jzgrid'
 NCOLSIZE=: 0 : 0
 This example has column widths predefined (not autofit).
@@ -574,15 +474,11 @@ COLRESIZE=: 1
 COLWIDTH=: 30 40 50 60 70 80
 HDRROW=: HDRCOL=: 0
 )
-
-NB. =========================================================
 CCONTROLS=: 'jzgrid'
 
 NCONTROLS=: 0 : 0
 Shows examples of built-in controls.
 )
-
-NB. =========================================================
 DCONTROLS=: 0 : 0
 CELLITEMS=: MONTHS;<ALPHAS
 CELLDATA=: <&> 1 + i.8 4
@@ -591,8 +487,6 @@ CELLDATA=: ((10 { ALPHAS),(22 { ALPHAS),1;1) 3 } CELLDATA
 CELLTYPE=: (200 300 100 101,: 201 301 100 101) 2 3 } 8 4$0
 HDRCOL=: 'ComboList';'ComboDrop';'Flat Checkbox';'3D Checkbox'
 )
-
-NB. =========================================================
 CCOUNTRIES=: 'jzgrid'
 
 NCOUNTRIES=: 0 : 0
@@ -602,8 +496,6 @@ Use to test formatting, scrolling and flip speeds.
 
 To test time for complete redraw, zoom in or out.
 )
-
-NB. =========================================================
 DCOUNTRIES=: 0 : 0
 size=. 100,#COUNTRIES
 alf=. ,<@,"0/~a.{~(i.26)+/a.i.'A'
@@ -612,8 +504,6 @@ CELLFMT=: 'c2'
 HDRCOL=: COUNTRIES,:(#COUNTRIES) {. alf
 HDRROW=: 1
 )
-
-NB. =========================================================
 CVCOUNTRIES=: 'jvgrid'
 
 NVCOUNTRIES=: 0 : 0
@@ -623,8 +513,6 @@ The grid operates in virtual mode. Data is passed to the grid as required by the
 
 Cells can be edited. After any edit, see VDATA_jgriddemo_ for the changed cells.
 )
-
-NB. =========================================================
 DVCOUNTRIES=: 0 : 0
 size=. 10000,#COUNTRIES
 alf=. ,<@,"0/~a.{~(i.26)+/a.i.'A'
@@ -634,8 +522,6 @@ CELLFMT=: 'c2'
 HDRCOL=: COUNTRIES,:(#COUNTRIES) {. alf
 HDRROW=: 1
 )
-
-NB. =========================================================
 CCUBE=: 'jzgrid'
 NCUBE=: 0 : 0
 Displays multi-dimensional data.
@@ -657,8 +543,6 @@ AXISORDER=: 0;1 2;3 4;0 2
 d=. 3 + ?. 17 $~ _1 0 0 0 _1 + # &> AXISLABELS
 CELLDATA=: d,"1 0 +/"1 d=. d,"5 4 +/"5 d
 )
-
-NB. =========================================================
 CDEVTRIANGLE=: 'jdgrid'
 NDEVTRIANGLE=: 0 : 0
 This uses the jdgrid demo class to display a development triangle.
@@ -679,8 +563,6 @@ Cells outside the triangle are blanked out.
 
 Arrow buttons move the marked cell to follow the shape of the triangle.
 )
-
-NB. =========================================================
 DDEVTRIANGLE=: 0 : 0
 CELLDATA=: 0 >. +/\"1 +/\ _75 + ?. (15,15) $ 200
 CELLFMT=: 'c'
@@ -689,8 +571,6 @@ HDRCOL=: 1
 HDRCOL2=: 1991
 HDRROW=: 1990
 )
-
-NB. =========================================================
 CDIR=: 'jsgrid'
 
 NDIR=: 0 : 0
@@ -706,20 +586,14 @@ Grid cannot be edited.
 
 No row labels.
 )
-
-NB. =========================================================
 DDIR=: 0 : 0
-NB. xxxRAW is the raw data
 CELLDRAW=: MAINDIR
-NB. format the dates:
 ts=. timestamp 1 pick CELLDRAW
 CELLDATA=: (< <"1 ts) 1 } CELLDRAW
 CELLALIGN=: 0 2 2 1 1
 COLSCALE=: 1 0
 HDRCOL=: ;: 'Name Modified Size Permission Attributes'
 )
-
-NB. =========================================================
 CGRID=: 'jzgrid'
 
 NGRID=: 0 : 0
@@ -731,8 +605,6 @@ Totals are automatically recomputed after a change.
 
 Column widths are autofit. Try entering a large value in a cell.
 )
-
-NB. =========================================================
 DGRID=: 0 : 0
 j=. 'Lyon';'Nice';'Paris';'Berlin';'Bonn';'Dresden'
 city=. j,'Hamburg';'Munich';'Milan';'Rome';'Total'
@@ -764,8 +636,6 @@ CELLDATA=: sumdata ?. 10 12$1500
 CELLFMT=: 'c'
 CELLEDIT=: ((10 12$1),0),.0
 )
-
-NB. =========================================================
 DGRIDCE=: 0 : 0
 j=. 'Lyon';'Nice';'Paris';'Berlin';'Bonn';'Dresden'
 city=. j,'Hamburg';'Munich';'Milan';'Rome';'Total'
@@ -795,16 +665,12 @@ CELLDATA=: sumdata ?. 10 12$1000
 CELLFMT=: 'c'
 CELLEDIT=: ((10 12$1),0),.0
 )
-
-NB. =========================================================
 3 : 0''
 if. IFWINCE do.
   DGRID=: DGRIDCE
 end.
 )
 
-
-NB. =========================================================
 CFINANCIAL=: 'jzgrid'
 
 NFINANCIAL=: 0 : 0
@@ -816,8 +682,6 @@ No row or column headers. No gridlines.
 
 Uses a minimum column width.
 )
-
-NB. =========================================================
 DFINANCIAL=: 0 : 0
 d=. 5 6 $ <''
 d=. (<'Appendix B2') (<0;_1) } d
@@ -839,8 +703,6 @@ GRIDLINES=: 0
 HDRSTYLE=: 2
 COLMINWIDTH=: 72
 )
-
-NB. =========================================================
 CHIER=: 'jzgrid'
 
 NHIER=: 0 : 0
@@ -859,7 +721,7 @@ The demo initially shows only columns in a hierarchy. Select View Definition, se
 
 DHIER=: 0 : 0
 
-HierRows=: 0 NB. 1 to display rows in hierarchy
+HierRows=: 0
 
 cs=. <;._1
 n0=. cs '/Node 1/Node 2'
@@ -881,14 +743,12 @@ LVLCOL=: s0;s1;<s2
 LVLCOLMASK=: r0,:r1
 LVLCOLID=: cs '/Region/Country/City'
 
-HDRROW=: n2  NB. used if no row levels
+HDRROW=: n2
 ROWTOTAL=: COLTOTAL=: 1
 CELLDATA=: 100 + ?. 9e3 $~ (#m0),#r0
 CELLFMT=: 'c'
 CELLFONTS=: ,<HDRFONT=: IFUNIX pick 'Arial 10';'"Bitstream Vera Sans" 10'
 )
-
-NB. =========================================================
 CMLINE=: 'jzgrid'
 
 NMLINE=: 0 : 0
@@ -896,8 +756,6 @@ Shows multi-line cells. These are LF-delimited character strings.
 
 Cell vertical alignment is defined for the grid as a whole, here set to 1=centred. Try setting CELLALIGNV to 0 or 2.
 )
-
-NB. =========================================================
 DMLINE=: 0 : 0
 CELLALIGNV=: 1
 CELLFONTS=: 'Arial 12';'Arial 20'
@@ -915,8 +773,6 @@ CELLDATA=: (<txt) (2 3;0 4;3 4) } CELLDATA
 HDRCOL=: 'A'
 HDRROW=: 0
 )
-
-NB. =========================================================
 CTABLE=: 'jtgrid'
 
 NTABLE=: 0 : 0
@@ -924,23 +780,11 @@ Displays a function table using the jtgrid class.
 
 In this example, the verb is ! (combinations). Use View Definition to try other verbs.
 )
-
-NB. =========================================================
 DTABLE=: 0 : 0
-NB. function table
-NB.
-NB. for example, try also:
-NB.
-NB.  VERB=: '*.'  NB. LCM
 CELLRANGE=: 100 100
 XPRECISION=: 1
 VERB=: '!'
 )
-
-
-NB. notes grid definition
-
-NB. =========================================================
 GNOTES=: 0 : 0
 pc gridnotes;pn "Grid Notes";
 xywh 0 13 250 100;cc gdef editm ws_vscroll rightmove bottommove;
@@ -948,9 +792,6 @@ xywh 208 1 42 12;cc close button leftmove rightmove;cn "&Close";
 pas 0 0;
 rem form end;
 )
-
-NB. =========================================================
-NB. argument is name of definition
 gridnotes_run=: 3 : 0
 NNAME=: 'N',y,(0=#y)#'GRID'
 if. -. '2' e. sysmodifiers do.
@@ -968,20 +809,12 @@ wd 'set gdef *',".NNAME
 wd 'setfocus gdef'
 wd 'pshow;'
 )
-
-NB. =========================================================
 gridnotes_close_button=: 3 : 0
 NDEF=: gdef
 NNAME assign gdef
 wd 'pclose'
 )
-
-NB. =========================================================
 gridnotes_close=: gridnotes_close_button
-
-NB. =========================================================
-NB. gridnotes_sctrlshift_fkey
-NB. ...development only
 gridnotes_sctrlshift_fkey=: 3 : 0
 grf=. toJ gdef
 grf=. (+./\. grf ~: LF) # grf
@@ -1000,11 +833,6 @@ new=. hdr,grf,ftr
 new fwrites f
 wdinfo 'Grid';'Saved: ',NNAME
 )
-
-
-NB. grid demo form
-
-NB. =========================================================
 GRIDDEMO=: 0 : 0
 pc griddemo;
 menupop "&Options";
@@ -1064,8 +892,6 @@ xywh 15 15 325 175;cc grid isigraph rightmove bottommove;
 pas 15 15;pcenter;
 rem form end;
 )
-
-NB. =========================================================
 GRIDDEMOCE=: 0 : 0
 pc griddemo closeok;
 menupop "&Options";
@@ -1100,8 +926,6 @@ xywh 0 0 100 100;cc grid isigraph rightmove bottommove;
 pas 0 0;pcenter;
 rem form end;
 )
-
-NB. =========================================================
 griddemo_run=: 3 : 0
 wd :: ] 'psel griddemo;pclose'
 if. IFWINCE do.
@@ -1112,15 +936,12 @@ else.
   txt=. (ndx{.GRIDDEMO),tbf,(ndx+2)}. GRIDDEMO
   wd txt
 end.
+wd 'pshow;'
 wdfit ''
 PForm=: wd'qhwndp'
 gridruns GRIDDEMOSEL
 wd 'setfocus grid'
-wd 'pshow;'
-Pgriddemo=: wd 'qhwndp'
 )
-
-NB. =========================================================
 griddemo_default=: 3 : 0
 if. systype -: 'button' do.
   name=. }.syschild
@@ -1138,35 +959,23 @@ if. systype -: 'button' do.
 end.
 ''
 )
-
-NB. =========================================================
 griddemo_notes_button=: 3 : 0
 gridnotes_run GRIDDEMOSEL
 )
-
-NB. =========================================================
 griddemo_view_button=: 3 : 0
 gridedit_run GRIDDEMOSEL
 )
-
-NB. =========================================================
 griddemo_exit_button=: 3 : 0
 wd 'psel griddemo;pclose;'
 try. wd 'psel gridedit;pclose' catch. end.
 )
-
-NB. =========================================================
 griddemo_contents_button=: 3 : 0
 wdinfo 'help contents'
 )
-
-NB. =========================================================
 griddemo_about_button=: 3 : 0
 j=. 'Grid Demo VJ602'
 wdinfo 'Grid';j
 )
-
-NB. =========================================================
 griddemo_step=: 3 : 0
 ndx=. (#GRIDALL) | y + GRIDALL i. <'D',GRIDDEMOSEL
 wd 'set M',GRIDDEMOSEL,' 0'
@@ -1174,19 +983,11 @@ GRIDDEMOSEL=: }.ndx pick GRIDALL
 wd 'set M',GRIDDEMOSEL,' 1'
 gridruns GRIDDEMOSEL
 )
-
-NB. =========================================================
 griddemo_pn=: 3 : 0
 wd 'pn *Grid - ',y
 )
-
-NB. =========================================================
 griddemo_close=: destroy
-
-NB. =========================================================
 formselect=: 3 : 'wd''psel '',formhwnd'
-
-NB. =========================================================
 3 : 0 ''
 if. IFWINCE do.
   griddemo_actrl_fkey=: griddemo_next_button
@@ -1204,5 +1005,4 @@ griddemo_flip_button=: 3 : 'flip__grid y'
 griddemo_zoomin_button=: 3 : 'zoomin__grid y'
 griddemo_zoomout_button=: 3 : 'zoomout__grid y'
 
-
-griddemo''
+griddemo ''

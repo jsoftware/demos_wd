@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using gtkwd
 )
 
-VERSION=: '1.0.2'
+VERSION=: '1.0.3'
 
 RELEASE=: 'j701'
 
@@ -22,6 +22,7 @@ control1.ijs
 control2.ijs
 control3.ijs
 controls.ijs
+datename.ijs
 days.ijs
 demos.ijs
 editfile.ijs
@@ -37,6 +38,7 @@ life.ijs
 mouse.ijs
 name.ijs
 rtf.ijs
+unicode.ijs
 unisimple.ijs
 vgriddemo.ijs
 )

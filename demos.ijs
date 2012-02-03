@@ -41,6 +41,7 @@ coins dcoins
 controls dcontrols
 eigenpictures deigenpic
 events devents
+grid dgrid
 life dlife
 isigraph... disigraph
 pousse dpousse
