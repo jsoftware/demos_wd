@@ -12,12 +12,12 @@ A listbox or combobox generates select events when you scroll through the entrie
 The isigraph window shows mouse events. Turn off the checkboxes to see more mouse events.
 )
 
-SHOWSEL=: 0
-SHOWMMOVE=: 0
-SHOWMBLDOWN=: 0
-SHOWMBRDOWN=: 0
-SHOWMBLUP=: 0
-SHOWMBRUP=: 0
+SHOWSEL=: 1
+SHOWMMOVE=: 1
+SHOWMBLDOWN=: 1
+SHOWMBRDOWN=: 1
+SHOWMBLUP=: 1
+SHOWMBRUP=: 1
 syseventlast=: ''
 
 wceview=: 3 : 0
@@ -128,7 +128,7 @@ wh=. 2}.". wd 'qchildxywhx g'
 glrgb 0 255 255
 glbrush''
 glrect 0 0,wh
-glpaint ''
+NB. glpaint ''
 )
 
 NB. =========================================================
