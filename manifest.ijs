@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using gtkwd
 )
 
-VERSION=: '1.0.3'
+VERSION=: '1.0.4'
 
 RELEASE=: 'j701'
 

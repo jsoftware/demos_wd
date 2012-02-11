@@ -44,6 +44,7 @@ events devents
 grid dgrid
 life dlife
 isigraph... disigraph
+plot dplot
 pousse dpousse
 solitaire dsolitaire
 unicode_simple dunisimple
@@ -101,6 +102,7 @@ dgrid=: load bind (jpath '~addons/demos/wd/grid.ijs')
 dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
 disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
 dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
+dplot=: load bind (jpath '~addons/demos/wdplot/plotdemo.ijs')
 dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
 dsolitaire=: load bind (jpath '~addons/games/solitaire/solitaire.ijs')
 dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')

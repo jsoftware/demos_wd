@@ -1,6 +1,7 @@
 NB. built from project: ~Source/examples/unicode/unicode
 NB. init
 
+GTKOUTPUT_jzgrid_=: 'isi'
 require 'jzgrid plot'
 
 coclass 'judemo'
@@ -105,6 +106,8 @@ NB. =========================================================
 unicode_run=: 3 : 0
 wd UNIDEMO
 wd 'set notes *',NOTES
+PForm=: 'unicode'
+PFormhwnd=: wd'qhwndp'
 wd 'pshow;'
 grid=: '' conew 'jzgrid'
 plot=: '' conew 'jzplot'
@@ -151,11 +154,8 @@ show__grid GRIDNAMES
 
 NB. =========================================================
 unicode_plot_paint=: 3 : 0
-return.  NB. TODO
 loc=. coname''
 cocurrent plot
-PForm=: 'unicode'
-PFormhwnd=: wd'qhwndp'
 PId=: 'plot'
 pd 'reset'
 pd 'type bar'
