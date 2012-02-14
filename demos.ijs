@@ -44,11 +44,12 @@ events devents
 grid dgrid
 life dlife
 isigraph... disigraph
+minesweeper dminesweeper
+nurikabe dnurikabe
 plot dplot
 pousse dpousse
 solitaire dsolitaire
 unicode_simple dunisimple
-unicode dunicode
 )
 
 NB. =========================================================
@@ -101,6 +102,8 @@ devents=: load bind (jpath '~addons/demos/wd/events.ijs')
 dgrid=: load bind (jpath '~addons/demos/wd/grid.ijs')
 dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
 disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
+dminesweeper=: load bind (jpath '~addons/games/minesweeper/uiwd.ijs')
+dnurikabe=: nurikabe__ @: (load bind (jpath '~addons/games/nurikabe/nurikabe.ijs'))
 dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
 dplot=: load bind (jpath '~addons/demos/wdplot/plotdemo.ijs')
 dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
