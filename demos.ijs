@@ -49,6 +49,7 @@ nurikabe dnurikabe
 plot dplot
 pousse dpousse
 solitaire dsolitaire
+tabula dtabula
 unicode_simple dunisimple
 )
 
@@ -108,6 +109,7 @@ dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
 dplot=: load bind (jpath '~addons/demos/wdplot/plotdemo.ijs')
 dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
 dsolitaire=: load bind (jpath '~addons/games/solitaire/solitaire.ijs')
+dtabula=: load bind (jpath '~addons/math/tabula/tabula.ijs')
 dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
 dunicode=: load bind (jpath '~addons/demos/wd/unicode.ijs')
 
