@@ -41,6 +41,7 @@ coins dcoins
 controls dcontrols
 eigenpictures deigenpic
 events devents
+formedit dformedit
 grid dgrid
 life dlife
 isigraph... disigraph
@@ -120,6 +121,12 @@ if. fexist jpath '~addons/math/lapack/lapack.ijs' do.
 else.
   wdinfo 'Eigenpicture';'This demo requires the LAPACK Addon'
 end.
+)
+
+NB. =========================================================
+dformedit=: 3 : 0
+(<f=. jpath '~temp/formedit.ijs') 1!:2~ (1!:1) <jpath '~addons/demos/wd/life.ijs'
+wdformedit f
 )
 
 demos_run''
