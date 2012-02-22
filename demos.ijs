@@ -52,6 +52,7 @@ pousse dpousse
 solitaire dsolitaire
 tabula dtabula
 unicode_simple dunisimple
+unicode dunicode
 )
 
 NB. =========================================================
