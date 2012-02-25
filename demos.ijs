@@ -49,6 +49,7 @@ minesweeper dminesweeper
 nurikabe dnurikabe
 plot dplot
 pousse dpousse
+printer dprinter
 solitaire dsolitaire
 tabula dtabula
 unicode_simple dunisimple
@@ -110,6 +111,7 @@ dnurikabe=: nurikabe__ @: (load bind (jpath '~addons/games/nurikabe/nurikabe.ijs
 dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
 dplot=: load bind (jpath '~addons/demos/wdplot/plotdemo.ijs')
 dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
+dprinter=: load bind (jpath '~addons/demos/wd/printer.ijs')
 dsolitaire=: load bind (jpath '~addons/games/solitaire/solitaire.ijs')
 dtabula=: load bind (jpath '~addons/math/tabula/tabula.ijs')
 dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')

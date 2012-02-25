@@ -2,6 +2,7 @@ NB. built from project: ~Source/examples/unicode/unicode
 NB. init
 
 require 'jzgrid plot'
+require 'gui/gtkwd/wdjview'
 
 coclass 'judemo'
 
@@ -10,8 +11,6 @@ CELLALIGN=: 0
 CELLFMT=: ',c'
 CELLVALS=: 6146 35755 22079 12852 42854 92439
 GRIDNAMES=: 'cellalign celldata cellfmt'
-
-require 'gui/gtkwd/wdjview'
 
 NB. util
 
