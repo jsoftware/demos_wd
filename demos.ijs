@@ -37,23 +37,27 @@ NB. allout dallout
 
 TITLES=: maketitle 0 : 0
 cities dcities
+cobrowse dcobrowse
 coins dcoins
 controls dcontrols
+deoptim ddeoptim
 eigenpictures deigenpic
 events devents
-formedit dformedit
+form_edit dformedit
 grid dgrid
-life dlife
 isigraph... disigraph
+life dlife
 minesweeper dminesweeper
 nurikabe dnurikabe
 plot dplot
 pousse dpousse
 printer dprinter
+scriptdoc dscriptdoc
 solitaire dsolitaire
 tabula dtabula
-unicode_simple dunisimple
+treemap dtreemap
 unicode dunicode
+unicode_simple dunisimple
 )
 
 NB. =========================================================
@@ -98,14 +102,16 @@ demos_cancel_button=: demos_close
 NB. =========================================================
 dallout=: load bind (jpath '~addons/demos/wd/allout.ijs')
 dcities=: load bind (jpath '~addons/demos/wd/citydemo.ijs')
+dcobrowse=: load bind (jpath '~addons/gui/util/cobrowse.ijs')
 dcoins=: load bind (jpath '~addons/demos/wd/coins.ijs')
 dcontrols=: load bind (jpath '~addons/demos/wd/controls.ijs')
+ddeoptim=: load bind (jpath '~addons/math/deoptim/demo/eg_deoptim.ijs')
 ddialogs=: load bind (jpath '~addons/demos/wd/demoall.ijs')
 deigenpic=: load bind (jpath '~addons/math/eigenpic/eigenpic.ijs')
 devents=: load bind (jpath '~addons/demos/wd/events.ijs')
 dgrid=: load bind (jpath '~addons/demos/wd/grid.ijs')
-dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
 disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
+dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
 dminesweeper=: load bind (jpath '~addons/games/minesweeper/uiwd.ijs')
 dnurikabe=: nurikabe__ @: (load bind (jpath '~addons/games/nurikabe/nurikabe.ijs'))
 dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
@@ -114,8 +120,9 @@ dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
 dprinter=: load bind (jpath '~addons/demos/wd/printer.ijs')
 dsolitaire=: load bind (jpath '~addons/games/solitaire/solitaire.ijs')
 dtabula=: load bind (jpath '~addons/math/tabula/tabula.ijs')
-dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
+dtreemap=: load bind (jpath '~addons/graphics/treemap/demo.ijs')
 dunicode=: load bind (jpath '~addons/demos/wd/unicode.ijs')
+dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
 
 NB. =========================================================
 deigenpic=: 3 : 0
@@ -130,6 +137,12 @@ NB. =========================================================
 dformedit=: 3 : 0
 (<f=. jpath '~temp/formedit.ijs') 1!:2~ (1!:1) <jpath '~addons/demos/wd/life.ijs'
 wdformedit f
+)
+
+NB. =========================================================
+dscriptdoc=: 3 : 0
+load 'general/scriptdoc'
+scriptdoc jpath '~system/main/task.ijs'
 )
 
 demos_run''
