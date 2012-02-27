@@ -1,4 +1,4 @@
-require'gui/gtkwd'
+require'gtkwd'
 require'gl2'
 
 coclass 'jprintdemo'
