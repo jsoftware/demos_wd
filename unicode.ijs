@@ -1,6 +1,11 @@
 NB. built from project: ~Source/examples/unicode/unicode
 NB. init
-
+3 : 0''
+if. -.IFJ6 do.
+  GTKOUTPUT_jzplot_=: 'isi'
+end.
+''
+)
 require 'jzgrid plot'
 require 'gui/gtkwd/wdjview'
 
@@ -139,12 +144,12 @@ EDITTEXTS=: (<edit) IFUNICODE } EDITTEXTS
 NB. =========================================================
 show=: 3 : 0
 setdata''
-unicode_grid_paint''
-unicode_plot_paint''
 wd 'set edit *',IFUNICODE pick EDITTEXTS
 wd 'setcaption ok *',OK
 wd 'setcaption cancel *',CLOSE
 wd 'setcaption toggle *',TOGGLE
+wd 'setinvalid grid'
+wd 'setinvalid plot'
 )
 
 NB. =========================================================
