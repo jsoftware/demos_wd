@@ -28,7 +28,7 @@ NB. wdfit=: 0:
 SCALE=: 4 
 BOARD=: 128 160 
 PATH=: '' 
-TIMER=: 1 
+TIMER=: 50
 MAXITER=: _ 
 MAXBUF=: 100 
 MINRUN=: 10 
@@ -830,7 +830,7 @@ if. SCALE > 1 do.
 else.
   glpixel 2 {."1 STATE#RECTS
 end.
-glpaint''
+glpaintx''
 wd 'set cnt ',":COUNT
 wd 'setenable stepback ',":HASBUF
 if. COUNT >: MAXITER do.
