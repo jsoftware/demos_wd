@@ -511,6 +511,7 @@ wd COIN
 setparentname''
 wd 'pshow;'
 paint''
+wdloop^:(-.IFJ6)''
 )
 
 NB. =========================================================

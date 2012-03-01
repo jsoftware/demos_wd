@@ -53,6 +53,7 @@ btext=: c_name
 wd'setcaption b *',btext
 wd'set em *',c_all
 wd 'pshow;'
+wdloop^:(-.IFJ6)''
 )
 
 NB. =========================================================

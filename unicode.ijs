@@ -2,6 +2,9 @@ NB. built from project: ~Source/examples/unicode/unicode
 NB. init
 require 'gtkwd'
 
+GTKOUTPUT_jzplot_=: 'gtk'
+CONSOLEOUTPUT_jzplot_=: 'gtk'
+
 require 'jzgrid plot'
 require 'gui/gtkwd/wdjview'
 
@@ -113,6 +116,7 @@ PForm__plot=: 'unicode'
 PFormhwnd__plot=: wd 'qhwndp'
 PId__plot=: 'plot'
 show''
+wdloop^:(-.IFJ6)''
 )
 
 NB. =========================================================

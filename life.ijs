@@ -830,7 +830,7 @@ if. SCALE > 1 do.
 else.
   glpixel 2 {."1 STATE#RECTS
 end.
-glpaintx''
+glpaint''
 wd 'set cnt ',":COUNT
 wd 'setenable stepback ',":HASBUF
 if. COUNT >: MAXITER do.
@@ -1187,6 +1187,7 @@ if. ischar dat do.
 end.
 runinit dat
 rundoit dat
+wdloop^:(-.IFJ6)''
 )
 rundoit=: 3 : 0
 STATE=: ,y

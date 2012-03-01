@@ -111,6 +111,7 @@ wd 'pas 5 5;pcenter;'
 wd 'pshow;'
 ResetD''
 Don NewD''
+wdloop^:(-.IFJ6)''
 )
 
 NB. =========================================================
