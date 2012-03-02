@@ -18,8 +18,9 @@ NB. inversion (where, K=min{M,N)).
 
 NB. not updated for J6 /cdb
 
-load 'gl2'
-cocurrent 'base'
+require 'gtkwd gui/gtkwd/wdjview gl2'
+
+cocurrent 'jallout'
 coinsert 'jgl2'
 
 NB. =========================================================

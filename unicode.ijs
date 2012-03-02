@@ -1,12 +1,12 @@
 NB. built from project: ~Source/examples/unicode/unicode
 NB. init
-require 'gtkwd'
+
+require 'gtkwd gui/gtkwd/wdjview gl2'
 
 GTKOUTPUT_jzplot_=: 'gtk'
 CONSOLEOUTPUT_jzplot_=: 'gtk'
 
 require 'jzgrid plot'
-require 'gui/gtkwd/wdjview'
 
 coclass 'judemo'
 

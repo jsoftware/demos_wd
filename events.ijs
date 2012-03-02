@@ -1,6 +1,6 @@
 NB. illustrates events in J
 
-require 'gl2 numeric trig gui/gtkwd/wdjview'
+require 'gtkwd gl2 numeric trig gui/gtkwd/wdjview'
 coclass 'jevents'
 coinsert 'jgl2'
 

@@ -1,6 +1,8 @@
 NB. unisimple
 
-require 'gui/gtkwd/wdjview'
+require 'gtkwd gui/gtkwd/wdjview'
+
+coclass 'judmeo'
 
 ABC=: 0 : 0
 pc abc;pn "Unicode";
