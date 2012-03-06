@@ -509,8 +509,9 @@ coin_run=: 3 : 0
 DONE=: 0
 wd COIN
 setparentname''
-wd 'pshow;'
+wd^:(-.IFJ6) 'pshow;pshow sw_hide'
 paint''
+wd 'pshow;'
 wdloop^:(-.IFJ6)''
 )
 

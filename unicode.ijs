@@ -109,13 +109,14 @@ wd UNIDEMO
 wd 'set notes *',NOTES
 PForm=: 'unicode'
 PFormhwnd=: wd'qhwndp'
-wd 'pshow;'
+wd^:(-.IFJ6) 'pshow;pshow sw_hide'
 grid=: '' conew 'jzgrid'
 plot=: '' conew 'jzplot'
 PForm__plot=: 'unicode'
 PFormhwnd__plot=: wd 'qhwndp'
 PId__plot=: 'plot'
 show''
+wd 'pshow;'
 wdloop^:(-.IFJ6)''
 )
 
