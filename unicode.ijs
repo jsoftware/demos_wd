@@ -1,7 +1,7 @@
 NB. built from project: ~Source/examples/unicode/unicode
 NB. init
 
-require 'gtkwd gui/gtkwd/wdjview gl2'
+require 'gtkwd gui/gtkwd/jview gl2'
 
 GTKOUTPUT_jzplot_=: 'gtk'
 CONSOLEOUTPUT_jzplot_=: 'gtk'
@@ -129,7 +129,7 @@ show''
 
 NB. =========================================================
 unicode_viewsource_button=: 3 : 0
-fview jpath '~addons/demo/wd/unicode.ijs'
+fview jpath '~addons/demos/wd/unicode.ijs'
 )
 
 NB. =========================================================

@@ -18,7 +18,7 @@ NB. STATE is the ravelled board, a boolean of length n with 1=alive.
 NB. INDEX is a n x 9 table of indices that gives the 9 surrounding cells for each cell.
 NB. TRANS is a list of length 512=2^9, that gives the new life state for each old value.
 
-require 'gtkwd gui/gtkwd/wdjview gl2'
+require 'gtkwd gui/gtkwd/jview gl2'
 
 coclass 'jlife'
 

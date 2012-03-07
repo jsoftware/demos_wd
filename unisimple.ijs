@@ -1,6 +1,6 @@
 NB. unisimple
 
-require 'gtkwd gui/gtkwd/wdjview'
+require 'gtkwd gui/gtkwd/jview'
 
 coclass 'judmeo'
 

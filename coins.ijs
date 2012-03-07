@@ -1,6 +1,6 @@
 NB. init
 
-require 'gl2 gui/gtkwd/wdjview'
+require 'gl2 gui/gtkwd/jview'
 
 coclass 'jcoins'
 

@@ -1,6 +1,6 @@
 NB. demosel.ijs      - main selection dialog
 
-require 'gtkwd gui/gtkwd/wdjview gl2 numeric stats'
+require 'gtkwd gui/gtkwd/jview gl2 numeric stats'
 
 18!:55 <'jdemos'
 coclass 'jdemos'
