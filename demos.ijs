@@ -52,6 +52,7 @@ nurikabe dnurikabe
 plot dplot
 pousse dpousse
 printer dprinter
+regular_expressions dregex
 scriptdoc dscriptdoc
 solitaire dsolitaire
 tabula dtabula
@@ -119,6 +120,7 @@ dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
 dplot=: load bind (jpath '~addons/demos/wdplot/plotdemo.ijs')
 dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
 dprinter=: load bind (jpath '~addons/demos/wd/printer.ijs')
+dregex=: load bind (jpath '~addons/demos/wd/regdemo.ijs')
 dsolitaire=: load bind (jpath '~addons/games/solitaire/solitaire.ijs')
 dtabula=: load bind (jpath '~addons/math/tabula/tabula.ijs')
 dtreemap=: load bind (jpath '~addons/graphics/treemap/demo.ijs')
