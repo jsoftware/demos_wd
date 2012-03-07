@@ -142,7 +142,7 @@ wdformedit f
 
 NB. =========================================================
 dscriptdoc=: 3 : 0
-load 'general/scriptdoc'
+load 'scriptdoc'
 scriptdoc jpath '~system/main/task.ijs'
 )
 
