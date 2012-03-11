@@ -809,6 +809,8 @@ See help file: User Manual|Project Manager|Example: Life Project.
 
 
 life=: 3 : 0
+NB. glmark and gltrash is an j701 gl2 extension
+glmark''
 whilst. RUN | COUNT do.
   buffer''
   step''
@@ -826,10 +828,11 @@ glrect 0 0,SCALE*|.BOARD
 glrgb CELLCOLOR
 glbrush''
 glpen 1 0
+NB. draw multiple pixels or rectangles is an j701 gl2 extension
 if. SCALE > 1 do.
-  glrect STATE#RECTS
+  glrect , STATE#RECTS
 else.
-  glpixel 2 {."1 STATE#RECTS
+  glpixel , 2 {."1 STATE#RECTS
 end.
 glpaint''
 wd 'set cnt ',":COUNT
