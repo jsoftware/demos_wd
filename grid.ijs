@@ -804,7 +804,7 @@ if. wdisparent 'gridnotes' do.
 else.
   wd GNOTES
   wd 'setfont gdef ',PROFONT
-  wd 'setcolor gdef ',": 0 0 0,6 $ 0 ". wd'qcolor 15'
+  wd 'setcolor gdef ',": 0 0 0,6 $ 0 ". wd 'qcolor 15'
 end.
 wd 'set gdef *',".NNAME
 wd 'setfocus gdef'
@@ -939,7 +939,7 @@ else.
 end.
 wd 'pshow;'
 wdfit ''
-PForm=: wd'qhwndp'
+PForm=: wd 'qhwndp'
 gridruns GRIDDEMOSEL
 wd 'setfocus grid'
 evtloop^:(-.IFJ6)''
@@ -989,7 +989,7 @@ griddemo_pn=: 3 : 0
 wd 'pn *Grid - ',y
 )
 griddemo_close=: destroy
-formselect=: 3 : 'wd''psel '',formhwnd'
+formselect=: 3 : 'wd ''psel '',formhwnd'
 3 : 0 ''
 if. IFWINCE do.
   griddemo_actrl_fkey=: griddemo_next_button

@@ -18,19 +18,17 @@ NB. STATE is the ravelled board, a boolean of length n with 1=alive.
 NB. INDEX is a n x 9 table of indices that gives the 9 surrounding cells for each cell.
 NB. TRANS is a list of length 512=2^9, that gives the new life state for each old value.
 
-require 'gtkwd gui/gtkwd/jview gl2'
+NB. script_z_ '~system/main/gl2.ijs'
 
 coclass 'jlife'
 
 
 coinsert 'jgl2'
 
-NB. wdfit=: 0:
-
 SCALE=: 4 
 BOARD=: 128 160 
 PATH=: '' 
-TIMER=: 50
+TIMER=: 1 
 MAXITER=: _ 
 MAXBUF=: 100 
 MINRUN=: 10 
@@ -38,7 +36,7 @@ BOARDCOLOR=: 0 128 128
 CELLCOLOR=: 255 255 0
 COLORMB=: 48$255 
 HASBUF=: 0
-HWNDP=: ,'0'
+HWNDP=: 0
 FILE=: ''
 
 create=: ]
@@ -811,11 +809,13 @@ See help file: User Manual|Project Manager|Example: Life Project.
 
 
 life=: 3 : 0
+glmark''
 whilst. RUN | COUNT do.
   buffer''
   step''
   draw''
 end.
+gltrash''
 )
 draw=: 3 : 0
 wd 'psel ',HWNDP
@@ -915,7 +915,6 @@ pas 4 4;pcenter;
 rem form end;
 )
 wcfg_run=: 3 : 0
-settimer 0
 Nboard=: BOARD
 Nscale=: SCALE
 Nmaxiter=: MAXITER
@@ -982,7 +981,7 @@ MINRUN=: Nminrun
 RUN=: MINRUN
 BOARDCOLOR=: Nbcolor
 CELLCOLOR=: Nccolor
-NB. wcfg_close''
+wcfg_close''
 if. (-.Nboard -: BOARD) +. Nscale ~: SCALE do.
   STATE=: ,Nboard {. BOARD $ STATE
   BOARD=: Nboard
@@ -999,13 +998,11 @@ if. (2 ~: #board) > board -: <. board do.
   info 'Board size should be two integers'
   0 return.
 end.
-if. ''-:bcolor do. bcolor=: ": Nbcolor end.
 bclr=. 0 ". bcolor
 if. -.iscolor bclr do.
   info 'Board color should be three integers (RGB)'
   0 return.
 end.
-if. ''-:ccolor do. ccolor=: ": Nccolor end.
 cclr=. 0 ". ccolor
 if. -.iscolor cclr do.
   info 'Cell color should be three integers (RGB)'
@@ -1014,11 +1011,11 @@ end.
 Nboard=: board
 Nbcolor=: bclr
 Nccolor=: cclr
-Nscale=: 1 + {. 0 ". escale_select
-Nmaxbuf=. {. 0 ". emaxbuf
-Nminrun=: 1 >. {. 0 ". eminrun
+Nscale=: 1 + 0 ". escale_select
+Nmaxbuf=. 0 ". emaxbuf
+Nminrun=: 1 >. 0 ". eminrun
 Nmaxiter=: {. (0 ". emaxiter),_
-Ntimer=: 1 >. {. 0 ". etimer
+Ntimer=: 1 >. 0 ". etimer
 1
 )
 wcfg_reshow=: 3 : 0
@@ -1050,16 +1047,16 @@ wd 'set ccolor *',":Nccolor
 )
 wcfg_default=: wcfg_reshow
 
-NB. wcfg_b64_button=: wcfg_newrows bind 64
-NB. wcfg_b128_button=: wcfg_newrows bind 128
-NB. wcfg_b256_button=: wcfg_newrows bind 256
-NB. wcfg_b512_button=: wcfg_newrows bind 512
-NB. wcfg_b1024_button=: wcfg_newrows bind 1024
+wcfg_b64_button=: wcfg_newrows bind 64
+wcfg_b128_button=: wcfg_newrows bind 128
+wcfg_b256_button=: wcfg_newrows bind 256
+wcfg_b512_button=: wcfg_newrows bind 512
+wcfg_b1024_button=: wcfg_newrows bind 1024
 
-NB. wcfg_bc1_button=: wcfg_newratio bind 1
-NB. wcfg_bc125_button=: wcfg_newratio bind 1.25
-NB. wcfg_bc15_button=: wcfg_newratio bind 1.5
-NB. wcfg_bc2_button=: wcfg_newratio bind 2
+wcfg_bc1_button=: wcfg_newratio bind 1
+wcfg_bc125_button=: wcfg_newratio bind 1.25
+wcfg_bc15_button=: wcfg_newratio bind 1.5
+wcfg_bc2_button=: wcfg_newratio bind 2
 
 wcfg_cancel_button=: wcfg_close
 wcfg_cancel=: wcfg_close
@@ -1104,10 +1101,10 @@ rem form end;
 )
 life_run=: 3 : 0
 wd LIFE
-if. (<HWNDP) e. 1 {"1 wdforms'' do. return. end.
+if. HWNDP e. 1 {"1 wdforms'' do. return. end.
 HWNDP=: wd 'qhwndp'
 FORMX=: 0 ". wd 'qformx'
-GXYWHX=: 0 39 0 0 >. 0 ". wd 'qchildxywhx g'
+GXYWHX=: 0 ". wd 'qchildxywhx g'
 if. IFJAVA do.
   MAXXYWHX=: _10 _100 + 2 {. 0 ". wd 'qm'
 else.
