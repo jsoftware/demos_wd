@@ -809,7 +809,6 @@ See help file: User Manual|Project Manager|Example: Life Project.
 
 
 life=: 3 : 0
-glmark''
 whilst. RUN | COUNT do.
   buffer''
   step''
@@ -820,7 +819,7 @@ gltrash''
 draw=: 3 : 0
 wd 'psel ',HWNDP
 glsel 'g'
-glclear''
+NB. glclear''
 glrgb BOARDCOLOR
 glbrush''
 glrect 0 0,SCALE*|.BOARD
