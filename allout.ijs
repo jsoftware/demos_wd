@@ -113,7 +113,7 @@ wd^:(-.IFJ6) 'pshow;pshow sw_hide'
 ResetD''
 Don NewD''
 wd 'pshow;'
-wdloop^:(-.IFJ6)''
+evtloop^:(-.IFJ6)''
 )
 
 NB. =========================================================

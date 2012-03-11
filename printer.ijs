@@ -51,7 +51,7 @@ gltext data
 print_run=: 3 : 0
 wd'mbprinter'
 '"print demo" "" "" copies 2' print 'page one';'这首歌很好听'
-wdloop^:(-.IFJ6)''
+evtloop^:(-.IFJ6)''
 )
 
 print_run''

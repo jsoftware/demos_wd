@@ -942,7 +942,7 @@ wdfit ''
 PForm=: wd'qhwndp'
 gridruns GRIDDEMOSEL
 wd 'setfocus grid'
-wdloop^:(-.IFJ6)''
+evtloop^:(-.IFJ6)''
 )
 griddemo_default=: 3 : 0
 if. systype -: 'button' do.

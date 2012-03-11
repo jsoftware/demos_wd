@@ -83,7 +83,7 @@ wd 'set listbox ',;DEL,each ({."1 TITLES),each DEL
 wd 'setselect listbox 0'
 wd 'setfocus listbox'
 wd 'pshow;'
-wdloop^:(-.IFJ6)''
+evtloop^:(-.IFJ6)''
 )
 
 NB. =========================================================

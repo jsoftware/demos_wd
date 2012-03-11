@@ -1189,7 +1189,7 @@ if. ischar dat do.
 end.
 runinit dat
 rundoit dat
-wdloop^:(-.IFJ6)''
+evtloop^:(-.IFJ6)''
 )
 rundoit=: 3 : 0
 STATE=: ,y

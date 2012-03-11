@@ -117,7 +117,7 @@ PFormhwnd__plot=: wd 'qhwndp'
 PId__plot=: 'plot'
 show''
 wd 'pshow;'
-wdloop^:(-.IFJ6)''
+evtloop^:(-.IFJ6)''
 )
 
 NB. =========================================================

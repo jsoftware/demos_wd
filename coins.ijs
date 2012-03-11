@@ -512,7 +512,7 @@ setparentname''
 wd^:(-.IFJ6) 'pshow;pshow sw_hide'
 paint''
 wd 'pshow;'
-wdloop^:(-.IFJ6)''
+evtloop^:(-.IFJ6)''
 )
 
 NB. =========================================================
