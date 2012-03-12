@@ -810,6 +810,9 @@ See help file: User Manual|Project Manager|Example: Life Project.
 
 life=: 3 : 0
 NB. glmark and gltrash is an j701 gl2 extension
+wd 'psel ',HWNDP
+glsel 'g'
+glclear''
 glmark''
 whilst. RUN | COUNT do.
   buffer''
@@ -819,9 +822,6 @@ end.
 gltrash''
 )
 draw=: 3 : 0
-wd 'psel ',HWNDP
-glsel 'g'
-NB. glclear''
 glrgb BOARDCOLOR
 glbrush''
 glrect 0 0,SCALE*|.BOARD
