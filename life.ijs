@@ -25,16 +25,16 @@ coclass 'jlife'
 
 coinsert 'jgl2'
 
-SCALE=: 4 
-BOARD=: 128 160 
-PATH=: '' 
-TIMER=: 1 
-MAXITER=: _ 
-MAXBUF=: 100 
-MINRUN=: 10 
+SCALE=: 4
+BOARD=: 128 160
+PATH=: ''
+TIMER=: 1
+MAXITER=: _
+MAXBUF=: 100
+MINRUN=: 10
 BOARDCOLOR=: 0 128 128
 CELLCOLOR=: 255 255 0
-COLORMB=: 48$255 
+COLORMB=: 48$255
 HASBUF=: 0
 HWNDP=: 0
 FILE=: ''
@@ -809,32 +809,26 @@ See help file: User Manual|Project Manager|Example: Life Project.
 
 
 life=: 3 : 0
-NB. glmark and gltrash is an j701 gl2 extension
-wd 'psel ',HWNDP
-glsel 'g'
-glclear''
-glmark''
+wd 'psel ', HWNDP
+glsel canvas
 whilst. RUN | COUNT do.
   buffer''
   step''
-  draw''
+  glpaintx''
 end.
-gltrash''
 )
-draw=: 3 : 0
+life_g_paint=: 3 : 0
 glrgb BOARDCOLOR
 glbrush''
 glrect 0 0,SCALE*|.BOARD
 glrgb CELLCOLOR
 glbrush''
 glpen 1 0
-NB. draw multiple pixels or rectangles is an j701 gl2 extension
 if. SCALE > 1 do.
-  glrect , STATE#RECTS
+  glrect STATE#RECTS
 else.
-  glpixel , 2 {."1 STATE#RECTS
+  glpixel 2 {."1 STATE#RECTS
 end.
-glpaint''
 wd 'set cnt ',":COUNT
 wd 'setenable stepback ',":HASBUF
 if. COUNT >: MAXITER do.
@@ -992,7 +986,8 @@ if. (-.Nboard -: BOARD) +. Nscale ~: SCALE do.
   setformsize ''
   wdfit''
 end.
-draw''
+glsel canvas
+glpaintx''
 )
 wcfg_read=: 3 : 0
 board=. 0 ". ' ' (I. ecells e. ',xX') } ecells
@@ -1103,6 +1098,7 @@ rem form end;
 )
 life_run=: 3 : 0
 wd LIFE
+canvas=: wd 'qhwndc g'
 if. HWNDP e. 1 {"1 wdforms'' do. return. end.
 HWNDP=: wd 'qhwndp'
 FORMX=: 0 ". wd 'qformx'
@@ -1163,7 +1159,8 @@ if. HASBUF do.
   BUF=: a:,}:BUF
   HASBUF=: * # _1 pick BUF
   COUNT=: COUNT - 1
-  draw''
+  glsel canvas
+  glpaintx''
 else.
   enableback 0
 end.
@@ -1195,7 +1192,8 @@ STATE=: ,y
 COUNT=: 0
 bufinit ''
 settimer 0
-draw''
+glsel canvas
+glpaintx''
 )
 runinit=: 3 : 0
 BOARD=: $ y
