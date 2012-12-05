@@ -1,8 +1,9 @@
-require'gtkwd'
-require'gl2'
+require 'droidwd gtkwd'
+require 'gl2'
 
 coclass 'jprintdemo'
-coinsert'jgl2'
+coinsert'jgl2 wdbase'
+droidwd_run=: print_run
 
 NB. print 'page one'
 NB. print 'page one';'page two'
@@ -54,4 +55,4 @@ wd'mbprinter'
 evtloop^:(-.IFJ6)''
 )
 
-print_run''
+print_run`start_droidwd@.('Android'-:UNAME) coname''

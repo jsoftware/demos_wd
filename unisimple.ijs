@@ -1,8 +1,10 @@
 NB. unisimple
 
-require 'gtkwd gui/gtkwd/jview'
+require 'droidwd gtkwd wdclass'
 
 coclass 'judmeo'
+coinsert 'wdbase'
+droidwd_run=: abc_run
 
 ABC=: 0 : 0
 pc abc;pn "Unicode";
@@ -13,7 +15,7 @@ pas 6 6;pcenter;
 rem form end;
 )
 
-font=: IFUNIX pick '"Fixedsys" 14' ; '"Kochi Mincho" 14'
+font=: IFUNIX pick '"Fixedsys" 14' ; ('Android'-:UNAME) pick '"Kochi Mincho" 14' ; 'sans 14'
 
 c_name=: '漢語'
 c_problem=: '沒有問題'
@@ -90,5 +92,4 @@ abc_close=: 3 : 0
 wd'pclose'
 )
 
-abc_run''
-
+abc_run`start_droidwd@.('Android'-:UNAME) coname''

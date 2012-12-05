@@ -20,12 +20,14 @@ NB. TRANS is a list of length 512=2^9, that gives the new life state for each ol
 
 NB. script_z_ '~system/main/gl2.ijs'
 
+require 'droidwd gtkwd'
 coclass 'jlife'
 
 
-coinsert 'jgl2'
+coinsert 'jgl2 wdbase'
+droidwd_run=: run
 
-SCALE=: 4
+SCALE=: ('Android'-:UNAME){4 2
 BOARD=: 128 160
 PATH=: ''
 TIMER=: 1
@@ -42,7 +44,7 @@ FILE=: ''
 create=: ]
 destroy=: life_close
 fix=: 0: ". ];._2
-info=: wdinfo @ ('Life'&;)
+info=: sminfo @ ('Life'&;)
 ischar=: 2: = 3!:0
 isempty=: 0: e. $
 pathname=: 3 : '(b#y);(-.b=.+./\.y=PATHSEP_j_)#y'
@@ -73,15 +75,27 @@ put=: 3 : 0
 ndx=. ($board) | each pos +each i.each $new
 new (<ndx) } board
 )
+
+life_size=: 3 : 0
+FORMX=: 0 ". sysdata
+GXYWHX=: 0 ". wd 'qchildxywhx g'
+setformsize''
+)
+
 setformsize=: 3 : 0
 wd 'psel ',HWNDP
 wd 'set siz *',fmtsize BOARD
 del=. ( SCALE * |. BOARD) - _2 {. GXYWHX
-if. 0 0 -: del do. return. end.
-wd 'setxywhx g ',": GXYWHX + 0 0,del
-wd 'pmovex ',": MINFORMX >. FORMX + 0 0,del
+if. 'Android'-:UNAME do.
+  wd 'setxywhx g ',": 0 42 320 256
+else.
+  if. 0 0 -: del do. return. end.
+  wd 'setxywhx g ',": GXYWHX + 0 0,del
+  wd 'pmovex ',": MINFORMX >. FORMX + 0 0,del
+end.
 )
 settimer=: 3 : 0
+if. 'Android'-:UNAME do. TIMER=. 10 * TIMER end.
 wd 'timer ',":TIMER * y
 )
 
@@ -814,10 +828,16 @@ glsel canvas
 whilst. RUN | COUNT do.
   buffer''
   step''
-  glpaintx''
+  if. 'Android'-:UNAME do.
+    glpaintx''
+  else.
+    paint''
+    glpaint''
+  end.
 end.
 )
-life_g_paint=: 3 : 0
+paint=: life_g_paint=: 3 : 0
+glmark''
 glrgb BOARDCOLOR
 glbrush''
 glrect 0 0,SCALE*|.BOARD
@@ -835,6 +855,11 @@ if. COUNT >: MAXITER do.
   settimer 0 return.
 end.
 )
+3 : 0''
+if. 'Android'-.@-:UNAME do. life_g_paint=: 0: end.
+EMPTY
+)
+
 step=: 3 : 0
 STATE=: TRANS {~ #. INDEX { STATE
 COUNT=: >: COUNT
@@ -911,6 +936,9 @@ pas 4 4;pcenter;
 rem form end;
 )
 wcfg_run=: 3 : 0
+if. 'Android'-:UNAME do.
+  sminfo 'Life';'This option is for desktop versions only' return.
+end.
 Nboard=: BOARD
 Nscale=: SCALE
 Nmaxiter=: MAXITER
@@ -1008,11 +1036,11 @@ end.
 Nboard=: board
 Nbcolor=: bclr
 Nccolor=: cclr
-Nscale=: 1 + 0 ". escale_select
-Nmaxbuf=. 0 ". emaxbuf
-Nminrun=: 1 >. 0 ". eminrun
+Nscale=: 1 + {. 0 ". escale_select
+Nmaxbuf=. {. 0 ". emaxbuf
+Nminrun=: 1 >. {. 0 ". eminrun
 Nmaxiter=: {. (0 ". emaxiter),_
-Ntimer=: 1 >. 0 ". etimer
+Ntimer=: 1 >. {. 0 ". etimer
 1
 )
 wcfg_reshow=: 3 : 0
@@ -1128,9 +1156,16 @@ life_default=: 3 : 0
 if. (<syschild) e. LIFS do.
   settimer 0
   rundoit buildlif ". toupper syschild
+  if. 'Android'-.@-:UNAME do.
+    paint''
+    glpaint''
+  end.
 end.
 )
 life_load_button=: 3 : 0
+if. 'Android'-:UNAME do.
+  sminfo 'Life';'This option is for desktop versions only' return.
+end.
 fl=. wd 'mbopen  "Load *.lif File" "',PATH,'"  ""  "Life(*.lif)|*.lif|All Files(*.*)|*.*"'
 if. 0=#fl do. return. end.
 a=. readlif fl
@@ -1176,6 +1211,7 @@ life_pause_button=: settimer bind 0
 life_run_button=: settimer bind 1
 
 run=: 3 : 0
+if. 'Android'-:UNAME do. y=. '' end.
 dat=. y
 if. 0=#dat do.
   dat=. 'coerake1'
@@ -1185,6 +1221,10 @@ if. ischar dat do.
 end.
 runinit dat
 rundoit dat
+if. 'Android'-.@-:UNAME do.
+  paint''
+  glpaint''
+end.
 evtloop^:(-.IFJ6)''
 )
 rundoit=: 3 : 0
@@ -1206,7 +1246,7 @@ life_run''
 )
 runlife_z_=: 3 : 0
 a=. conew 'jlife'
-run__a y
+run__a`start_droidwd__a@.('Android'-:UNAME) ('Android'-:UNAME){::'';a
 )
 
 runlife''

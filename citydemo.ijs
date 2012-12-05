@@ -1,7 +1,11 @@
 
-require 'gtkwd gui/gtkwd/jview'
+require 'droidwd gtkwd wdclass'
+
+coclass 'jcitydemo'
+coinsert 'wdbase'
+droidwd_run=: cities_run
 
 load '~addons/demos/wd/citycalc.ijs'
 load '~addons/demos/wd/citywp.ijs'
 
-cities 0
+cities_run`start_droidwd@.('Android'-:UNAME) coname''

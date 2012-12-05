@@ -1,10 +1,11 @@
 NB. demosel.ijs      - main selection dialog
 
-require 'gtkwd gui/gtkwd/jview gl2 numeric stats'
+require 'droidwd gtkwd wdclass gl2 numeric stats'
 
 18!:55 <'jdemos'
 coclass 'jdemos'
-coinsert 'jgl2'
+coinsert 'jgl2 wdbase'
+droidwd_run=: demos_run
 
 sububar=: I. @(e.&'_')@]}
 maketitle=: ' '&sububar each @ cutopen ;._2
@@ -35,7 +36,7 @@ unicode dunicode
 
 NB. allout dallout
 
-TITLES=: maketitle 0 : 0
+TITLESALL=: maketitle 0 : 0
 cities dcities
 cobrowse dcobrowse
 coins dcoins
@@ -61,12 +62,34 @@ unicode dunicode
 unicode_simple dunisimple
 )
 
+TITLESANDROID=: maketitle 0 : 0
+cities dcities
+coins dcoins
+controls dcontrols
+events devents
+isigraph... disigraph
+life dlife
+minesweeper dminesweeper
+plot dplot
+pousse dpousse
+unicode dunicode
+unicode_simple dunisimple
+)
+
+TITLES=: 3 : 0''
+if. 'Android'-:UNAME do.
+  TITLESANDROID
+elseif. do.
+  TITLESALL
+end.
+)
+
 NB. =========================================================
 DEMOS=: 0 : 0
 pc demos closeok;pn "Demos Select";
 xywh 114 24 42 12;cc ok button leftmove rightmove;cn "OK";
 xywh 114 41 42 12;cc cancel button leftmove rightmove;cn "Cancel";
-xywh 6 22 100 200;cc listbox listbox ws_border ws_vscroll rightmove bottommove;
+xywh 6 22 100 200;cc listbox listbox ws_border ws_vscroll lbs_nosel rightmove bottommove;
 xywh 7 9 150 11;cc static1 static;cn "static1";
 pas 4 2;pcenter;
 rem form end;
@@ -116,6 +139,8 @@ disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
 dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
 dminesweeper=: load bind (jpath '~addons/games/minesweeper/uiwd.ijs')
 dnurikabe=: nurikabe__ @: (load bind (jpath '~addons/games/nurikabe/nurikabe.ijs'))
+dopengl=: load bind (jpath '~addons/demos/wdopengl/gldemo/gldemo.ijs')
+dopengllab=: load bind (jpath '~addonsr/demos/wdopengl/glsimple/gldemos.ijs')
 dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
 dplot=: load bind (jpath '~addons/demos/wdplot/plotdemo.ijs')
 dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
@@ -132,7 +157,7 @@ deigenpic=: 3 : 0
 if. fexist jpath '~addons/math/lapack/lapack.ijs' do.
   load '~addons/math/eigenpic/eigenpic.ijs'
 else.
-  wdinfo 'Eigenpicture';'This demo requires the LAPACK Addon'
+  sminfo 'Eigenpicture';'This demo requires the LAPACK Addon'
 end.
 )
 
@@ -148,4 +173,4 @@ load 'scriptdoc'
 scriptdoc jpath '~system/main/task.ijs'
 )
 
-demos_run''
+demos_run`start_droidwd@.('Android'-:UNAME) coname''

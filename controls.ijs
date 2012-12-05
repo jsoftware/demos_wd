@@ -2,6 +2,11 @@ NB. Windows Controls
 NB.
 NB. examples of windows controls
 
+require 'droidwd gtkwd'
+coclass 'wincontroldemo'
+coinsert 'wdbase'
+droidwd_run=: wincontrol_run
+
 p=. jpath '~addons/demos/wd/control'
 0!:0 p&, each '1.ijs';'2.ijs';'3.ijs'
 
@@ -81,4 +86,4 @@ wincontrol_query_button=: 3 : 0
 wd 'sbarset sinfo -1 ',syschild
 )
 
-wincontrol_run''
+wincontrol_run`start_droidwd@.('Android'-:UNAME) coname''

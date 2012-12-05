@@ -1,11 +1,12 @@
 NB. init
 
-require 'gl2 gui/gtkwd/jview'
+require 'droidwd gtkwd gl2 wdclass'
 
 coclass 'jcoins'
 
 
-coinsert 'jgl2'
+coinsert 'jgl2 wdbase'
+droidwd_run=: coins_run
 
 BOARD=: 0
 
@@ -34,7 +35,7 @@ round=: [ * [: <. 0.5"_ + %~
 roundint=: <. @: +&0.5
 where=: #~
 
-info=: wdinfo @ ('Coins'&;)
+info=: sminfo @ ('Coins'&;)
 query=: wdquery 'Coins'&;
 
 NB. =========================================================
@@ -318,7 +319,7 @@ NB. =========================================================
 NB. paint does the draw and then glpaint
 paint=: 3 : 0
 draw''
-glpaint''
+glpaintx`glpaint@.IFJ6''
 )
 
 NB. =========================================================
@@ -439,7 +440,7 @@ for_p. HIGH do.
   glbrush glrgb c { CLRHIGH
   glrect x { CRC2
 end.
-glpaint''
+glpaintx`glpaint@.IFJ6''
 )
 
 NB. =========================================================
@@ -510,7 +511,7 @@ DONE=: 0
 wd COIN
 setparentname''
 wd^:(-.IFJ6) 'pshow;pshow sw_hide'
-paint''
+NB. paint''
 wd 'pshow;'
 evtloop^:(-.IFJ6)''
 )
@@ -550,7 +551,8 @@ paint''
 
 NB. =========================================================
 coin_restart_button=: 3 : 0
-if. 0 = 2 query 'OK to restart?' do.
+if. 'Android'-:UNAME do. paint@init '' return. end.
+if. 0 = 2 query`0:@.('Android'-:UNAME) 'OK to restart?' do.
   init''
   paint''
 end.
@@ -583,9 +585,9 @@ coin_help_button=: 3 : 'info HELP'
 NB. run
 
 NB. =========================================================
-run=: 3 : 0
+coins_run=: 3 : 0
 init''
 coin_run''
 )
 
-run''
+coins_run`start_droidwd@.('Android'-:UNAME) coname''

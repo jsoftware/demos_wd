@@ -1,8 +1,9 @@
 NB. illustrates events in J
 
-require 'gtkwd gl2 numeric trig gui/gtkwd/jview'
+require 'droidwd gtkwd gl2 numeric trig wdclass'
 coclass 'jevents'
-coinsert 'jgl2'
+coinsert 'jgl2 wdbase'
+droidwd_run=: events_run
 
 TEXT=: 0 : 0
 This form illustrates various events in J. Click the controls or press Enter to see the event messages generated.
@@ -163,7 +164,7 @@ smoutput wdq
 end.
 
 if. (<sysevent) e. 'events_close';'events_cancel_button';'events_exit_button' do.
-  if. 0=2 wdquery 'Events';'OK to close form?' do.
+  if. 0=2 wdquery`0:@.('Android'-:UNAME) 'Events';'OK to close form?' do.
     try. wd 'psel events;pclose' catch. end.
   end.
 end.
@@ -171,4 +172,4 @@ end.
 syseventlast=: sysevent
 )
 
-events_run''
+events_run`start_droidwd@.('Android'-:UNAME) coname''

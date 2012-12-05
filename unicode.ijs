@@ -1,7 +1,7 @@
 NB. built from project: ~Source/examples/unicode/unicode
 NB. init
 
-require 'gtkwd gui/gtkwd/jview gl2'
+require 'droidwd gtkwd wdclass gl2'
 
 GTKOUTPUT_jzplot_=: 'gtk'
 CONSOLEOUTPUT_jzplot_=: 'gtk'
@@ -9,6 +9,8 @@ CONSOLEOUTPUT_jzplot_=: 'gtk'
 require 'jzgrid plot'
 
 coclass 'judemo'
+coinsert 'wdbase'
+droidwd_run=: unicode_run
 
 IFUNICODE=: 1
 CELLALIGN=: 0
@@ -103,6 +105,7 @@ pas 0 4;pcenter;
 rem form end;
 )
 
+NB. xywh 9 91 174 86;cc grid isigraph rightmove bottomscale;
 NB. =========================================================
 unicode_run=: 3 : 0
 wd UNIDEMO
@@ -134,7 +137,7 @@ fview jpath '~addons/demos/wd/unicode.ijs'
 
 NB. =========================================================
 unicode_viewnotes_button=: 3 : 0
-wdinfo 'Unicode';ALLNOTES
+sminfo 'Unicode';ALLNOTES
 )
 
 NB. =========================================================
@@ -146,9 +149,9 @@ NB. =========================================================
 show=: 3 : 0
 setdata''
 glsel_jgl2_ 'grid'
-unicode_grid_paint''
+unicode_grid_paint^:IFJ6''
 glsel_jgl2_ 'plot'
-unicode_plot_paint''
+unicode_plot_paint^:IFJ6''
 wd 'set edit0 *',IFUNICODE pick EDITTEXTS
 wd 'setcaption ok *',OK
 wd 'setcaption cancel *',CLOSE
@@ -186,4 +189,4 @@ unicode_cancel_button=: 3 : 0
 unicode_close''
 )
 
-unicode_run''
+unicode_run`start_droidwd@.('Android'-:UNAME) coname''

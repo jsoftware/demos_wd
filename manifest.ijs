@@ -3,10 +3,10 @@ NB. demos/wd manifest
 CAPTION=: 'wd demos'
 
 DESCRIPTION=: 0 : 0
-wd demos using gtkwd
+wd demos using gtkwd or droidwd
 )
 
-VERSION=: '1.0.22'
+VERSION=: '1.0.23'
 
 RELEASE=: 'j701'
 

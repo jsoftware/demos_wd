@@ -1,7 +1,8 @@
 load 'jdgrid jsgrid jtgrid jvgrid jzgrid'
 
 coclass 'jgriddemo'
-coinsert 'jgl2'
+coinsert 'jgl2 wdbase'
+droidwd_run=: griddemo_run
 grid=: ''
 
 DEVOPTS=: OPTIONS_jzgrid_,cutopen 0 : 0
@@ -10,21 +11,19 @@ HDRCOL2
 VERB
 XPRECISION
 )
-create=: 3 : 0
-griddemo_run''
+3 : 0''
+if. 0 ~: 4!:0 <'GRIDDEMOSEL' do.
+  GRIDDEMOSEL=: 'GRID'
+end.
+EMPTY
 )
+create=: 0:
 destroy=: 3 : 0
 destroy__grid''
 wd ::] 'psel gridedit;pclose'
 wd ::] 'psel gridnotes;pclose'
 wd ::] 'psel griddemo;pclose'
 codestroy''
-)
-griddemo=: 3 : 0
-if. 0 ~: 4!:0 <'GRIDDEMOSEL' do.
-  GRIDDEMOSEL=: 'GRID'
-end.
-griddemo_run''
 )
 gridrun=: 3 : '0 gridinit y'
 gridruns=: 3 : '1 gridinit y'
@@ -370,7 +369,7 @@ To experiment, modify the commands, then Redisplay.
 )
 
 gridedit_help_button=: 3 : 0
-wdinfo 'Grid Demo';GRIDEDITHELP
+sminfo 'Grid Demo';GRIDEDITHELP
 )
 gridedit_redisplay_button=: 3 : 0
 GDEF=: gdef
@@ -379,7 +378,7 @@ try.
   gridrun gdef
   wd 'psel gridedit'
 catch.
-  wdinfo 'error in grid definition'
+  sminfo 'error in grid definition'
   0 return.
 end.
 1
@@ -400,7 +399,7 @@ ftr=. ndx }. dat
 ftr=. ftr, LF -. {:ftr
 new=. hdr,grf,ftr
 new fwrites f
-wdinfo 'Grid';'Saved: ',GNAME
+sminfo 'Grid';'Saved: ',GNAME
 )
 sumdata=: (,+/) @: (,.+/"1)
 j=. <;._2 (0 : 0)
@@ -796,7 +795,7 @@ rem form end;
 gridnotes_run=: 3 : 0
 NNAME=: 'N',y,(0=#y)#'GRID'
 if. -. '2' e. sysmodifiers do.
-  wdinfo 'Grid Notes';". NNAME
+  sminfo 'Grid Notes';". NNAME
   return.
 end.
 if. wdisparent 'gridnotes' do.
@@ -832,7 +831,7 @@ ftr=. ndx }. dat
 ftr=. ftr, LF -. {:ftr
 new=. hdr,grf,ftr
 new fwrites f
-wdinfo 'Grid';'Saved: ',NNAME
+sminfo 'Grid';'Saved: ',NNAME
 )
 GRIDDEMO=: 0 : 0
 pc griddemo;
@@ -972,11 +971,11 @@ wd 'psel griddemo;pclose;'
 try. wd 'psel gridedit;pclose' catch. end.
 )
 griddemo_contents_button=: 3 : 0
-wdinfo 'help contents'
+sminfo 'help contents'
 )
 griddemo_about_button=: 3 : 0
 j=. 'Grid Demo VJ602'
-wdinfo 'Grid';j
+sminfo 'Grid';j
 )
 griddemo_step=: 3 : 0
 ndx=. (#GRIDALL) | y + GRIDALL i. <'D',GRIDDEMOSEL
@@ -1007,4 +1006,4 @@ griddemo_flip_button=: 3 : 'flip__grid y'
 griddemo_zoomin_button=: 3 : 'zoomin__grid y'
 griddemo_zoomout_button=: 3 : 'zoomout__grid y'
 
-griddemo ''
+griddemo_run_jgriddemo_`start_droidwd_jgriddemo_@.('Android'-:UNAME) 'jgriddemo'
