@@ -78,12 +78,12 @@ new (<ndx) } board
 
 life_size=: 3 : 0
 FORMX=: 0 ". sysdata
-GXYWHX=: 0 ". wd 'qchildxywhx g'
+GXYWHX=: wdqchildxywhx 'g'
 setformsize''
 )
 
 setformsize=: 3 : 0
-wd 'psel ',HWNDP
+wd 'psel ',":HWNDP
 wd 'set siz *',fmtsize BOARD
 del=. ( SCALE * |. BOARD) - _2 {. GXYWHX
 if. 'Android'-:UNAME do.
@@ -823,7 +823,7 @@ See help file: User Manual|Project Manager|Example: Life Project.
 
 
 life=: 3 : 0
-wd 'psel ', HWNDP
+wd 'psel ', ":HWNDP
 glsel canvas
 whilst. RUN | COUNT do.
   buffer''
@@ -1126,15 +1126,15 @@ rem form end;
 )
 life_run=: 3 : 0
 wd LIFE
-canvas=: wd 'qhwndc g'
+canvas=: wdqhwndc 'g'
 if. HWNDP e. 1 {"1 wdforms'' do. return. end.
-HWNDP=: wd 'qhwndp'
-FORMX=: 0 ". wd 'qformx'
-GXYWHX=: 0 ". wd 'qchildxywhx g'
+HWNDP=: wdqhwndp''
+FORMX=: wdqformx''
+GXYWHX=: wdqchildxywhx 'g'
 if. IFJAVA do.
-  MAXXYWHX=: _10 _100 + 2 {. 0 ". wd 'qm'
+  MAXXYWHX=: _10 _100 + 2 {. wdqm''
 else.
-  qm=. 0 ". wd 'qm'
+  qm=. wdqm''
   mx=. (14 { qm) - +: 8 { qm
   my=. (15 { qm) - +/ 9 9 10 10 11 { qm
   MAXXYWHX=: mx,my

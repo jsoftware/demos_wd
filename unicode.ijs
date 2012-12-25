@@ -111,12 +111,12 @@ unicode_run=: 3 : 0
 wd UNIDEMO
 wd 'set notes *',NOTES
 PForm=: 'unicode'
-PFormhwnd=: wd'qhwndp'
+PFormhwnd=: wdqhwndp''
 wd^:(-.IFJ6) 'pshow;pshow sw_hide'
 grid=: '' conew 'jzgrid'
 plot=: '' conew 'jzplot'
 PForm__plot=: 'unicode'
-PFormhwnd__plot=: wd 'qhwndp'
+PFormhwnd__plot=: wdqhwndp''
 PId__plot=: 'plot'
 show''
 wd 'pshow;'
