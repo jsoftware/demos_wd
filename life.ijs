@@ -1127,7 +1127,11 @@ rem form end;
 life_run=: 3 : 0
 wd LIFE
 canvas=: wdqhwndc 'g'
-if. HWNDP e. 1 {"1 wdforms'' do. return. end.
+if. IFQT do.
+  if. wdishandle HWNDP do. return. end.
+else.
+  if. HWNDP e. 1 {"1 wdforms'' do. return. end.
+end.
 HWNDP=: wdqhwndp''
 FORMX=: wdqformx''
 GXYWHX=: wdqchildxywhx 'g'

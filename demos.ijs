@@ -76,8 +76,31 @@ unicode dunicode
 unicode_simple dunisimple
 )
 
+TITLESQT=: maketitle 0 : 0
+cities dcities
+cobrowse dcobrowse
+coins dcoins
+deoptim ddeoptim
+eigenpictures deigenpic
+events devents
+grid dgrid
+isigraph... disigraph
+life dlife
+minesweeper dminesweeper
+nurikabe dnurikabe
+plot dplot
+pousse dpousse
+scriptdoc dscriptdoc
+solitaire dsolitaire
+treemap dtreemap
+unicode dunicode
+unicode_simple dunisimple
+)
+
 TITLES=: 3 : 0''
-if. 'Android'-:UNAME do.
+if. IFQT do.
+  TITLESQT
+elseif. 'Android'-:UNAME do.
   TITLESANDROID
 elseif. do.
   TITLESALL
@@ -102,6 +125,7 @@ if. wdisparent 'demos' do.
 end.
 wd DEMOS
 wd 'set static1 *Select a demo from the list below:'
+NB. TODO
 wd 'set listbox ',;DEL,each ({."1 TITLES),each DEL
 wd 'setselect listbox 0'
 wd 'setfocus listbox'
