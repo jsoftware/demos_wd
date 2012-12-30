@@ -828,7 +828,7 @@ glsel canvas
 whilst. RUN | COUNT do.
   buffer''
   step''
-  if. 'Android'-:UNAME do.
+  if. IFQT+.'Android'-:UNAME do.
     glpaintx''
   else.
     paint''
@@ -1160,7 +1160,7 @@ life_default=: 3 : 0
 if. (<syschild) e. LIFS do.
   settimer 0
   rundoit buildlif ". toupper syschild
-  if. 'Android'-.@-:UNAME do.
+  if. -. IFQT+.'Android'-:UNAME do.
     paint''
     glpaint''
   end.
@@ -1225,7 +1225,7 @@ if. ischar dat do.
 end.
 runinit dat
 rundoit dat
-if. 'Android'-.@-:UNAME do.
+if. -. IFQT+.'Android'-:UNAME do.
   paint''
   glpaint''
 end.

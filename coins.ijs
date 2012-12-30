@@ -551,8 +551,8 @@ paint''
 
 NB. =========================================================
 coin_restart_button=: 3 : 0
-if. 'Android'-:UNAME do. paint@init '' return. end.
-if. 0 = 2 query`0:@.('Android'-:UNAME) 'OK to restart?' do.
+if. IFQT+.'Android'-:UNAME do. paint@init '' return. end.
+if. 0 = 2 query`0:@.(IFQT+.'Android'-:UNAME) 'OK to restart?' do.
   init''
   paint''
 end.

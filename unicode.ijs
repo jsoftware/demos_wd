@@ -161,6 +161,8 @@ wd 'setcaption toggle *',TOGGLE
 NB. =========================================================
 unicode_grid_paint=: 3 : 0
 show__grid GRIDNAMES
+glsel_jgl2_ 'plot'
+glpaintx_jgl2_''
 )
 
 NB. =========================================================

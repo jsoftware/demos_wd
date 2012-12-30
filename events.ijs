@@ -164,7 +164,7 @@ smoutput wdq
 end.
 
 if. (<sysevent) e. 'events_close';'events_cancel_button';'events_exit_button' do.
-  if. 0=2 wdquery`0:@.('Android'-:UNAME) 'Events';'OK to close form?' do.
+  if. 0=2 wdquery`0:@.(IFQT+.'Android'-:UNAME) 'Events';'OK to close form?' do.
     try. wd 'psel events;pclose' catch. end.
   end.
 end.
