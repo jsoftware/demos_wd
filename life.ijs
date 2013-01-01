@@ -828,8 +828,8 @@ glsel canvas
 whilst. RUN | COUNT do.
   buffer''
   step''
-  if. IFQT+.'Android'-:UNAME do.
-    glpaintx''
+  if. 'Android'-:UNAME do.
+    glpaint`glpaintx@.('Android'-:UNAME)''
   else.
     paint''
     glpaint''
@@ -1015,7 +1015,7 @@ if. (-.Nboard -: BOARD) +. Nscale ~: SCALE do.
   wdfit''
 end.
 glsel canvas
-glpaintx''
+glpaint`glpaintx@.('Android'-:UNAME)''
 )
 wcfg_read=: 3 : 0
 board=. 0 ". ' ' (I. ecells e. ',xX') } ecells
@@ -1160,7 +1160,7 @@ life_default=: 3 : 0
 if. (<syschild) e. LIFS do.
   settimer 0
   rundoit buildlif ". toupper syschild
-  if. -. IFQT+.'Android'-:UNAME do.
+  if. -. 'Android'-:UNAME do.
     paint''
     glpaint''
   end.
@@ -1199,7 +1199,7 @@ if. HASBUF do.
   HASBUF=: * # _1 pick BUF
   COUNT=: COUNT - 1
   glsel canvas
-  glpaintx''
+  glpaint`glpaintx@.('Android'-:UNAME)''
 else.
   enableback 0
 end.
@@ -1225,7 +1225,7 @@ if. ischar dat do.
 end.
 runinit dat
 rundoit dat
-if. -. IFQT+.'Android'-:UNAME do.
+if. -. 'Android'-:UNAME do.
   paint''
   glpaint''
 end.
@@ -1237,7 +1237,7 @@ COUNT=: 0
 bufinit ''
 settimer 0
 glsel canvas
-glpaintx''
+glpaint`glpaintx@.('Android'-:UNAME)''
 )
 runinit=: 3 : 0
 BOARD=: $ y
