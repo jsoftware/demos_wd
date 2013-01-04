@@ -90,9 +90,9 @@ del=. ( SCALE * |. BOARD) - _2 {. GXYWHX
 if. 'Android'-:UNAME do.
   wd 'setxywhx g ',": 0 42 320 256
 else.
-  if. 0 0 -: del do. return. end.
-  wd 'setxywhx g ',": GXYWHX + 0 0,del
-  wd 'pmovex ',": MINFORMX >. FORMX + 0 0,del
+NB.   if. 0 0 -: del do. return. end.
+  wd 'setxywhx g ',": GXYWHX + 0 32,del
+  wd 'pmovex ',": MINFORMX >. FORMX + 0 32,del
 end.
 )
 settimer=: 3 : 0
