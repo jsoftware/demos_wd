@@ -109,7 +109,7 @@ end.
 
 NB. =========================================================
 DEMOS=: 0 : 0
-pc demos closeok;pn "Demos Select";
+pc demos closeok qtwd;pn "Demos Select";
 bin v
 xywh 7 9 150 11;cc static1 static;cn "static1";
 bin h

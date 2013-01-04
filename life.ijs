@@ -1088,7 +1088,7 @@ wcfg_cancel_button=: wcfg_close
 wcfg_cancel=: wcfg_close
 
 LIFE=: 0 : 0
-pc life nomax nosize;pn "Life";
+pc life nomax nosize qtwd;pn "Life";
 menupop "File";
 menu load "&Load Pattern File..." "" "" "";
 menusep;
@@ -1115,15 +1115,16 @@ menu help "&Help" "" "" "";
 menusep;
 menu about "&About" "" "" "";
 menupopz;
-bin h
+bin vh;
 xywh 2 1 39 12;cc run button;cn "Run";
 xywh 41 1 39 12;cc pause button;cn "Pause";
 xywh 80 1 39 12;cc stepback button;cn "Back";
 xywh 119 1 39 12;cc step button;cn "Step";
 xywh 161 3 45 11;cc siz static ss_center;cn "";
 xywh 207 3 36 11;cc cnt static ss_center;cn "";
-bin z
+bin sz;
 xywh 0 14 320 256;cc g isigraph;
+bin z;
 pas 0 0;pcenter;
 rem form end;
 )
