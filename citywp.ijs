@@ -1,15 +1,19 @@
 NB.cities demo -  windows program
 
 CITIES=: 0 : 0
-pc cities closeok;pn "City Distances";
+pc cities closeok qtwd;pn "City Distances";
+bin hv;
 xywh 9 9 20 11;cc s0 static;cn "From:";
 xywh 35 8 100 101;cc clist combolist ws_vscroll ws_border;
+bin hv;
 xywh 9 39 57 12;cc Kilometers radiobutton;
 xywh 9 51 57 11;cc Miles radiobutton group;
 xywh 6 28 62 36;cc dist groupbox;
+bin zv;
 xywh 76 39 57 11;cc Alphabetic radiobutton;
 xywh 76 51 57 11;cc Distance radiobutton group;cn "By Distance";
 xywh 73 28 62 36;cc sort groupbox;
+bin zzzvs;
 xywh 146 8 39 12;cc ok button;cn "OK";
 xywh 146 23 39 12;cc cancel button;cn "Cancel";
 pas 6 6;pcenter;

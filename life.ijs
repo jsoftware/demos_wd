@@ -79,6 +79,7 @@ new (<ndx) } board
 life_size=: 3 : 0
 FORMX=: 0 ". sysdata
 GXYWHX=: wdqchildxywhx 'g'
+GXYWHX=: 0 0,glqwh''
 setformsize''
 )
 
@@ -1114,12 +1115,14 @@ menu help "&Help" "" "" "";
 menusep;
 menu about "&About" "" "" "";
 menupopz;
+bin h
 xywh 2 1 39 12;cc run button;cn "Run";
 xywh 41 1 39 12;cc pause button;cn "Pause";
 xywh 80 1 39 12;cc stepback button;cn "Back";
 xywh 119 1 39 12;cc step button;cn "Step";
 xywh 161 3 45 11;cc siz static ss_center;cn "";
 xywh 207 3 36 11;cc cnt static ss_center;cn "";
+bin z
 xywh 0 14 320 256;cc g isigraph;
 pas 0 0;pcenter;
 rem form end;
@@ -1135,6 +1138,7 @@ end.
 HWNDP=: wdqhwndp''
 FORMX=: wdqformx''
 GXYWHX=: wdqchildxywhx 'g'
+GXYWHX=: 0 0,glqwh''
 if. IFJAVA do.
   MAXXYWHX=: _10 _100 + 2 {. wdqm''
 else.

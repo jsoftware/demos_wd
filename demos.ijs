@@ -110,10 +110,14 @@ end.
 NB. =========================================================
 DEMOS=: 0 : 0
 pc demos closeok;pn "Demos Select";
+bin v
+xywh 7 9 150 11;cc static1 static;cn "static1";
+bin h
+xywh 6 22 100 200;cc listbox listbox ws_border ws_vscroll lbs_nosel rightmove bottommove;
+bin v
 xywh 114 24 42 12;cc ok button leftmove rightmove;cn "OK";
 xywh 114 41 42 12;cc cancel button leftmove rightmove;cn "Cancel";
-xywh 6 22 100 200;cc listbox listbox ws_border ws_vscroll lbs_nosel rightmove bottommove;
-xywh 7 9 150 11;cc static1 static;cn "static1";
+bin szzz
 pas 4 2;pcenter;
 rem form end;
 )

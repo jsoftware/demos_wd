@@ -341,6 +341,7 @@ NB. drawcenters v calculate vertex centers in display
 drawcenters=: 3 : 0
 max=. >./ LAYOUT
 wh=. _2 {. wdqchildxywhx 'g'
+wh=. glqwh''
 div=. wh % 2 + max
 rad=. -: <./div <. wh % 12
 RAD=: roundint rad
@@ -479,7 +480,7 @@ end.
 NB. win
 
 COIN=: 0 : 0
-pc coin;pn "Coins";
+pc coin qtwd;pn "Coins";
 menupop "File";
 menu b0 "&Load 8-2-48" "" "" "";
 menu b1 "&Load 8-3-44" "" "" "";
@@ -495,12 +496,42 @@ menu help "&Help" "" "" "";
 menusep;
 menu about "&About" "" "" "";
 menupopz;
+bin vh
 xywh 2 1 39 12;cc restart button;cn "Restart";
 xywh 41 1 39 12;cc undo button;cn "Undo";
 xywh 80 1 39 12;cc redo button;cn "Redo";
 xywh 120 3 36 11;cc cnt static ss_center;cn "";
 xywh 0 14 250 1;cc s0 staticbox ss_etchedhorz rightmove ;
+bin sz
 xywh 0 15 250 250;cc g isigraph rightmove bottommove;
+pas 0 0;pcenter;
+rem form end;
+)
+
+COINQT=: 0 : 0
+pc coin qtwd;pn "Coins";
+menupop "File";
+menu b0 "&Load 8-2-48" "" "" "";
+menu b1 "&Load 8-3-44" "" "" "";
+menu b2 "&Load 9-2-66" "" "" "";
+menu b3 "&Load 11-2-118" "" "" "";
+menusep;
+menu viewcode "&View Code" "" "" "";
+menusep;
+menu exit "&Exit" "" "" "";
+menupopz;
+menupop "Help";
+menu help "&Help" "" "" "";
+menusep;
+menu about "&About" "" "" "";
+menupopz;
+bin vh
+cc restart button;cn "Restart";
+cc undo button;cn "Undo";
+cc redo button;cn "Redo";
+cc cnt static ss_center;cn "";
+bin sz
+cc g isigraph
 pas 0 0;pcenter;
 rem form end;
 )
