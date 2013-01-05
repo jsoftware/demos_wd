@@ -24,10 +24,14 @@ rem form end;
 cities_run=: 3 : 0
 cityread''
 wd CITIES
-wd 'set clist *',;BNAMES,&.>LF
+if. IFQT do.  NB. TODO jqt LF bug
+  wd 'set clist ',; ('"'&,)&.> BNAMES,&.>'"'
+else.
+  wd 'set clist *',;BNAMES,&.>LF
+end.
 wd 'setselect clist ',":(#BNAMES)|.BNAMES i. <'Antwerp'
 wd 'set Kilometers 1'
-wd 'set Alphabetic 1'	
+wd 'set Alphabetic 1'
 wd 'pshow'
 evtloop^:(-.IFJ6)''
 )
