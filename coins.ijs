@@ -515,7 +515,7 @@ DONE=: 0
 wd COIN
 setparentname''
 wd^:(-.IFJ6) 'pshow;pshow sw_hide'
-NB. paint''
+paint''
 wd 'pshow;'
 evtloop^:(-.IFJ6)''
 )
