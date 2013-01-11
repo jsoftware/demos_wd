@@ -106,7 +106,7 @@ EVENTSCE=: ((j+6) {. EVENTSCE),(j+8)}.EVENTSCE
 
 events_run=: 3 : 0
 if. wdisparent 'events' do.
-  wd 'psel events;pactive;pshow' return.
+  wd^:('Android'-.@-:UNAME) 'psel events;pactive;pshow' return.
 end.
 if. IFWINCE do.
   wd EVENTSCE
