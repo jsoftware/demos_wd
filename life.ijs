@@ -829,8 +829,8 @@ glsel canvas
 whilst. RUN | COUNT do.
   buffer''
   step''
-  if. 'Android'-:UNAME do.
-    glpaint`glpaintx@.('Android'-:UNAME)''
+  if. (('Android'-:UNAME)>IFQT) do.
+    glpaint`glpaintx@.(('Android'-:UNAME)>IFQT)''
   else.
     paint''
     glpaint''
@@ -857,7 +857,7 @@ if. COUNT >: MAXITER do.
 end.
 )
 3 : 0''
-if. 'Android'-.@-:UNAME do. life_g_paint=: 0: end.
+if. (-. (('Android'-:UNAME)>IFQT)) do. life_g_paint=: 0: end.
 EMPTY
 )
 
@@ -937,7 +937,7 @@ pas 4 4;pcenter;
 rem form end;
 )
 wcfg_run=: 3 : 0
-if. 'Android'-:UNAME do.
+if. (('Android'-:UNAME)>IFQT) do.
   sminfo 'Life';'This option is for desktop versions only' return.
 end.
 Nboard=: BOARD
@@ -1016,7 +1016,7 @@ if. (-.Nboard -: BOARD) +. Nscale ~: SCALE do.
   wdfit''
 end.
 glsel canvas
-glpaint`glpaintx@.('Android'-:UNAME)''
+glpaint`glpaintx@.(('Android'-:UNAME)>IFQT)''
 )
 wcfg_read=: 3 : 0
 board=. 0 ". ' ' (I. ecells e. ',xX') } ecells
@@ -1165,14 +1165,14 @@ life_default=: 3 : 0
 if. (<syschild) e. LIFS do.
   settimer 0
   rundoit buildlif ". toupper syschild
-  if. -. 'Android'-:UNAME do.
+  if. -. (('Android'-:UNAME)>IFQT) do.
     paint''
     glpaint''
   end.
 end.
 )
 life_load_button=: 3 : 0
-if. 'Android'-:UNAME do.
+if. (('Android'-:UNAME)>IFQT) do.
   sminfo 'Life';'This option is for desktop versions only' return.
 end.
 fl=. wd 'mbopen  "Load *.lif File" "',PATH,'"  ""  "Life(*.lif)|*.lif|All Files(*.*)|*.*"'
@@ -1204,7 +1204,7 @@ if. HASBUF do.
   HASBUF=: * # _1 pick BUF
   COUNT=: COUNT - 1
   glsel canvas
-  glpaint`glpaintx@.('Android'-:UNAME)''
+  glpaint`glpaintx@.(('Android'-:UNAME)>IFQT)''
 else.
   enableback 0
 end.
@@ -1230,7 +1230,7 @@ if. ischar dat do.
 end.
 runinit dat
 rundoit dat
-if. -. 'Android'-:UNAME do.
+if. -. (('Android'-:UNAME)>IFQT) do.
   paint''
   glpaint''
 end.
@@ -1242,7 +1242,7 @@ COUNT=: 0
 bufinit ''
 settimer 0
 glsel canvas
-glpaint`glpaintx@.('Android'-:UNAME)''
+glpaint`glpaintx@.(('Android'-:UNAME)>IFQT)''
 )
 runinit=: 3 : 0
 BOARD=: $ y

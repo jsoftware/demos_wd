@@ -319,7 +319,7 @@ NB. =========================================================
 NB. paint does the draw and then glpaint
 paint=: 3 : 0
 draw''
-glpaint`glpaintx@.('Android'-:UNAME)''
+glpaint`glpaintx@.(('Android'-:UNAME)>IFQT)''
 )
 
 NB. =========================================================
@@ -441,7 +441,7 @@ for_p. HIGH do.
   glbrush glrgb c { CLRHIGH
   glrect x { CRC2
 end.
-glpaint`glpaintx@.('Android'-:UNAME)''
+glpaint`glpaintx@.(('Android'-:UNAME)>IFQT)''
 )
 
 NB. =========================================================
