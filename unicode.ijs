@@ -119,7 +119,7 @@ wd UNIDEMO
 wd 'set notes *',NOTES
 PForm=: 'unicode'
 PFormhwnd=: wdqhwndp''
-wd^:(-.IFJ6) 'pshow;pshow sw_hide'
+wd 'pshow;pshow sw_hide'
 grid=: '' conew 'jzgrid'
 plot=: '' conew 'jzplot'
 PForm__plot=: 'unicode'
@@ -127,7 +127,7 @@ PFormhwnd__plot=: wdqhwndp''
 PId__plot=: 'plot'
 show''
 wd 'pshow;'
-evtloop^:(-.IFJ6)''
+evtloop''
 )
 
 NB. =========================================================
@@ -156,9 +156,7 @@ NB. =========================================================
 show=: 3 : 0
 setdata''
 glsel_jgl2_ 'grid'
-unicode_grid_paint^:IFJ6''
 glsel_jgl2_ 'plot'
-unicode_plot_paint^:IFJ6''
 wd 'set edit0 *',IFUNICODE pick EDITTEXTS
 wd 'setcaption ok *',OK
 wd 'setcaption cancel *',CLOSE

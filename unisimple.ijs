@@ -57,7 +57,7 @@ btext=: c_name
 wd'setcaption b *',btext
 wd'set em *',c_all
 wd 'pshow;'
-evtloop^:(-.IFJ6)''
+evtloop''
 )
 
 NB. =========================================================

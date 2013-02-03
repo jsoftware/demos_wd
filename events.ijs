@@ -129,7 +129,7 @@ wd 'pshow;'
 events_isigraph''
 
 if. IFWINCE do. wceview 'Events';'';TEXT;1 end.
-evtloop^:(-.IFJ6)''
+evtloop''
 )
 
 NB. =========================================================

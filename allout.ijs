@@ -109,11 +109,11 @@ wd 'menupopz;'
 wd 'xywh 5 5 ',":cell*N,M
 wd 'cc gg isigraph;'
 wd 'pas 5 5;pcenter;'
-wd^:(-.IFJ6) 'pshow;pshow sw_hide'
+wd 'pshow;pshow sw_hide'
 ResetD''
 Don NewD''
 wd 'pshow;'
-evtloop^:(-.IFJ6)''
+evtloop''
 )
 
 NB. =========================================================

@@ -53,7 +53,7 @@ selects_run''
 wd 'creategroup'
 wd 'setshow buttons 1'
 wd 'pshow'
-evtloop^:(-.IFJ6)''
+evtloop''
 )
 
 wincontrol_close=: wd bind 'pclose'

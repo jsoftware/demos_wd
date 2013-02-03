@@ -52,7 +52,7 @@ gltext data
 print_run=: 3 : 0
 wd'mbprinter'
 '"print demo" "" "" copies 2' print 'page one';'这首歌很好听'
-evtloop^:(-.IFJ6)''
+evtloop''
 )
 
 print_run`start_droidwd@.(('Android'-:UNAME)>IFQT) coname''

@@ -6,9 +6,9 @@ DESCRIPTION=: 0 : 0
 wd demos using gtkwd or droidwd
 )
 
-VERSION=: '1.0.35'
+VERSION=: '1.0.36'
 
-RELEASE=: 'j701'
+RELEASE=: 'j701 j801'
 
 FILES=: 0 : 0
 manifest.ijs

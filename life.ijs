@@ -1234,7 +1234,7 @@ if. -. (('Android'-:UNAME)>IFQT) do.
   paint''
   glpaint''
 end.
-evtloop^:(-.IFJ6)''
+evtloop''
 )
 rundoit=: 3 : 0
 STATE=: ,y
