@@ -3,7 +3,8 @@ NB. regular expression demo
 NB. use markup language for gtklabel instead of real richeditm
 HWNDP=: 0
 
-require 'gtkwd files regex strings'
+require 'files regex strings'
+require^:(-.IFJ6) ::0: 'gtkwd'
 
 REGDEMO=: 0 : 0
 pc regdemo closeok;pn "Regular Expression Pattern Matching";

@@ -2,7 +2,8 @@ NB. Windows Controls
 NB.
 NB. examples of windows controls
 
-require 'droidwd gtkwd'
+require 'droidwd'
+require^:(-.IFJ6) ::0: 'gtkwd'
 coclass 'wincontroldemo'
 coinsert 'wdbase'
 droidwd_run=: wincontrol_run

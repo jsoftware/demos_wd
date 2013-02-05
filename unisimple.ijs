@@ -1,6 +1,7 @@
 NB. unisimple
 
-require 'droidwd gtkwd wdclass'
+require 'droidwd wdclass'
+require^:(-.IFJ6) ::0: 'gtkwd'
 
 coclass 'judmeo'
 coinsert 'wdbase'

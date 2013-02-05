@@ -20,7 +20,8 @@ NB. TRANS is a list of length 512=2^9, that gives the new life state for each ol
 
 NB. script_z_ '~system/main/gl2.ijs'
 
-require 'droidwd gtkwd'
+require 'droidwd'
+require^:(-.IFJ6) ::0: 'gtkwd'
 coclass 'jlife'
 
 
@@ -1140,14 +1141,10 @@ HWNDP=: wdqhwndp''
 FORMX=: wdqformx''
 GXYWHX=: wdqchildxywhx 'g'
 GXYWHX=: 0 0,glqwh''
-if. IFJAVA do.
-  MAXXYWHX=: _10 _100 + 2 {. wdqm''
-else.
-  qm=. wdqm''
-  mx=. (14 { qm) - +: 8 { qm
-  my=. (15 { qm) - +/ 9 9 10 10 11 { qm
-  MAXXYWHX=: mx,my
-end.
+qm=. wdqm''
+mx=. (14 { qm) - +: 8 { qm
+my=. (15 { qm) - +/ 9 9 10 10 11 { qm
+MAXXYWHX=: mx,my
 MINFORMX=: 0 0,470 192 + _2 {. FORMX - GXYWHX
 setformsize''
 enableback 0

@@ -1,4 +1,5 @@
-require 'droidwd gtkwd'
+require 'droidwd'
+require^:(-.IFJ6) ::0: 'gtkwd'
 require 'gl2'
 
 coclass 'jprintdemo'

@@ -1,6 +1,7 @@
 NB. demosel.ijs      - main selection dialog
 
-require 'droidwd gtkwd wdclass gl2 numeric stats'
+require 'droidwd wdclass gl2 numeric stats'
+require^:(-.IFJ6) ::0: 'gtkwd'
 
 18!:55 <'jdemos'
 coclass 'jdemos'
@@ -71,28 +72,23 @@ life dlife
 minesweeper dminesweeper
 plot dplot
 pousse dpousse
-unicode dunicode
 unicode_simple dunisimple
 )
 
 TITLESQT=: maketitle 0 : 0
 cities dcities
-cobrowse dcobrowse
 coins dcoins
 deoptim ddeoptim
-eigenpictures deigenpic
 events devents
-grid dgrid
 isigraph... disigraph
 life dlife
 minesweeper dminesweeper
+nurikabe dnurikabe
 opengl_simple dopengl
 plot dplot
 pousse dpousse
 scriptdoc dscriptdoc
 solitaire dsolitaire
-treemap dtreemap
-unicode dunicode
 unicode_simple dunisimple
 )
 

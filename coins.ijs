@@ -1,6 +1,7 @@
 NB. init
 
-require 'droidwd gtkwd gl2 wdclass'
+require 'droidwd gl2 wdclass'
+require^:(-.IFJ6) ::0: 'gtkwd'
 
 coclass 'jcoins'
 
@@ -514,7 +515,7 @@ coin_run=: 3 : 0
 DONE=: 0
 wd COIN
 setparentname''
-wd^ 'pshow;pshow sw_hide'
+wd 'pshow;pshow sw_hide'
 paint''
 wd 'pshow;'
 evtloop''

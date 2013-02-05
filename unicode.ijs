@@ -1,7 +1,8 @@
 NB. built from project: ~Source/examples/unicode/unicode
 NB. init
 
-require 'droidwd gtkwd wdclass gl2'
+require 'droidwd wdclass gl2'
+require^:(-.IFJ6) ::0: 'gtkwd'
 
 GTKOUTPUT_jzplot_=: 'gtk'
 CONSOLEOUTPUT_jzplot_=: 'gtk'
