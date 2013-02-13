@@ -518,6 +518,7 @@ setparentname''
 wd 'pshow;pshow sw_hide'
 paint''
 wd 'pshow;'
+coin_restart_button^:IFQT ''
 evtloop''
 )
 

@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using gtkwd, qt, droidwd
 )
 
-VERSION=: '1.0.38'
+VERSION=: '1.0.39'
 
 RELEASE=: 'j701 j801'
 
