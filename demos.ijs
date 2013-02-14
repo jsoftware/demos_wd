@@ -86,6 +86,7 @@ nurikabe dnurikabe
 opengl_simple dopengl
 plot dplot
 pousse dpousse
+qt_demo dqtdemo
 scriptdoc dscriptdoc
 solitaire dsolitaire
 unicode_simple dunisimple
@@ -164,10 +165,11 @@ dnurikabe=: nurikabe__ @: (load bind (jpath '~addons/games/nurikabe/nurikabe.ijs
 dopengl=: load bind (jpath '~addons/demos/wdopengl/gldemo/gldemo.ijs')
 dopengllab=: load bind (jpath '~addonsr/demos/wdopengl/glsimple/gldemos.ijs')
 dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
-dopengl=: load bind (jpath '~addons/demos/glsimple/gldemos.ijs')
+dopengl=: load bind (jpath '~addons/demos/glsimple/gldemos.ijs') ^:(-.'Android'-:UNAME)
 dplot=: load bind (jpath '~addons/demos/wdplot/plotdemo.ijs')
 dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
 dprinter=: load bind (jpath '~addons/demos/wd/printer.ijs')
+dqtdemo=: load bind (jpath '~addons/ide/qt/demo/qtdemo.ijs')
 dregex=: load bind (jpath '~addons/demos/wd/regdemo.ijs')
 dsolitaire=: load bind (jpath '~addons/games/solitaire/solitaire.ijs')
 dtabula=: load bind (jpath '~addons/math/tabula/tabula.ijs')
