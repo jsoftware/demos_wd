@@ -851,6 +851,8 @@ if. SCALE > 1 do.
 else.
   glpixel 2 {."1 STATE#RECTS
 end.
+glpaint''
+gltrash''
 wd 'set cnt ',":COUNT
 wd 'setenable stepback ',":HASBUF
 if. COUNT >: MAXITER do.
