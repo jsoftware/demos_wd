@@ -37,7 +37,7 @@ roundint=: <. @: +&0.5
 where=: #~
 
 info=: sminfo @ ('Coins'&;)
-query=: wdquery 'Coins'&;
+query=: wdquery @ ('Coins'&;)
 
 NB. =========================================================
 NB. colors:
