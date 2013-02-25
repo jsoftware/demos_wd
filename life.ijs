@@ -1174,7 +1174,7 @@ life_load_button=: 3 : 0
 if. (('Android'-:UNAME)>IFQT) do.
   sminfo 'Life';'This option is for desktop versions only' return.
 end.
-fl=. wd 'mbopen  "Load *.lif File" "',PATH,'"  ""  "Life(*.lif)|*.lif|All Files(*.*)|*.*"'
+fl=. mbopen '"Load *.lif File" "',PATH,'"  "Life (*.lif);;All Files (*.*)"'
 if. 0=#fl do. return. end.
 a=. readlif fl
 if. 0=#a do. return. end.
