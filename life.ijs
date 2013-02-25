@@ -48,7 +48,7 @@ fix=: 0: ". ];._2
 info=: sminfo @ ('Life'&;)
 ischar=: 2: = 3!:0
 isempty=: 0: e. $
-pathname=: 3 : '(b#y);(-.b=.+./\.y=PATHSEP_j_)#y'
+pathname=: 3 : '(b#y);(-.b=.+./\.''/''=jpathsep y)#y'
 wdx=: wd :: ]
 bufinit=: 3 : 0
 BUF=: MAXBUF # a:
