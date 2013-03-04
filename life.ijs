@@ -18,8 +18,6 @@ NB. STATE is the ravelled board, a boolean of length n with 1=alive.
 NB. INDEX is a n x 9 table of indices that gives the 9 surrounding cells for each cell.
 NB. TRANS is a list of length 512=2^9, that gives the new life state for each old value.
 
-NB. script_z_ '~system/main/gl2.ijs'
-
 require 'droidwd'
 require^:(-.IFJ6) ::0: 'gtkwd'
 coclass 'jlife'
@@ -76,25 +74,13 @@ put=: 3 : 0
 ndx=. ($board) | each pos +each i.each $new
 new (<ndx) } board
 )
-
-life_size=: 3 : 0
-FORMX=: 0 ". sysdata
-GXYWHX=: wdqchildxywhx 'g'
-GXYWHX=: 0 0,glqwh''
-setformsize''
-)
-
 setformsize=: 3 : 0
-wd 'psel ',":HWNDP
+wd 'psel ',HWNDP
 wd 'set siz *',fmtsize BOARD
 del=. ( SCALE * |. BOARD) - _2 {. GXYWHX
-if. 'Android'-:UNAME do.
-  wd 'setxywhx g ',": 0 42 320 256
-else.
-NB.   if. 0 0 -: del do. return. end.
-  wd 'setxywhx g ',": GXYWHX + 0 32,del
-  wd 'pmovex ',": MINFORMX >. FORMX + 0 32,del
-end.
+if. 0 0 -: del do. return. end.
+wd 'setxywhx g ',": GXYWHX + 0 0,del
+wd 'pmovex ',": MINFORMX >. FORMX + 0 0,del
 )
 settimer=: 3 : 0
 if. 'Android'-:UNAME do. TIMER=. 10 * TIMER end.
@@ -825,21 +811,16 @@ See help file: User Manual|Project Manager|Example: Life Project.
 
 
 life=: 3 : 0
-wd 'psel ', ":HWNDP
-glsel canvas
 whilst. RUN | COUNT do.
   buffer''
   step''
-  if. (('Android'-:UNAME)>IFQT) do.
-    glpaint`glpaintx@.(('Android'-:UNAME)>IFQT)''
-  else.
-    paint''
-    glpaint''
-  end.
+  draw''
 end.
 )
-paint=: life_g_paint=: 3 : 0
-glmark''
+draw=: 3 : 0
+wd 'psel ',HWNDP
+glsel 'g'
+glclear''
 glrgb BOARDCOLOR
 glbrush''
 glrect 0 0,SCALE*|.BOARD
@@ -852,7 +833,6 @@ else.
   glpixel 2 {."1 STATE#RECTS
 end.
 glpaint''
-gltrash''
 wd 'set cnt ',":COUNT
 wd 'setenable stepback ',":HASBUF
 if. COUNT >: MAXITER do.
@@ -860,10 +840,13 @@ if. COUNT >: MAXITER do.
 end.
 )
 3 : 0''
-if. (-. (('Android'-:UNAME)>IFQT)) do. life_g_paint=: 0: end.
+if. ('Android'-:UNAME)>IFQT do.
+  life_g_paint=: 0:
+else.
+  life_g_paint=: 3 : 'if. 0=RUN|COUNT do. draw'''' end.'
+end.
 EMPTY
 )
-
 step=: 3 : 0
 STATE=: TRANS {~ #. INDEX { STATE
 COUNT=: >: COUNT
@@ -883,34 +866,64 @@ STDRATIOS=: 1 1.25 1.5 2
 
 WCFG=: 0 : 0
 pc wcfg owner;pn "Life Config";
-xywh 6 6 107 55;cc g0 groupbox;cn "Current Size";
+bin v;
+bin h;
+bin v;
+groupbox "Current Size";
+bin hv;
 xywh 12 18 34 12;cc s0 static;cn "Cells:";
-xywh 52 18 54 12;cc scells static;cn "256 x 256";
 xywh 12 31 34 12;cc s2 static;cn "Scale:";
-xywh 52 31 54 12;cc sscale static;cn "3";
 xywh 12 44 34 12;cc s3 static;cn "Pixels:";
+bin szv;
+xywh 52 18 54 12;cc scells static;cn "256 x 256";
+xywh 52 31 54 12;cc sscale static;cn "3";
 xywh 52 44 54 12;cc spixels static;cn "712 x 712";
-xywh 6 65 107 55;cc g1 groupbox;cn "New Size";
+bin szz;
+groupboxend;
+groupbox "New Size";
+bin hv;
 xywh 12 77 34 12;cc s4 static;cn "Cells:";
-xywh 52 76 54 12;cc ecells edit;
 xywh 12 91 34 12;cc s5 static;cn "Scale:";
-xywh 52 89 28 100;cc escale combolist;
 xywh 12 105 34 12;cc s6 static;cn "Pixels:";
+bin szv;
+xywh 52 76 54 12;cc ecells edit;
+xywh 52 89 28 100;cc escale combolist;
 xywh 52 105 48 12;cc snewpixels static;cn "712 x 712";
-xywh 117 6 104 114;cc g3 groupbox;cn "Standard cell sizes";
+bin szz;
+groupboxend;
+bin z;
+groupbox "Standard cell sizes";
+bin hv;
 xywh 123 17 26 12;cc s25 static;cn "Rows:";
-xywh 177 17 42 11;cc s26 static;cn "Cols:Rows";
 xywh 125 32 36 11;cc b64 radiobutton;cn "64";
 xywh 125 45 36 11;cc b128 radiobutton group;cn "128";
 xywh 125 58 36 11;cc b256 radiobutton group;cn "256";
 xywh 125 71 36 11;cc b512 radiobutton group;cn "512";
 xywh 125 84 36 11;cc b1024 radiobutton group;cn "1024";
-xywh 128 101 84 12;cc bfd button;cn "Best fit to desktop";
+bin szv;
+xywh 177 17 42 11;cc s26 static;cn "Cols:Rows";
 xywh 179 32 36 11;cc bc1 radiobutton;cn "1";
 xywh 179 45 36 11;cc bc125 radiobutton group;cn "1.25";
 xywh 179 58 36 11;cc bc15 radiobutton group;cn "1.5";
 xywh 179 71 36 11;cc bc2 radiobutton group;cn "2";
-xywh 6 125 316 68;cc g2 groupbox;cn "Counts";
+bin szz;
+xywh 128 101 84 12;cc bfd button;cn "Best fit to desktop";
+groupboxend;
+bin v;
+bin v;
+xywh 267 11 52 12;cc ok button;cn "OK";
+xywh 267 25 52 13;cc cancel button;cn "Cancel";
+bin sz;
+groupbox "Colors";
+xywh 229 76 79 10;cc s22 static;cn "RGB triples:";
+xywh 255 89 50 12;cc bcolor edit;
+xywh 307 90 11 11;cc bbcolor button;cn ">>";
+xywh 229 105 25 11;cc c21 static;cn "Cell:";
+xywh 255 104 50 12;cc ccolor edit;
+xywh 307 105 11 11;cc bccolor button;cn ">>";
+groupboxend;
+bin szz;
+groupbox "Counts";
 xywh 12 136 306 21;cc scount static;
 xywh 12 162 60 12;cc s8 static;cn "Max Buffer:";
 xywh 75 161 44 12;cc emaxbuf edit;
@@ -918,7 +931,8 @@ xywh 123 162 158 12;cc s10 static;cn "default = 100";
 xywh 12 175 60 12;cc s7 static;cn "Max Iterations:";
 xywh 75 174 44 12;cc emaxiter edit;
 xywh 123 175 158 12;cc s9 static;cn "empty if none";
-xywh 6 199 316 78;cc g4 groupbox;cn "Run";
+groupboxend;
+groupbox "Run";
 xywh 12 210 306 31;cc srun static;
 xywh 12 246 56 12;cc s11 static;cn "Min Run:";
 xywh 69 245 44 12;cc eminrun edit;
@@ -927,15 +941,8 @@ xywh 12 259 56 12;cc s11 static;cn "Delay:";
 xywh 69 258 44 12;cc etimer edit;
 xywh 117 259 158 12;cc s12 static;cn "default = 1";
 xywh 229 90 25 11;cc s20 static;cn "Board:";
-xywh 225 66 97 54;cc g5 groupbox;cn "Colors";
-xywh 229 76 79 10;cc s22 static;cn "RGB triples:";
-xywh 255 89 50 12;cc bcolor edit;
-xywh 307 90 11 11;cc bbcolor button;cn ">>";
-xywh 229 105 25 11;cc c21 static;cn "Cell:";
-xywh 255 104 50 12;cc ccolor edit;
-xywh 307 105 11 11;cc bccolor button;cn ">>";
-xywh 267 11 52 12;cc ok button;cn "OK";
-xywh 267 25 52 13;cc cancel button;cn "Cancel";
+groupboxend;
+bin z;
 pas 4 4;pcenter;
 rem form end;
 )
@@ -1018,8 +1025,7 @@ if. (-.Nboard -: BOARD) +. Nscale ~: SCALE do.
   setformsize ''
   wdfit''
 end.
-glsel canvas
-glpaint`glpaintx@.(('Android'-:UNAME)>IFQT)''
+draw''
 )
 wcfg_read=: 3 : 0
 board=. 0 ". ' ' (I. ecells e. ',xX') } ecells
@@ -1040,11 +1046,11 @@ end.
 Nboard=: board
 Nbcolor=: bclr
 Nccolor=: cclr
-Nscale=: 1 + {. 0 ". escale_select
-Nmaxbuf=. {. 0 ". emaxbuf
-Nminrun=: 1 >. {. 0 ". eminrun
+Nscale=: 1 + 0 ". escale_select
+Nmaxbuf=. 0 ". emaxbuf
+Nminrun=: 1 >. 0 ". eminrun
 Nmaxiter=: {. (0 ". emaxiter),_
-Ntimer=: 1 >. {. 0 ". etimer
+Ntimer=: 1 >. 0 ". etimer
 1
 )
 wcfg_reshow=: 3 : 0
@@ -1091,7 +1097,7 @@ wcfg_cancel_button=: wcfg_close
 wcfg_cancel=: wcfg_close
 
 LIFE=: 0 : 0
-pc life nomax nosize qtwd;pn "Life";
+pc life nomax nosize;pn "Life";
 menupop "File";
 menu load "&Load Pattern File..." "" "" "";
 menusep;
@@ -1125,7 +1131,7 @@ xywh 80 1 39 12;cc stepback button;cn "Back";
 xywh 119 1 39 12;cc step button;cn "Step";
 xywh 161 3 45 11;cc siz static ss_center;cn "";
 xywh 207 3 36 11;cc cnt static ss_center;cn "";
-bin sz;
+bin z;
 xywh 0 14 320 256;cc g isigraph;
 bin z;
 pas 0 0;pcenter;
@@ -1133,20 +1139,11 @@ rem form end;
 )
 life_run=: 3 : 0
 wd LIFE
-canvas=: wdqhwndc 'g'
-if. IFQT do.
-  if. wdishandle HWNDP do. return. end.
-else.
-  if. HWNDP e. 1 {"1 wdforms'' do. return. end.
-end.
-HWNDP=: wdqhwndp''
-FORMX=: wdqformx''
-GXYWHX=: wdqchildxywhx 'g'
-GXYWHX=: 0 0,glqwh''
-qm=. wdqm''
-mx=. (14 { qm) - +: 8 { qm
-my=. (15 { qm) - +/ 9 9 10 10 11 { qm
-MAXXYWHX=: mx,my
+if. HWNDP e. 1 {"1 wdforms'' do. return. end.
+HWNDP=: wd 'qhwndp'
+FORMX=: 0 ". wd 'qformx'
+GXYWHX=: 0 ". wd 'qchildxywhx g'
+MAXXYWHX=: _10 _100 + 2 3 { 0 ". wd 'qscreen'
 MINFORMX=: 0 0,470 192 + _2 {. FORMX - GXYWHX
 setformsize''
 enableback 0
@@ -1164,17 +1161,13 @@ life_default=: 3 : 0
 if. (<syschild) e. LIFS do.
   settimer 0
   rundoit buildlif ". toupper syschild
-  if. -. (('Android'-:UNAME)>IFQT) do.
-    paint''
-    glpaint''
-  end.
 end.
 )
 life_load_button=: 3 : 0
 if. (('Android'-:UNAME)>IFQT) do.
   sminfo 'Life';'This option is for desktop versions only' return.
 end.
-fl=. mbopen '"Load *.lif File" "',PATH,'"  "Life (*.lif);;All Files (*.*)"'
+fl=. mbopen '"Load *.lif File" "',PATH,'"  "Life (*.lif)|All Files (*.*)"'
 if. 0=#fl do. return. end.
 a=. readlif fl
 if. 0=#a do. return. end.
@@ -1202,8 +1195,7 @@ if. HASBUF do.
   BUF=: a:,}:BUF
   HASBUF=: * # _1 pick BUF
   COUNT=: COUNT - 1
-  glsel canvas
-  glpaint`glpaintx@.(('Android'-:UNAME)>IFQT)''
+  draw''
 else.
   enableback 0
 end.
@@ -1219,7 +1211,6 @@ life_pause_button=: settimer bind 0
 life_run_button=: settimer bind 1
 
 run=: 3 : 0
-if. 'Android'-:UNAME do. y=. '' end.
 dat=. y
 if. 0=#dat do.
   dat=. 'coerake1'
@@ -1229,19 +1220,14 @@ if. ischar dat do.
 end.
 runinit dat
 rundoit dat
-if. -. (('Android'-:UNAME)>IFQT) do.
-  paint''
-  glpaint''
-end.
-evtloop''
+draw''
 )
 rundoit=: 3 : 0
 STATE=: ,y
 COUNT=: 0
 bufinit ''
 settimer 0
-glsel canvas
-glpaint`glpaintx@.(('Android'-:UNAME)>IFQT)''
+draw''
 )
 runinit=: 3 : 0
 BOARD=: $ y
