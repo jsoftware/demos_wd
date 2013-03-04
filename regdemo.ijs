@@ -127,7 +127,7 @@ newtext=: 3 : 0
 
 NB. =========================================================
 regdemo_open_button=: 3 : 0
-f=. mbopen '"Open File" "" "Text files (*.txt);;Script files (*.ijs);;All files (*.*)"'
+f=. mbopen '"Open File" "" "Text files (*.txt)|Script files (*.ijs)|All files (*.*)"'
 if. *#f do. newtext fread f end.
 )
 
