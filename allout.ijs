@@ -188,7 +188,7 @@ if. INF=: *+/bl=. null{top do.
   wd 'pn ""'
   wd 'xywh 5 5 100 40;cc msgbd static ss_center'
   wd 'setfont msgbd "Courier New" 12'
-  wd 'set msgbd *',msg
+  wd 'set msgbd text *',msg
   wd 'xywh 5 50 100 28'
   wd 'cc modf groupbox;cn "Modify it?"'
   wd 'setfont modf "Courier New" 12'
@@ -296,9 +296,9 @@ wd 'cc subg2 static ;cn "Cell Unit = "'
 wd 'setfont subg2 "Courier New" 12'
 wd 'xywh 55 34 14 10 ;cc sgc edit;cn ""'
 wd 'setfont sgc "Courier New" 12'
-wd 'set sgm *',":M
-wd 'set sgn *',":N
-wd 'set sgc *',":cell
+wd 'set sgm text *',":M
+wd 'set sgn text *',":N
+wd 'set sgc text *',":cell
 wd 'xywh 27 55 20 10'
 wd 'cc ok button bs_defpushbutton;cn "Set!" '
 wd 'setfont ok "Courier New" 12'

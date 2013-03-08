@@ -103,10 +103,10 @@ m=. {."2 pat rxmatches :: 0: TEXT
 if. m-:0 do.  NB. error
   (0 2$0) setout TEXT
   if. 'Success'-:t=. rxerror'' do. t=. 'Interrupt' end.
-  wd 'set msg *',t=. 'Error: ',t
+  wd 'set msg text *',t=. 'Error: ',t
 else.  NB. success
   m setout TEXT
-  wd 'set msg *',t=. (":#m),' match',('es'#~1~:#m),'.'
+  wd 'set msg text *',t=. (":#m),' match',('es'#~1~:#m),'.'
 end.
 wd 'setfocus pat'
 t
@@ -134,10 +134,10 @@ if. *#f do. newtext fread f end.
 NB. =========================================================
 dopattern=: 3 : 0
 't p'=. y{Patterns
-wd 'set pat *',p
+wd 'set pat text *',p
 pat=: p
 t=. t,': ',regdemo_match_button''
-wd 'set msg *',t
+wd 'set msg text *',t
 )
 
 NB. =========================================================

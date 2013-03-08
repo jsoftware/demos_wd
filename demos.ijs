@@ -1,7 +1,6 @@
 NB. demosel.ijs      - main selection dialog
 
 require 'droidwd wdclass gl2 numeric stats'
-require^:(-.IFJ6) ::0: 'gtkwd'
 
 18!:55 <'jdemos'
 coclass 'jdemos'
@@ -105,14 +104,14 @@ end.
 
 NB. =========================================================
 DEMOS=: 0 : 0
-pc demos closeok qtwd;pn "Demos Select";
+pc demos closeok;pn "Demos Select";
 bin v;
-xywh 7 9 150 11;cc static1 static;cn "static1";
+cc static1 static;cn "static1";
 bin h;
-xywh 6 22 100 200;cc listbox listbox ws_border ws_vscroll lbs_nosel rightmove bottommove;
+wh 200 400;cc listbox listbox lbs_nosel;
 bin v;
-xywh 114 24 42 12;cc ok button leftmove rightmove;cn "OK";
-xywh 114 41 42 12;cc cancel button leftmove rightmove;cn "Cancel";
+cc ok button;cn "OK";
+cc cancel button;cn "Cancel";
 bin szzz;
 pas 4 2;pcenter;
 rem form end;
@@ -124,10 +123,10 @@ if. wdisparent 'demos' do.
   wd 'psel demos;pshow;pactive' return.
 end.
 wd DEMOS
-wd 'set static1 *Select a demo from the list below:'
+wd 'set static1 text *Select a demo from the list below:'
 NB. TODO
-wd 'set listbox ',;DEL,each ({."1 TITLES),each DEL
-wd 'setselect listbox 0'
+wd 'set listbox items ',;DEL,each ({."1 TITLES),each DEL
+wd 'set listbox select 0'
 wd 'setfocus listbox'
 wd 'pshow;'
 evtloop''

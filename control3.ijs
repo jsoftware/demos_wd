@@ -47,30 +47,30 @@ selects_cancel_button=: wd bind 'pclose'
 setlistbox=: 3 : 0
 NB. multiple select listbox with 4 items, initial selection=1
 list=. ;:'apples bananas cherries dates'
-wd 'set bxlist ',;list ,each LF
+wd 'set bxlist items ',;list ,each LF
 )
 
 setcombolist=: 3 : 0
 NB. combobox with dropdownlist, initial selectsion=0
 j=. 'January February March April May June July August'
 mos=. ;:j,' September October November December'
-wd 'set combolist ',;mos,&.>LF
-wd 'setselect combolist 0;'
+wd 'set combolist items ',;mos,&.>LF
+wd 'set combolist select 0;'
 )
 
 setcombodrop=: 3 : 0
 NB. dropdown combobox with edit field, initial selectsion=0
 j=. 'Antwerp Brussels Copenhagen Danzig Essen Frankfurt Gstaad'
 city=. ;:j,' Hamburg Ilford Krakow Lausanne'
-wd 'set combodrop ',;city ,each LF
-wd 'setselect combodrop 0;'
+wd 'set combodrop items ',;city ,each LF
+wd 'set combodrop select 0;'
 )
 
 setcombobox=: 3 : 0
 NB. combobox with edit field, initial selectsion=0
 words=. ;:'Goose Geese Moose Meese Tooth Teeth Booth Beeth'
-wd 'set combobox ',;words ,each LF
-wd 'setselect combobox 0;'
+wd 'set combobox items ',;words ,each LF
+wd 'set combobox select 0;'
 )
 
 setprogress=: 3 : 0
@@ -82,30 +82,30 @@ setspinbox=: 3 : 0
 NB. initialise spinbox
 PAY=: 'Annual';'Semi Annual';'Quarterly';'Monthly'
 PAYNDX=: 0
-wd 'set pay *',PAYNDX pick PAY
+wd 'set pay text *',PAYNDX pick PAY
 )
 
 selects_spinv_button=: 3 : 0
 PAYNDX=: (#PAY) | PAYNDX+".spinv
-wd 'set pay *',PAYNDX pick PAY
+wd 'set pay text *',PAYNDX pick PAY
 )
 
 selects_spin_button=: 3 : 0
 j=. 0 >. 10 <. (".trackbar)+".spin
-wd 'set trackbar ',":j
+wd 'set trackbar value ',":j
 j=. 0 >. 10 <. (".trackbarv)+".spin
-wd 'set trackbarv ',":j
+wd 'set trackbarv value ',":j
 )
 
 selects_setprogress_button=: 3 : 0
 PROGRESS=: 100 <. PROGRESS+8
-wd 'set progress2 ',":PROGRESS
+wd 'set progress2 value ',":PROGRESS
 )
 
 selects_blist_button=: wdselects bind (0 : 0)
 wd 'cc bxlist listbox ws_vscroll lbs_multiplesel'
 list=. ;:'apples bananas cherries dates'
-wd 'set bxlist ',;list ,each LF
+wd 'set bxlist items ',;list ,each LF
 )
 
 selects_bclist_button=: wdselects bind (0 : 0)
@@ -113,7 +113,7 @@ wd 'cc combolist combolist ws_vscroll'
 j=. 'January February March April May June July August'
 mos=. ;:j,' September October November December'
 wd  'set combolist ',;mos,&.>LF
-wd  'setselect combolist 0;'
+wd  'set combolist select 0;'
 )
 
 selects_bcd_button=: wdselects bind (0 : 0)
@@ -121,14 +121,14 @@ wd 'cc combodrop combodrop'
 j=. 'Antwerp Brussels Copenhagen Danzig Essen Frankfurt Gstaad'
 city=. ;:j,' Hamburg Ilford Krakow Lausanne'
 wd  'set combodrop ',;city ,each LF
-wd  'setselect combodrop 0;'
+wd  'set combodrop select 0;'
 )
 
 selects_bcombo_button=: wdselects bind (0 : 0)
 wd 'cc combobox combobox ws_vscroll'
 words=. ;:'Goose Geese Moose Meese Tooth Teeth Booth Beeth'
 wd  'set combobox ',;words ,each LF
-wd  'setselect combobox 0;'
+wd  'set combobox select 0;'
 )
 
 selects_bspinv_button=: wdselects bind (0 : 0)

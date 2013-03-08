@@ -25,7 +25,7 @@ rem form end;
 NB. this creates and initializes the form:
 editname=: 3 : 0
 wd EDITNAME
-wd 'set name *',NAME
+wd 'set name text *',NAME
 wd 'pshow'
 )
 

@@ -21,7 +21,7 @@ edits_run=: 3 : 0
 wd EDITS
 ITALIC=: 0
 SIZE=: 15
-wd 'set edit *single line edit box'
+wd 'set edit text *single line edit box'
 c=. wdqhwndc 'richeditm'
 j4r=. '<span font="Arial Black 32" fgcolor="red">J Release 7</span>'
 if. -. IFQT+.'Android'-:UNAME do.

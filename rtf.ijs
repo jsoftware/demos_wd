@@ -31,5 +31,5 @@ rem form end;
 
 abc_close_button=: abc_cancel=: abc_close=: wd bind 'pclose'
 
-wd 'set rid *',rtfdata
+wd 'set rid text *',rtfdata
 wd 'pshow'

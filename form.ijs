@@ -28,9 +28,9 @@ wd 'setfont editm "Courier New" 10'
 wd 'setfont combo "Tahoma" 10'
 wd 'setfont ok "Tahoma" 10'
 wd 'setfont cancel "Tahoma" 10'
-wd 'set editm *cutfolders=: 3 : 0',LF,FORMTEXT,LF,')'
-wd 'set combo france germany holland belgium'
-wd 'setselect combo 0'
+wd 'set editm text *cutfolders=: 3 : 0',LF,FORMTEXT,LF,')'
+wd 'set combo items france germany holland belgium'
+wd 'set combo select 0'
 wd 'pshow;'
 )
 

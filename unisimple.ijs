@@ -9,9 +9,9 @@ droidwd_run=: abc_run
 
 ABC=: 0 : 0
 pc abc;pn "Unicode";
-xywh 7 8 156 24;cc b button rightmove;
-xywh 8 39 156 52;cc em editm rightmove bottomscale;
-xywh 165 100 70 12;cc viewsource button leftmove rightmove;cn "View Source";
+cc b button;
+wh 312 104;cc em editm;
+cc viewsource button;cn "View Source";
 pas 6 6;pcenter;
 rem form end;
 )
@@ -55,8 +55,8 @@ wd ABC
 wd'setfont b ',font
 wd'setfont em ',font
 btext=: c_name
-wd'setcaption b *',btext
-wd'set em *',c_all
+wd'set b text *',btext
+wd'set em text *',c_all
 wd 'pshow;'
 evtloop''
 )
@@ -80,8 +80,8 @@ case. c_name do.
   btext=: e_name
   t=. e_all
 end.
-wd'set em *',t
-wd'setcaption b *',btext
+wd'set em text *',t
+wd'set b text *',btext
 )
 
 NB. =========================================================

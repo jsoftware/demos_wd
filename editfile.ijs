@@ -19,12 +19,12 @@ pc editfile;
 sbar 1;
 sbarset editbar 50 "";
 sbarshow;
-xywh 7 13 40 10;cc label static;cn "Select file:";
-xywh 7 21 37 57;cc FileList listbox;
-xywh 52 22 158 87;cc FileText editm ws_border ws_vscroll es_autovscroll rightmove bottommove;
-xywh 99 4 34 12;cc open button rightmove;cn "Open";
-xywh 137 4 34 12;cc save button rightmove;cn "Save";
-xywh 175 4 34 12;cc cancel button rightmove;cn "Cancel";
+cc label static;cn "Select file:";
+wh 74 1147;cc FileList listbox;
+wh 316 174;cc FileText editm;
+cc open button;cn "Open";
+cc save button;cn "Save";
+cc cancel button;cn "Cancel";
 pas 6 6;pcenter;
 rem form end;
 )
@@ -34,7 +34,7 @@ FORMNAME=: 'Edit File'
 editfile_run=: 3 : 0
 wd EDITFILE
 wd 'pn *',FORMNAME
-wd 'set FileList *',;FILES,each LF
+wd 'set FileList items *',;FILES,each LF
 displayfile 0
 wd 'pshow;'
 )
@@ -67,14 +67,14 @@ displayfile=: 3 : 0
 FILENDX=: y
 FILENAME=: FILENDX pick FILES
 OLDTEXT=: fread FILENAME
-wd 'set FileText *',OLDTEXT
+wd 'set FileText text *',OLDTEXT
 displayselect''
 )
 
 NB. display current selection
 displayselect=: 3 : 0
-wd 'setselect FileList ',":FILENDX
-wd 'set editbar *Open File: ',FILENAME
+wd 'set FileList select ',":FILENDX
+wd 'set editbar text *Open File: ',FILENAME
 wd 'sbarshow 1'
 )
 

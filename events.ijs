@@ -35,7 +35,7 @@ wceview 'wdq';'';(60 <. {:$txt) {."1 txt
 showme=: IFWINCE pick wdqshow`wceshow
 
 EVENTS=: 0 : 0
-pc events nomax nosize qtwd;pn "Events";
+pc events nomax nosize;pn "Events";
 menupop "File";
 menu new "&New" "" "" "";
 menu open "&Open" "" "" "";
@@ -43,89 +43,61 @@ menusep;
 menu exit "&Exit" "" "" "";
 menupopz;
 bin v;
-xywh 7 6 239 93;cc g0 groupbox;cn "";
-xywh 11 13 231 82;cc s0 static;
-xywh 7 107 133 25;cc g2 groupbox;cn "Edit";
+groupbox "";
+cc s0 static;
+groupboxend;
 bin h;
-xywh 10 116 123 12;cc text edit ws_border es_autohscroll;
+groupbox "Edit";
+cc text edit;
+groupboxend;
 bin h;
-xywh 152 107 93 25;cc g1 groupbox;cn "Options";
-xywh 160 117 28 11;cc red radiobutton;cn "Red";
-xywh 192 117 34 11;cc blue radiobutton group;cn "Blue";
+groupbox "Options";
+cc red radiobutton;cn "Red";
+cc blue radiobutton group;cn "Blue";
+groupboxend;
 bin zzhv;
-xywh 7 143 75 87;cc g3 groupbox;cn "Listbox";
-xywh 12 154 61 59;cc list listbox ws_vscroll;
-xywh 12 212 57 11;cc showselect checkbox;cn "select";
-bin zv;
-xywh 104 143 141 87;cc g4 groupbox;cn "Isigraph";
-xywh 111 152 42 11;cc showmmove checkbox bs_lefttext;cn "mmove";
-xywh 111 166 42 11;cc showmbldown checkbox bs_lefttext;cn "mbldown";
-xywh 111 180 42 11;cc showmblup checkbox bs_lefttext;cn "mblup";
-xywh 111 194 42 11;cc showmbrdown checkbox bs_lefttext;cn "mbrdown";
-xywh 111 208 42 11;cc showmbrup checkbox bs_lefttext;cn "mbrup";
+groupbox "Listbox";
+wh 121 118;cc list listbox;
+cc showselect checkbox;cn "select";
+groupboxend;
+bin z;
+groupbox "Isigraph";
+bin h;
+bin v;
+cc showmmove checkbox bs_lefttext;cn "mmove";
+cc showmbldown checkbox bs_lefttext;cn "mbldown";
+cc showmblup checkbox bs_lefttext;cn "mblup";
+cc showmbrdown checkbox bs_lefttext;cn "mbrdown";
+cc showmbrup checkbox bs_lefttext;cn "mbrup";
 bin sz;
-xywh 164 155 74 67;cc g isigraph ws_border rightmove bottommove;
+wh 148 134;cc g isigraph;
+bin z;
+groupboxend;
 bin zhs;
-xywh 150 231 40 11;cc cancel button;cn "Cancel";
-xywh 192 231 40 11;cc ok button;cn "OK";
+cc cancel button;cn "Cancel";
+cc ok button;cn "OK";
 bin zz;
 pas 4 2;pcenter;
 rem form end;
 )
 
-EVENTSCE=: 0 : 0
-pc eventsce nomax nosize;pn "Events";
-menupop "File";
-menu new "&New" "" "" "";
-menu open "&Open" "" "" "";
-menusep ;
-menu exit "&Exit" "" "" "";
-menupopz;
-xywh 9 81 98 10;cc text edit ws_border es_autohscroll;
-xywh 4 73 105 21;cc g2 groupbox;cn "Edit";
-xywh 134 81 26 11;cc red radiobutton;cn "Red";
-xywh 160 81 27 11;cc blue radiobutton group;cn "Blue";
-xywh 127 73 63 21;cc g1 groupbox;cn "Options";
-xywh 9 11 50 48;cc list listbox ws_vscroll;
-xywh 9 58 45 11;cc showselect checkbox;cn "select";
-xywh 4 2 60 69;cc g3 groupbox;cn "Listbox";
-xywh 72 13 41 11;cc showmmove checkbox bs_lefttext;cn "mmove";
-xywh 72 23 41 11;cc showmbldown checkbox bs_lefttext;cn "mbldown";
-xywh 72 33 41 11;cc showmblup checkbox bs_lefttext;cn "mblup";
-xywh 72 43 41 11;cc showmbrdown checkbox bs_lefttext;cn "mbrdown";
-xywh 72 53 41 11;cc showmbrup checkbox bs_lefttext;cn "mbrup";
-xywh 123 13 62 52;cc g isigraph ws_border rightmove bottommove;
-xywh 68 2 122 69;cc g4 groupbox;cn "Isigraph";
-xywh 196 24 40 11;cc cancel button;cn "Cancel";
-xywh 196 8 40 11;cc ok button;cn "OK";
-pas 4 2;pcenter;
-rem form end;
-)
-
-j=. 1 i.~ 'eventsce' E. EVENTSCE
-EVENTSCE=: ((j+6) {. EVENTSCE),(j+8)}.EVENTSCE
-
 events_run=: 3 : 0
 if. wdisparent 'events' do.
   wd^:('Android'-.@-:UNAME) 'psel events;pactive;pshow' return.
 end.
-if. IFWINCE do.
-  wd EVENTSCE
-else.
-  wd EVENTS
-  wd 'set s0 *',TEXT
-end.
+wd EVENTS
+wd 'set s0 text *',TEXT
 
-wd 'set list January February March April May June July August September October November December'
-wd 'setselect list 5'
-wd 'set showselect 1'
-wd 'set showmmove 1'
-wd 'set showmbldown 1'
-wd 'set showmbrdown 1'
-wd 'set showmblup 1'
-wd 'set showmbrup 1'
-wd 'set red 0'
-wd 'set blue 1'
+wd 'set list items January February March April May June July August September October November December'
+wd 'set list select 5'
+wd 'set showselect value 1'
+wd 'set showmmove value 1'
+wd 'set showmbldown value 1'
+wd 'set showmbrdown value 1'
+wd 'set showmblup value 1'
+wd 'set showmbrup value 1'
+wd 'set red value 0'
+wd 'set blue value 1'
 wd 'pshow;'
 events_isigraph''
 

@@ -327,11 +327,11 @@ NB. =========================================================
 draw=: 3 : 0
 drawcenters''
 drawnet''
-wd 'set cnt ',":BUFNDX
+wd 'set cnt text ',":BUFNDX
 wd 'setenable restart ',":COUNT > 0
 wd 'setenable undo ',":BUFNDX > 0
 wd 'setenable redo ',":BUFNDX < COUNT
-wd ; ';set '&, each BOARDIDS ,each ' ' ,each ": each BOARD=i.#BOARDS
+wd ; ';set '&, each BOARDIDS ,each (<' checked ') ,each ": each BOARD=i.#BOARDS
 wd 'setfocus g'
 getmoves''
 ACTIVECTR=: ACTIVE { CTR
@@ -481,7 +481,7 @@ end.
 NB. win
 
 COIN=: 0 : 0
-pc coin qtwd;pn "Coins";
+pc coin;pn "Coins";
 menupop "File";
 menu b0 "&Load 8-2-48" "" "" "";
 menu b1 "&Load 8-3-44" "" "" "";
@@ -498,13 +498,13 @@ menusep;
 menu about "&About" "" "" "";
 menupopz;
 bin vh;
-xywh 2 1 39 12;cc restart button;cn "Restart";
-xywh 41 1 39 12;cc undo button;cn "Undo";
-xywh 80 1 39 12;cc redo button;cn "Redo";
-xywh 120 3 36 11;cc cnt static ss_center;cn "";
-xywh 0 14 250 1;cc s0 staticbox ss_etchedhorz rightmove ;
+cc restart button;cn "Restart";
+cc undo button;cn "Undo";
+cc redo button;cn "Redo";
+cc cnt static center;cn "";
+wh 500 2;cc s0 staticbox;
 bin sz;
-xywh 0 15 250 250;cc g isigraph rightmove bottommove;
+wh 500 500;cc g isigraph;
 bin z;
 pas 0 0;pcenter;
 rem form end;

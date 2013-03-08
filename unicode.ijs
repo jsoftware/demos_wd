@@ -92,7 +92,7 @@ NB. win
 
 NB. =========================================================
 UNIDEMO=: 0 : 0
-pc unicode qtwd;pn "Unicode Demo";
+pc unicode;pn "Unicode Demo";
 bin v;
 xywh 8 9 258 34;cc notes static rightmove;cn "";
 bin hs;
@@ -117,7 +117,7 @@ NB. xywh 9 91 174 86;cc grid isigraph rightmove bottomscale;
 NB. =========================================================
 unicode_run=: 3 : 0
 wd UNIDEMO
-wd 'set notes *',NOTES
+wd 'set notes text *',NOTES
 PForm=: 'unicode'
 PFormhwnd=: wdqhwndp''
 wd 'pshow;pshow sw_hide'
@@ -158,10 +158,10 @@ show=: 3 : 0
 setdata''
 glsel_jgl2_ 'grid'
 glsel_jgl2_ 'plot'
-wd 'set edit0 *',IFUNICODE pick EDITTEXTS
-wd 'setcaption ok *',OK
-wd 'setcaption cancel *',CLOSE
-wd 'setcaption toggle *',TOGGLE
+wd 'set edit0 text *',IFUNICODE pick EDITTEXTS
+wd 'set ok text *',OK
+wd 'set cancel text *',CLOSE
+wd 'set toggle text *',TOGGLE
 )
 
 NB. =========================================================

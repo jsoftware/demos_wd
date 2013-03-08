@@ -76,7 +76,7 @@ new (<ndx) } board
 )
 setformsize=: 3 : 0
 wd 'psel ',HWNDP
-wd 'set siz *',fmtsize BOARD
+wd 'set siz text *',fmtsize BOARD
 del=. ( SCALE * |. BOARD) - _2 {. GXYWHX
 if. 0 0 -: del do. return. end.
 wd 'setxywhx g ',": GXYWHX + 0 0,del
@@ -738,9 +738,9 @@ SPIRAL=: 0 : 0
 
 LIF=: 0 : 0
 pc lif owner;
-xywh 164 1 42 12;cc run button leftmove rightmove;cn "&Run";
-xywh 206 1 42 12;cc cancel button leftmove rightmove;cn "&Cancel";
-xywh 0 13 250 150;cc e editm ws_vscroll es_readonly rightmove bottommove;
+cc run button;cn "&Run";
+cc cancel button;cn "&Cancel";
+wh 500 300;cc e editm readonly;
 pas 0 0;
 rem form end;
 )
@@ -750,7 +750,7 @@ wd 'pn "',NAME,'"'
 dat=. 'b' fread FILE
 dat=. dat #~ (<'#D') = 2 {.each dat
 dat=. }: ; 3 }. each dat ,each LF
-wd 'set e *',dat
+wd 'set e text *',dat
 wd 'setfont e ',FIXFONT
 wd 'setscroll e 0'
 wd 'setfocus e'
@@ -833,7 +833,7 @@ else.
   glpixel 2 {."1 STATE#RECTS
 end.
 glpaint''
-wd 'set cnt ',":COUNT
+wd 'set cnt text ',":COUNT
 wd 'setenable stepback ',":HASBUF
 if. COUNT >: MAXITER do.
   settimer 0 return.
@@ -959,12 +959,12 @@ Ntimer=: TIMER
 Nbcolor=: BOARDCOLOR
 Nccolor=: CELLCOLOR
 wd WCFG
-wd 'set scells *',fmtsize BOARD
-wd 'set sscale *',": SCALE
-wd 'set spixels *',fmtsize BOARD * SCALE
-wd 'set escale ',": 1 + i.8
-wd 'set scount *',COUNTS
-wd 'set srun *',RUNS
+wd 'set scells text *',fmtsize BOARD
+wd 'set sscale text *',": SCALE
+wd 'set spixels text *',fmtsize BOARD * SCALE
+wd 'set escale text ',": 1 + i.8
+wd 'set scount text *',COUNTS
+wd 'set srun text *',RUNS
 wcfg_noratio''
 wcfg_nosize''
 wcfg_show''
@@ -1002,10 +1002,10 @@ Nboard=: y * 1,ratio
 wcfg_show''
 )
 wcfg_noratio=: 3 : 0
-wd 'set bc1 0;set bc125 0;set bc15 0;set bc2 0'
+wd 'set bc1 value 0;set value bc125 value 0;set bc15 value 0;set bc2 value 0'
 )
 wcfg_nosize=: 3 : 0
-wd 'set b64 0;set b128 0;set b256 0;set b512 0;set b1024 0;'
+wd 'set b64 value 0;set b128 value 0;set b256 value 0;set b512 value 0;set b1024 value 0;'
 )
 wcfg_ok_button=: 3 : 0
 if. -. wcfg_read'' do. return. end.
@@ -1058,27 +1058,27 @@ wcfg_read''
 wcfg_show''
 )
 wcfg_show=: 3 : 0
-wd 'set ecells *',fmtsize Nboard
-wd 'setselect escale ',": Nscale-1
+wd 'set ecells text *',fmtsize Nboard
+wd 'set escale select ',": Nscale-1
 wd 'set snewpixels *',fmtsize Nboard * Nscale
 ndx=. STDSIZES i. {. Nboard
 if. ndx < #STDSIZES do.
-  wd 'set b',(":2^6+ndx),' 1'
+  wd 'set b',(":2^6+ndx),' value 1'
 else.
   wcfg_nosize''
 end.
 ndx=. STDRATIOS i. ({:%{.) Nboard
 if. ndx < #STDRATIOS do.
-  wd 'set bc',(ndx pick '1';'125';'15';'2'),' 1'
+  wd 'set bc',(ndx pick '1';'125';'15';'2'),' value 1'
 else.
   wcfg_noratio''
 end.
-wd 'set emaxiter ',(Nmaxiter ~: _) # ":Nmaxiter
-wd 'set emaxbuf ',":Nmaxbuf
-wd 'set eminrun ',":Nminrun
-wd 'set etimer ',":Ntimer
-wd 'set bcolor *',":Nbcolor
-wd 'set ccolor *',":Nccolor
+wd 'set emaxiter text ',(Nmaxiter ~: _) # ":Nmaxiter
+wd 'set emaxbuf text ',":Nmaxbuf
+wd 'set eminrun text ',":Nminrun
+wd 'set etimer text ',":Ntimer
+wd 'set bcolor text *',":Nbcolor
+wd 'set ccolor text *',":Nccolor
 )
 wcfg_default=: wcfg_reshow
 
@@ -1125,14 +1125,14 @@ menusep;
 menu about "&About" "" "" "";
 menupopz;
 bin vh;
-xywh 2 1 39 12;cc run button;cn "Run";
-xywh 41 1 39 12;cc pause button;cn "Pause";
-xywh 80 1 39 12;cc stepback button;cn "Back";
-xywh 119 1 39 12;cc step button;cn "Step";
-xywh 161 3 45 11;cc siz static ss_center;cn "";
-xywh 207 3 36 11;cc cnt static ss_center;cn "";
+cc run button;cn "Run";
+cc pause button;cn "Pause";
+cc stepback button;cn "Back";
+cc step button;cn "Step";
+cc siz static center;cn "";
+cc cnt static center;cn "";
 bin z;
-xywh 0 14 320 256;cc g isigraph;
+wh 640 512;cc g isigraph;
 bin z;
 pas 0 0;pcenter;
 rem form end;
