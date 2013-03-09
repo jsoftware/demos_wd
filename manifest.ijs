@@ -3,10 +3,10 @@ NB. demos/wd manifest
 CAPTION=: 'wd demos'
 
 DESCRIPTION=: 0 : 0
-wd demos using gtkwd, qt, droidwd
+wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.49'
+VERSION=: '1.0.50'
 
 RELEASE=: 'j801'
 

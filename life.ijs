@@ -64,7 +64,7 @@ iscolor=: 3 : 0
 *./ (3=#y), y e. i. 256
 )
 mbcolor=: 3 : 0
-new=. ,0 ". wd 'mbcolor ',":y,COLORMB
+new=. ,0 ". wd 'mb color ',":y,COLORMB
 if. isempty new do. '' return. end.
 COLORMB=: 3 }. new
 3 {. new
@@ -962,7 +962,7 @@ wd WCFG
 wd 'set scells text *',fmtsize BOARD
 wd 'set sscale text *',": SCALE
 wd 'set spixels text *',fmtsize BOARD * SCALE
-wd 'set escale text ',": 1 + i.8
+wd 'set escale items ',": 1 + i.8
 wd 'set scount text *',COUNTS
 wd 'set srun text *',RUNS
 wcfg_noratio''
@@ -1002,7 +1002,7 @@ Nboard=: y * 1,ratio
 wcfg_show''
 )
 wcfg_noratio=: 3 : 0
-wd 'set bc1 value 0;set value bc125 value 0;set bc15 value 0;set bc2 value 0'
+wd 'set bc1 value 0;set bc125 value 0;set bc15 value 0;set bc2 value 0'
 )
 wcfg_nosize=: 3 : 0
 wd 'set b64 value 0;set b128 value 0;set b256 value 0;set b512 value 0;set b1024 value 0;'
@@ -1060,7 +1060,7 @@ wcfg_show''
 wcfg_show=: 3 : 0
 wd 'set ecells text *',fmtsize Nboard
 wd 'set escale select ',": Nscale-1
-wd 'set snewpixels *',fmtsize Nboard * Nscale
+wd 'set snewpixels text *',fmtsize Nboard * Nscale
 ndx=. STDSIZES i. {. Nboard
 if. ndx < #STDSIZES do.
   wd 'set b',(":2^6+ndx),' value 1'
