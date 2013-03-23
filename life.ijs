@@ -79,11 +79,11 @@ wd 'psel ',HWNDP
 wd 'set siz text *',fmtsize BOARD
 del=. ( SCALE * |. BOARD) - _2 {. GXYWHX
 if. 0 0 -: del do. return. end.
-wd 'setxywhx g ',": GXYWHX + 0 0,del
+wd 'setwh g ',": _2{. GXYWHX + 0 0,del
 wd 'pmovex ',": MINFORMX >. FORMX + 0 0,del
 )
 settimer=: 3 : 0
-if. 'Android'-:UNAME do. TIMER=. 10 * TIMER end.
+NB. if. 'Android'-:UNAME do. TIMER=. 10 * TIMER end.
 wd 'timer ',":TIMER * y
 )
 
@@ -871,85 +871,82 @@ bin h;
 bin v;
 groupbox "Current Size";
 bin hv;
-xywh 12 18 34 12;cc s0 static;cn "Cells:";
-xywh 12 31 34 12;cc s2 static;cn "Scale:";
-xywh 12 44 34 12;cc s3 static;cn "Pixels:";
+cc s0 static;cn "Cells:";
+cc s2 static;cn "Scale:";
+cc s3 static;cn "Pixels:";
 bin szv;
-xywh 52 18 54 12;cc scells static;cn "256 x 256";
-xywh 52 31 54 12;cc sscale static;cn "3";
-xywh 52 44 54 12;cc spixels static;cn "712 x 712";
+cc scells static;cn "256 x 256";
+cc sscale static;cn "3";
+cc spixels static;cn "712 x 712";
 bin szz;
 groupboxend;
 groupbox "New Size";
 bin hv;
-xywh 12 77 34 12;cc s4 static;cn "Cells:";
-xywh 12 91 34 12;cc s5 static;cn "Scale:";
-xywh 12 105 34 12;cc s6 static;cn "Pixels:";
+cc s4 static;cn "Cells:";
+cc s5 static;cn "Scale:";
+cc s6 static;cn "Pixels:";
 bin szv;
-xywh 52 76 54 12;cc ecells edit;
-xywh 52 89 28 100;cc escale combolist;
-xywh 52 105 48 12;cc snewpixels static;cn "712 x 712";
+cc ecells edit;
+cc escale combolist;
+cc snewpixels static;cn "712 x 712";
 bin szz;
 groupboxend;
 bin z;
 groupbox "Standard cell sizes";
 bin hv;
-xywh 123 17 26 12;cc s25 static;cn "Rows:";
-xywh 125 32 36 11;cc b64 radiobutton;cn "64";
-xywh 125 45 36 11;cc b128 radiobutton group;cn "128";
-xywh 125 58 36 11;cc b256 radiobutton group;cn "256";
-xywh 125 71 36 11;cc b512 radiobutton group;cn "512";
-xywh 125 84 36 11;cc b1024 radiobutton group;cn "1024";
+cc s25 static;cn "Rows:";
+cc b64 radiobutton;cn "64";
+cc b128 radiobutton group;cn "128";
+cc b256 radiobutton group;cn "256";
+cc b512 radiobutton group;cn "512";
+cc b1024 radiobutton group;cn "1024";
 bin szv;
-xywh 177 17 42 11;cc s26 static;cn "Cols:Rows";
-xywh 179 32 36 11;cc bc1 radiobutton;cn "1";
-xywh 179 45 36 11;cc bc125 radiobutton group;cn "1.25";
-xywh 179 58 36 11;cc bc15 radiobutton group;cn "1.5";
-xywh 179 71 36 11;cc bc2 radiobutton group;cn "2";
+cc s26 static;cn "Cols:Rows";
+cc bc1 radiobutton;cn "1";
+cc bc125 radiobutton group;cn "1.25";
+cc bc15 radiobutton group;cn "1.5";
+cc bc2 radiobutton group;cn "2";
 bin szz;
-xywh 128 101 84 12;cc bfd button;cn "Best fit to desktop";
+cc bfd button;cn "Best fit to desktop";
 groupboxend;
 bin v;
 bin v;
-xywh 267 11 52 12;cc ok button;cn "OK";
-xywh 267 25 52 13;cc cancel button;cn "Cancel";
+cc ok button;cn "OK";
+cc cancel button;cn "Cancel";
 bin sz;
 groupbox "Colors";
-xywh 229 76 79 10;cc s22 static;cn "RGB triples:";
-xywh 255 89 50 12;cc bcolor edit;
-xywh 307 90 11 11;cc bbcolor button;cn ">>";
-xywh 229 105 25 11;cc c21 static;cn "Cell:";
-xywh 255 104 50 12;cc ccolor edit;
-xywh 307 105 11 11;cc bccolor button;cn ">>";
+cc s22 static;cn "RGB triples:";
+cc bcolor edit;
+cc bbcolor button;cn ">>";
+cc c21 static;cn "Cell:";
+cc ccolor edit;
+cc bccolor button;cn ">>";
 groupboxend;
 bin szz;
 groupbox "Counts";
-xywh 12 136 306 21;cc scount static;
-xywh 12 162 60 12;cc s8 static;cn "Max Buffer:";
-xywh 75 161 44 12;cc emaxbuf edit;
-xywh 123 162 158 12;cc s10 static;cn "default = 100";
-xywh 12 175 60 12;cc s7 static;cn "Max Iterations:";
-xywh 75 174 44 12;cc emaxiter edit;
-xywh 123 175 158 12;cc s9 static;cn "empty if none";
+cc scount static;
+cc s8 static;cn "Max Buffer:";
+cc emaxbuf edit;
+cc s10 static;cn "default = 100";
+cc s7 static;cn "Max Iterations:";
+cc emaxiter edit;
+cc s9 static;cn "empty if none";
 groupboxend;
 groupbox "Run";
-xywh 12 210 306 31;cc srun static;
-xywh 12 246 56 12;cc s11 static;cn "Min Run:";
-xywh 69 245 44 12;cc eminrun edit;
-xywh 117 246 158 12;cc s11 static;cn "default = 10";
-xywh 12 259 56 12;cc s11 static;cn "Delay:";
-xywh 69 258 44 12;cc etimer edit;
-xywh 117 259 158 12;cc s12 static;cn "default = 1";
-xywh 229 90 25 11;cc s20 static;cn "Board:";
+cc srun static;
+cc s11 static;cn "Min Run:";
+cc eminrun edit;
+cc s11 static;cn "default = 10";
+cc s11 static;cn "Delay:";
+cc etimer edit;
+cc s12 static;cn "default = 1";
+cc s20 static;cn "Board:";
 groupboxend;
 bin z;
 pas 4 4;pcenter;
 rem form end;
 )
 wcfg_run=: 3 : 0
-if. (('Android'-:UNAME)>IFQT) do.
-  sminfo 'Life';'This option is for desktop versions only' return.
-end.
 Nboard=: BOARD
 Nscale=: SCALE
 Nmaxiter=: MAXITER
@@ -1164,9 +1161,6 @@ if. (<syschild) e. LIFS do.
 end.
 )
 life_load_button=: 3 : 0
-if. (('Android'-:UNAME)>IFQT) do.
-  sminfo 'Life';'This option is for desktop versions only' return.
-end.
 fl=. mbopen '"Load *.lif File" "',PATH,'"  "Life (*.lif)|All Files (*.*)"'
 if. 0=#fl do. return. end.
 a=. readlif fl
@@ -1240,7 +1234,7 @@ life_run''
 )
 runlife_z_=: 3 : 0
 a=. conew 'jlife'
-run__a`start_droidwd__a@.(('Android'-:UNAME)>IFQT) ('Android'-:UNAME){::'';a
+run__a`start_droidwd__a@.(('Android'-:UNAME)>IFQT) (('Android'-:UNAME)>IFQT){::'';a
 )
 
 runlife''
