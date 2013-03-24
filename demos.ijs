@@ -67,10 +67,12 @@ coins dcoins
 controls dcontrols
 events devents
 isigraph... disigraph
+grid dgrid
 life dlife
 minesweeper dminesweeper
 plot dplot
 pousse dpousse
+unicode dunicode
 unicode_simple dunisimple
 )
 
@@ -79,6 +81,7 @@ cities dcities
 coins dcoins
 events devents
 isigraph... disigraph
+grid dgrid
 life dlife
 minesweeper dminesweeper
 nurikabe dnurikabe
@@ -89,6 +92,7 @@ pousse dpousse
 qt_demo dqtdemo
 scriptdoc dscriptdoc
 solitaire dsolitaire
+unicode dunicode
 unicode_simple dunisimple
 )
 

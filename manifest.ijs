@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.51'
+VERSION=: '1.0.52'
 
 RELEASE=: 'j801'
 
@@ -28,9 +28,7 @@ demos.ijs
 editfile.ijs
 events.ijs
 form.ijs
-gdtbar.bmp
 grid.ijs
-isitbar8.bmp
 j.bmp
 jr4.rtf
 jy.ico
@@ -43,4 +41,9 @@ rtf.ijs
 unicode.ijs
 unisimple.ijs
 vgriddemo.ijs
+document-page-setup.png
+filenew.png
+object-rotate-left.png
+zoom-in.png
+zoom-out.png
 )

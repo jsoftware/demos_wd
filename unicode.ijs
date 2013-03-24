@@ -2,10 +2,6 @@ NB. built from project: ~Source/examples/unicode/unicode
 NB. init
 
 require 'droidwd wdclass gl2'
-require^:(-.IFJ6) ::0: 'gtkwd'
-
-GTKOUTPUT_jzplot_=: 'gtk'
-CONSOLEOUTPUT_jzplot_=: 'gtk'
 
 require 'jzgrid plot'
 
@@ -94,33 +90,32 @@ NB. =========================================================
 UNIDEMO=: 0 : 0
 pc unicode;pn "Unicode Demo";
 bin v;
-xywh 8 9 258 34;cc notes static rightmove;cn "";
+cc notes static;cn "";
 bin hs;
-xywh 195 46 70 12;cc viewsource button leftmove rightmove;cn "View Source";
+cc viewsource button;cn "View Source";
 bin z;
-xywh 3 62 265 5;cc sb staticbox ss_etchedhorz rightmove;
+cc sb staticbox;
 bin hv;
-xywh 9 72 174 14;cc edit0 edit rightmove;
-xywh 9 91 174 86;cc grid isigraph rightmove bottomscale;
+cc edit0 edit;
+wh 348 172;cc grid isigraph;
 bin zv;
-xywh 195 75 70 12;cc ok button leftmove rightmove;cn "";
-xywh 195 90 70 12;cc cancel button leftmove rightmove;cn "";
-xywh 195 105 70 12;cc toggle button leftmove rightmove;cn "";
+cc ok button;cn "";
+cc cancel button;cn "";
+cc toggle button;cn "";
 bin szz;
-xywh 8 182 258 110;cc plot isigraph ws_border topscale rightmove bottommove;
+wh 516 220;cc plot isigraph;
 bin z;
 pas 0 4;pcenter;
 rem form end;
 )
 
-NB. xywh 9 91 174 86;cc grid isigraph rightmove bottomscale;
 NB. =========================================================
 unicode_run=: 3 : 0
 wd UNIDEMO
 wd 'set notes text *',NOTES
 PForm=: 'unicode'
 PFormhwnd=: wdqhwndp''
-wd 'pshow;pshow sw_hide'
+NB. wd 'pshow;pshow sw_hide'
 grid=: '' conew 'jzgrid'
 plot=: '' conew 'jzplot'
 PForm__plot=: 'unicode'
@@ -128,7 +123,6 @@ PFormhwnd__plot=: wdqhwndp''
 PId__plot=: 'plot'
 show''
 wd 'pshow;'
-evtloop''
 )
 
 NB. =========================================================

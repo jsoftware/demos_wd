@@ -339,10 +339,13 @@ att=. > 4 {"1 j
 MAINDIR=: nms;dat;siz;prm;att
 GRIDEDIT=: 0 : 0
 pc gridedit;pn "View Definition";
-xywh 0 13 308 150;cc gdef editm ws_vscroll rightmove bottommove;
-xywh 182 1 42 12;cc redisplay button leftmove rightmove;cn "&Redisplay";
-xywh 224 1 42 12;cc help button leftmove rightmove;cn "&Help";
-xywh 266 1 42 12;cc close button leftmove rightmove;cn "&Close";
+bin vhs;
+cc redisplay button;cn "&Redisplay";
+cc help button;cn "&Help";
+cc close button;cn "&Close";
+bin z;
+wh 616 300;cc gdef editm;
+bin z;
 pas 0 0;
 rem form end;
 )
@@ -354,7 +357,7 @@ else.
   wd GRIDEDIT
   wd 'setfont gdef ',FIXFONT
 end.
-wd 'set gdef *',gridfix ".GNAME
+wd 'set gdef text *',gridfix ".GNAME
 wd 'setfocus gdef'
 wd 'pshow;'
 )
@@ -387,7 +390,7 @@ gridedit_sctrlshift_fkey=: 3 : 0
 grf=. gridunfix gdef
 grf=. (+./\. grf ~: LF) # grf
 grf=. grf,LF
-f=. jpath '~Source\grid\dev\demo\exam.ijs'
+f=. jpath '~Public/graphics/grid/source/dev/emo/exam.ijs'
 dat=. freads f
 sel=. GNAME,'=: 0 : 0',LF
 ndx=. (#sel) + 1 i.~ sel E. dat
@@ -787,8 +790,8 @@ VERB=: '!'
 )
 GNOTES=: 0 : 0
 pc gridnotes;pn "Grid Notes";
-xywh 0 13 250 100;cc gdef editm ws_vscroll rightmove bottommove;
-xywh 208 1 42 12;cc close button leftmove rightmove;cn "&Close";
+wh 500 200;cc gdef editm;
+cc close button;cn "&Close";
 pas 0 0;
 rem form end;
 )
@@ -805,7 +808,7 @@ else.
   wd 'setfont gdef ',PROFONT
   wd 'setcolor gdef ',": 0 0 0,6 $ wdqcolor 15
 end.
-wd 'set gdef *',".NNAME
+wd 'set gdef text *',".NNAME
 wd 'setfocus gdef'
 wd 'pshow;'
 )
@@ -878,64 +881,23 @@ menu prev "&Shift F12 Previous" "" "" "";
 menusep;
 menu about "&About" "" "" "";
 menupopz;
-tbar "XX" 8 tbstyle_flat;
-tbarset flip 0 0 "Flip" "Flip";
-tbarset "" 1 11;
-tbarset zoomout 2 1 "Zoom Out" "Zoom Out";
-tbarset zoomin 3 2 "Zoom In" "Zoom In";
-tbarset "" 4 11;
-tbarset view 5 3 "Definition" "Definition";
-tbarset "" 6 11;
-tbarset notes 7 4 "Notes" "Notes";
-tbarshow;
-xywh 15 15 325 175;cc grid isigraph rightmove bottommove;
+cc gtb toolbar 22x22;
+wh 650 350;cc grid isigraph;
 pas 15 15;pcenter;
-rem form end;
-)
-GRIDDEMOCE=: 0 : 0
-pc griddemo closeok;
-menupop "&Options";
-menu view "&View Definition" "" "" "";
-menusep;
-menu notes "View &Notes" "" "" "";
-menusep;
-menu zoomout "Zoom &Out" "" "" "";
-menu zoomin "&Zoom In" "" "" "";
-menusep;
-menu exit "E&xit" "" "" "";
-menupopz;
-menupop "&Gallery";
-menu MGRID "Report" "" "" "";
-menu MDIR "Directory List" "" "" "";
-menu MCOLORS "Colors and Fonts" "" "" "";
-menu MMLINE "Multi-Line" "" "" "";
-menu MCOLSIZE "Column Sizes" "" "" "";
-menu MCONTROLS "Controls" "" "" "";
-menu MCOUNTRIES "Countries" "" "" "";
-menu MDEVTRIANGLE "Development Triangle" "" "" "";
-menu MFINANCIAL "Financial Report" "" "" "";
-menu MTABLE "Function Table" "" "" "";
-menupopz;
-menupop "&Help";
-menu next "Next" "Ctrl+A" "" "";
-menu prev "Previous" "Ctrl+Shift+A" "" "";
-menusep;
-menu about "&About" "" "" "";
-menupopz;
-xywh 0 0 100 100;cc grid isigraph rightmove bottommove;
-pas 0 0;pcenter;
 rem form end;
 )
 griddemo_run=: 3 : 0
 wd :: ] 'psel griddemo;pclose'
-if. IFWINCE do.
-  wd GRIDDEMOCE
-else.
-  tbf=. jpath '~addons/demos/wd/gdtbar.bmp'
-  ndx=. 1 i.~ 'XX' E. GRIDDEMO
-  txt=. (ndx{.GRIDDEMO),tbf,(ndx+2)}. GRIDDEMO
-  wd txt
-end.
+wd GRIDDEMO
+P=. jpath '~addons/demos/wd/'
+wd 'set gtb add flip "Flip" "',P,'object-rotate-left.png"'
+wd 'set gtb addsep'
+wd 'set gtb add zoomout "Zoom Out" "',P,'zoom-out.png"'
+wd 'set gtb add zoomin "Zoom In" "',P,'zoom-in.png"'
+wd 'set gtb addsep'
+wd 'set gtb add view "Definition" "',P,'document-page-setup.png"'
+wd 'set gtb addsep'
+wd 'set gtb add notes "Notes" "',P,'filenew.png"'
 wd 'pshow;'
 wdfit ''
 PForm=: wdqhwndp''
