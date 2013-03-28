@@ -80,7 +80,7 @@ wd 'set siz text *',fmtsize BOARD
 del=. ( SCALE * |. BOARD) - _2 {. GXYWHX
 if. 0 0 -: del do. return. end.
 wd 'setwh g ',": _2{. GXYWHX + 0 0,del
-wd 'pmovex ',": MINFORMX >. FORMX + 0 0,del
+wd 'pmove ',": MINFORMX >. FORMX + 0 0,del
 )
 settimer=: 3 : 0
 NB. if. 'Android'-:UNAME do. TIMER=. 10 * TIMER end.
@@ -1138,8 +1138,8 @@ life_run=: 3 : 0
 wd LIFE
 if. HWNDP e. 1 {"1 wdforms'' do. return. end.
 HWNDP=: wd 'qhwndp'
-FORMX=: 0 ". wd 'qformx'
-GXYWHX=: 0 ". wd 'qchildxywhx g'
+FORMX=: 0 ". wd 'qform'
+GXYWHX=: 0 ". wd 'qchildxywh g'
 MAXXYWHX=: _10 _100 + 2 3 { 0 ". wd 'qscreen'
 MINFORMX=: 0 0,470 192 + _2 {. FORMX - GXYWHX
 setformsize''

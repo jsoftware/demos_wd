@@ -341,7 +341,7 @@ NB. =========================================================
 NB. drawcenters v calculate vertex centers in display
 drawcenters=: 3 : 0
 max=. >./ LAYOUT
-wh=. _2 {. wdqchildxywhx 'g'
+wh=. _2 {. wdqchildxywh 'g'
 wh=. glqwh''
 div=. wh % 2 + max
 rad=. -: <./div <. wh % 12
