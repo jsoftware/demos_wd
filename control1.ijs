@@ -2,71 +2,71 @@ NB. control1.ijs  - buttons
 NB.
 NB. standard controls, called by control.ijs
 
-PATH=. jpath '~addons/demos/wd/'
-
 BUTTONS=: 0 : 0
-pc buttons;
-xywh 11 12 79 40;cc radios groupbox;cn "Radio Buttons";
-xywh 16 20 40 10;cc active radiobutton;cn "Active";
-xywh 16 30 40 10;cc inactive radiobutton group;cn "Inactive";
-xywh 16 40 40 10;cc done radiobutton group;cn "Done";
-xywh 78 19 5 5;cc bradios button;cn "";
-xywh 11 68 79 40;cc groupcheck groupbox;cn "Check Buttons";
-xywh 16 80 57 10;cc checkin checkbox;cn "Checked In";
-xywh 16 92 57 10;cc checkout checkbox;cn "Checked Out";
-xywh 78 75 5 5;cc bcheck button;cn "";
-xywh 116 15 72 12;cc defpushbutton button bs_defpushbutton;cn "Default Pushbutton";
-xywh 116 29 72 12;cc ordpushbutton button;cn "Pushbutton";
-xywh 116 51 72 59;cc odpushbutton button bs_ownerdraw;cn "j.bmp";
-xywh 195 17 5 5;cc bdefault button;cn "";
-xywh 195 30 5 5;cc bpush button;cn "";
-xywh 195 54 5 5;cc bod button;cn "";
-pas 5 5;pcenter;
-rem form end;
+bin h;
+bin v;
+groupbox "Radio Buttons";
+bin hv;
+cc active radiobutton;cn "Active";
+cc inactive radiobutton group;cn "Inactive";
+cc done radiobutton group;cn "Done";
+bin z;
+cc bradios button;cn "";
+bin sz;
+groupboxend;
+groupbox "Check Buttons";
+bin hv;
+cc checkin checkbox;cn "Checked In";
+cc checkout checkbox;cn "Checked Out";
+bin z;
+cc bcheck button;cn "";
+bin sz;
+groupboxend;
+bin z;
+bin s;
+bin v;
+bin s;
+bin h;
+cc ordpushbutton button;cn "Pushbutton";
+cc bpush button;cn "";
+bin sz;
+bin s;
+bin h;
+cc odpushbutton image;
+cc bod button;cn "";
+bin sz;
+bin z;
+bin z;
 )
-
-BUTTOD=. 0 : 0
-wd 'cc odpushbutton button bs_ownerdraw;cn "j.bmp"'
-)
-
-ndx=. I. 'j.bmp' E. BUTTONS
-BUTTONS=: (ndx {. BUTTONS),PATH,ndx }. BUTTONS
-
-ndx=. I. 'j.bmp' E. BUTTOD
-BUTTOD=. (ndx {. BUTTOD),PATH,ndx }. BUTTOD
 
 NB. =========================================================
 wdbuttons=: sminfo @ ('button definition'&;)
 
 buttons_run=: 3 : 0
 wd BUTTONS
-NB. initialize form here
-wd 'pshow;'
+PATH=. jpath '~addons/demos/wd/'
+wd 'set odpushbutton image *',PATH,'j.bmp'
 )
 
-buttons_cancel_button=: 3 : 0
-wd 'pclose;'
-)
-
-buttons_bradios_button=: wdbuttons bind (0 : 0)
-wd 'cc radios groupbox;cn "Radio Buttons"'
+wincontrol_bradios_button=: wdbuttons bind (0 : 0)
+wd 'groupbox "Radio Buttons"'
 wd 'cc active radiobutton;cn "Active"'
 wd 'cc inactive radiobutton group;cn "Inactive"'
 wd 'cc done radiobutton group;cn "Done"'
+wd 'groupboxend'
 )
 
-buttons_bcheck_button=: wdbuttons bind (0 : 0)
-wd 'cc groupcheck groupbox;cn "Check Buttons"'
+wincontrol_bcheck_button=: wdbuttons bind (0 : 0)
+wd 'groupbox "Check Buttons"'
 wd 'cc checkin checkbox;cn "Checked In"'
 wd 'cc checkout checkbox;cn "Checked Out"'
+wd 'groupboxend'
 )
 
-buttons_bdefault_button=: wdbuttons bind (0 : 0)
-wd 'cc defpushbutton button bs_defpushbutton;cn "Default Pushbutton"'
-)
-
-buttons_bpush_button=: wdbuttons bind (0 : 0)
+wincontrol_bpush_button=: wdbuttons bind (0 : 0)
 wd 'cc ordpushbutton button;cn "Pushbutton"'
 )
 
-buttons_bod_button=: wdbuttons bind BUTTOD
+wincontrol_bod_button=:  wdbuttons bind (0 : 0)
+wd 'cc odpushbutton image'
+)

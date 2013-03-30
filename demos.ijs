@@ -79,6 +79,7 @@ unicode_simple dunisimple
 TITLESQT=: maketitle 0 : 0
 cities dcities
 coins dcoins
+controls dcontrols
 events devents
 isigraph... disigraph
 grid dgrid

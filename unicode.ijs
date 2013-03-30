@@ -94,7 +94,6 @@ cc notes static;cn "";
 bin hs;
 cc viewsource button;cn "View Source";
 bin z;
-cc sb staticbox;
 bin hv;
 cc edit0 edit;
 wh 348 172;cc grid isigraph;
