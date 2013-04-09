@@ -93,4 +93,4 @@ abc_close=: 3 : 0
 wd'pclose'
 )
 
-abc_run`start_droidwd@.(('Android'-:UNAME)>IFQT) coname''
+abc_run`start_droidwd@.IFJCDROID coname''

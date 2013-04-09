@@ -79,4 +79,4 @@ wincontrol_query_button=: 3 : 0
 wd 'set sbar setlabel sinfo *',syschild
 )
 
-wincontrol_run`start_droidwd@.(('Android'-:UNAME)>IFQT) coname''
+wincontrol_run`start_droidwd@.IFJCDROID coname''

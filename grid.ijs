@@ -968,4 +968,4 @@ griddemo_flip_button=: 3 : 'flip__grid y'
 griddemo_zoomin_button=: 3 : 'zoomin__grid y'
 griddemo_zoomout_button=: 3 : 'zoomout__grid y'
 
-griddemo_run_jgriddemo_`start_droidwd_jgriddemo_@.(('Android'-:UNAME)>IFQT) 'jgriddemo'
+griddemo_run_jgriddemo_`start_droidwd_jgriddemo_@.IFJCDROID 'jgriddemo'

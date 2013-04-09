@@ -56,4 +56,4 @@ wd'mbprinter'
 evtloop''
 )
 
-print_run`start_droidwd@.(('Android'-:UNAME)>IFQT) coname''
+print_run`start_droidwd@.IFJCDROID coname''
