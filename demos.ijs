@@ -65,6 +65,7 @@ TITLESANDROID=: maketitle 0 : 0
 cities dcities
 coins dcoins
 controls dcontrols
+deoptim ddeoptim
 events devents
 isigraph... disigraph
 grid dgrid
@@ -80,6 +81,7 @@ TITLESQT=: maketitle 0 : 0
 cities dcities
 coins dcoins
 controls dcontrols
+deoptim ddeoptim
 events devents
 isigraph... disigraph
 grid dgrid
