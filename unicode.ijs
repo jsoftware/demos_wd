@@ -149,8 +149,10 @@ EDITTEXTS=: (<edit0) IFUNICODE } EDITTEXTS
 NB. =========================================================
 show=: 3 : 0
 setdata''
-glsel_jgl2_ 'grid'
+NB. glsel_jgl2_ 'grid'  NB. does not fire unicode_grid_paint event
+unicode_grid_paint ''
 glsel_jgl2_ 'plot'
+wd 'set plot invalid'
 wd 'set edit0 text *',IFUNICODE pick EDITTEXTS
 wd 'set ok text *',OK
 wd 'set cancel text *',CLOSE
@@ -160,7 +162,6 @@ wd 'set toggle text *',TOGGLE
 NB. =========================================================
 unicode_grid_paint=: 3 : 0
 show__grid GRIDNAMES
-wd'setinvalid plot'
 )
 
 NB. =========================================================
