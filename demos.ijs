@@ -115,7 +115,7 @@ pc demos closeok;pn "Demos Select";
 bin v;
 cc static1 static;cn "static1";
 bin h;
-wh 200 400;cc listbox listbox lbs_nosel;
+minwh 200 400;cc listbox listbox lbs_nosel;
 bin v;
 cc ok button;cn "OK";
 cc cancel button;cn "Cancel";

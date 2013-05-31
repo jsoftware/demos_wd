@@ -740,7 +740,7 @@ LIF=: 0 : 0
 pc lif owner;
 cc run button;cn "&Run";
 cc cancel button;cn "&Cancel";
-wh 500 300;cc e editm readonly;
+minwh 500 300;cc e editm readonly;
 pas 0 0;
 rem form end;
 )
@@ -1129,7 +1129,7 @@ cc step button;cn "Step";
 cc siz static center;cn "";
 cc cnt static center;cn "";
 bin z;
-wh 640 512;cc g isigraph;
+minwh 640 512;cc g isigraph;
 bin z;
 pas 0 0;pcenter;
 rem form end;

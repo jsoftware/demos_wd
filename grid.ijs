@@ -344,7 +344,7 @@ cc redisplay button;cn "&Redisplay";
 cc help button;cn "&Help";
 cc close button;cn "&Close";
 bin z;
-wh 616 300;cc gdef editm;
+minwh 616 300;cc gdef editm;
 bin z;
 pas 0 0;
 rem form end;
@@ -790,7 +790,7 @@ VERB=: '!'
 )
 GNOTES=: 0 : 0
 pc gridnotes;pn "Grid Notes";
-wh 500 200;cc gdef editm;
+minwh 500 200;cc gdef editm;
 cc close button;cn "&Close";
 pas 0 0;
 rem form end;
@@ -882,7 +882,7 @@ menusep;
 menu about "&About" "" "" "";
 menupopz;
 cc gtb toolbar 22x22;
-wh 650 350;cc grid isigraph;
+minwh 650 350;cc grid isigraph;
 pas 15 15;pcenter;
 rem form end;
 )

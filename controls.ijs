@@ -29,7 +29,7 @@ bin hs;
 cc ok button;cn "OK";
 cc cancel button;cn "Cancel";
 bin z;
-wh 440 282;cc tabs tab;
+minwh 440 282;cc tabs tab;
 bin z;
 cc sbar statusbar;
 set sbar addlabel status;

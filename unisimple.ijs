@@ -10,7 +10,7 @@ droidwd_run=: abc_run
 ABC=: 0 : 0
 pc abc;pn "Unicode";
 cc b button;
-wh 312 104;cc em editm;
+minwh 312 104;cc em editm;
 cc viewsource button;cn "View Source";
 pas 6 6;pcenter;
 rem form end;
