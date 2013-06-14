@@ -99,9 +99,29 @@ unicode dunicode
 unicode_simple dunisimple
 )
 
+TITLESQT2=: maketitle 0 : 0
+cities dcities
+coins dcoins
+controls dcontrols
+deoptim ddeoptim
+events devents
+isigraph... disigraph
+grid dgrid
+life dlife
+minesweeper dminesweeper
+nurikabe dnurikabe
+plot dplot
+pousse dpousse
+qt_demo dqtdemo
+scriptdoc dscriptdoc
+solitaire dsolitaire
+unicode dunicode
+unicode_simple dunisimple
+)
+
 TITLES=: 3 : 0''
 if. IFQT do.
-  TITLESQT
+  ('s' = {: wd 'version') {:: TITLESQT ; TITLESQT2
 elseif. 'Android'-:UNAME do.
   TITLESANDROID
 elseif. do.
