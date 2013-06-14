@@ -121,7 +121,7 @@ unicode_simple dunisimple
 
 TITLES=: 3 : 0''
 if. IFQT do.
-  ('s' = {: wd 'version') {:: TITLESQT ; TITLESQT2
+  ('s' = {: wd 'version') {:: TITLESQT ;< TITLESQT2
 elseif. 'Android'-:UNAME do.
   TITLESANDROID
 elseif. do.
