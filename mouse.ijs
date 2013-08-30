@@ -9,7 +9,7 @@ require 'gl2'
 
 MOUSE=: 0 : 0
 pc mouse closeok;
-xywh 0 0 150 100;cc isigraph isigraph ws_border rightmove bottommove;
+minwh 150 100;cc isigraph isigraph flush;
 pas 0 0;pcenter;
 rem form end;
 )

@@ -70,7 +70,7 @@ cc showmblup checkbox bs_lefttext;cn "mblup";
 cc showmbrdown checkbox bs_lefttext;cn "mbrdown";
 cc showmbrup checkbox bs_lefttext;cn "mbrup";
 bin sz;
-minwh 148 134;cc g isigraph;
+minwh 148 134;cc g isigraph flush;
 bin z;
 groupboxend;
 bin zhs;

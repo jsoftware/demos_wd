@@ -1129,7 +1129,7 @@ cc step button;cn "Step";
 cc siz static center;cn "";
 cc cnt static center;cn "";
 bin z;
-minwh 640 512;cc g isigraph;
+minwh 640 512;cc g isigraph flush;
 bin z;
 pas 0 0;pcenter;
 rem form end;

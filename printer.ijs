@@ -15,7 +15,7 @@ print=: 3 : 0
 DATA=: boxopen y
 PRINT_MORE=: #DATA
 wdpclose 'print'             NB. close old print form
-wd 'pc print; cc g isigraph'
+wd 'pc print; cc g isigraph flush'
 glprint x                    NB. start printing
 )
 

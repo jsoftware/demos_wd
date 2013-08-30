@@ -504,7 +504,7 @@ cc redo button;cn "Redo";
 cc cnt static center;cn "";
 bin sz;
 groupbox;
-minwh 500 500;cc g isigraph;
+minwh 500 500;cc g isigraph flush;
 groupboxend;
 bin z;
 pas 0 0;pcenter;

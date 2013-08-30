@@ -13,7 +13,7 @@ MYDATA=: (10 * 1 + i.size) + size $ 0.01*?~100
 NB. =========================================================
 VGRID=: 0 : 0
 pc vgrid;pn "Virtual Grid";
-minwh 600 500;cc grid isigraph;
+minwh 600 500;cc grid isigraph flush;
 pas 0 0;pcenter;
 rem form end;
 )

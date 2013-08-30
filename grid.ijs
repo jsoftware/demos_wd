@@ -882,7 +882,7 @@ menusep;
 menu about "&About" "" "" "";
 menupopz;
 cc gtb toolbar 22x22;
-minwh 650 350;cc grid isigraph;
+minwh 650 350;cc grid isigraph flush;
 pas 15 15;pcenter;
 rem form end;
 )
