@@ -33,6 +33,8 @@ TIMER=: 1
 MAXITER=: _
 MAXBUF=: 100
 MINRUN=: 10
+RUN=: MINRUN
+COUNT=: 0
 BOARDCOLOR=: 0 128 128
 CELLCOLOR=: 255 255 0
 COLORMB=: 48$255
@@ -818,6 +820,7 @@ whilst. RUN | COUNT do.
 end.
 )
 draw=: 3 : 0
+if. _1=4!:0<'STATE' do. return. end.
 wd 'psel ',HWNDP
 glsel 'g'
 glclear''

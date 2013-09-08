@@ -110,8 +110,6 @@ grid dgrid
 life dlife
 minesweeper dminesweeper
 nurikabe dnurikabe
-opengl_demo dopengldem
-opengl_simple dopenglsim
 plot dplot
 pousse dpousse
 qt_demo dqtdemo
@@ -123,7 +121,7 @@ unicode_simple dunisimple
 
 TITLES=: 3 : 0''
 if. IFQT do.
-  ('s' = {: wd 'version') {:: TITLESQT ;< TITLESQT2
+  ('s' e. wd 'version') {:: TITLESQT ;< TITLESQT2
 elseif. 'Android'-:UNAME do.
   TITLESANDROID
 elseif. do.
