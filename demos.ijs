@@ -110,6 +110,8 @@ grid dgrid
 life dlife
 minesweeper dminesweeper
 nurikabe dnurikabe
+opengl_demo dopengldem
+opengl_simple dopenglsim
 plot dplot
 pousse dpousse
 qt_demo dqtdemo
