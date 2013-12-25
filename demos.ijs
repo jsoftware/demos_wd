@@ -191,11 +191,11 @@ disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
 dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
 dminesweeper=: load bind (jpath '~addons/games/minesweeper/uiwd.ijs')
 dnurikabe=: nurikabe__ @: (load bind (jpath '~addons/games/nurikabe/nurikabe.ijs'))
-dopengl=: load bind (jpath '~addons/demos/wdopengl/gldemo/gldemo.ijs')
-dopengllab=: load bind (jpath '~addonsr/demos/wdopengl/glsimple/gldemos.ijs')
+dopengl=: load bind (jpath '~addons/demos/wdopengl/gldemo/gldemo.ijs')`notsupport@.('Android'-:UNAME)
+dopengllab=: load bind (jpath '~addonsr/demos/wdopengl/glsimple/gldemos.ijs')`notsupport@.('Android'-:UNAME)
 dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
-dopenglsim=: load bind (jpath '~addons/demos/glsimple/gldemos.ijs') ^:(-.'Android'-:UNAME)
-dopengldem=: load bind (jpath '~addons/demos/gldemo/gldemo.ijs') ^:(-.'Android'-:UNAME)
+dopenglsim=: load bind (jpath '~addons/demos/glsimple/gldemos.ijs')`notsupport@.('Android'-:UNAME)
+dopengldem=: load bind (jpath '~addons/demos/gldemo/gldemo.ijs')`notsupport@.('Android'-:UNAME)
 dplot=: load bind (jpath '~addons/demos/wdplot/plotdemo.ijs')
 dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
 dprinter=: load bind (jpath '~addons/demos/wd/printer.ijs')
@@ -226,6 +226,11 @@ NB. =========================================================
 dscriptdoc=: 3 : 0
 load 'scriptdoc'
 scriptdoc jpath '~system/main/task.ijs'
+)
+
+NB. =========================================================
+notsupport=: 3 : 0
+sminfo 'This demo is not supported on ', UNAME
 )
 
 demos_run`start_droidwd@.IFJCDROID coname''
