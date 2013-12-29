@@ -83,7 +83,7 @@ wd 'set siz text *',fmtsize BOARD
 del=. ( SCALE * |. BOARD) - _2 {. GXYWHX
 if. 0 0 -: del do. return. end.
 wd 'setwh g ',": _2{. GXYWHX + 0 0,del
-wd 'pmove ',": MINFORMX >. FORMX + 0 0,del
+wd^:(-.'Android'-:UNAME) 'pmove ',": MINFORMX >. FORMX + 0 0,del
 )
 settimer=: 3 : 0
 NB. if. 'Android'-:UNAME do. TIMER=. 10 * TIMER end.
