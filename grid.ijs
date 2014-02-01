@@ -426,11 +426,6 @@ GRIDEXAMS=: ndx {.each j
 GRIDNAMES=: (ndx+1) }.each j
 
 3 : 0 ''
-if. IFWINCE do.
-  msk=. GRIDEXAMS ~: <'VCOUNTRIES'
-  GRIDEXAMS=: msk#GRIDEXAMS
-  GRIDNAMES=: msk#GRIDNAMES
-end.
 )
 
 GRIDALL=: 'D', each GRIDEXAMS
@@ -639,41 +634,6 @@ CELLDATA=: sumdata ?. 10 12$1500
 CELLFMT=: 'c'
 CELLEDIT=: ((10 12$1),0),.0
 )
-DGRIDCE=: 0 : 0
-j=. 'Lyon';'Nice';'Paris';'Berlin';'Bonn';'Dresden'
-city=. j,'Hamburg';'Munich';'Milan';'Rome';'Total'
-qtr=. ('1st';'2nd';'3rd';'4th') ,each <' Quarter'
-mth=. 'JanFebMarAprMayJunJulAugSepOctNovDec'
-
-HDRCOL=: (3 # qtr),<'Year'
-HDRCOL=: HDRCOL,: (_3 <\ mth),<'Total'
-HDRCOLALIGN=: 1
-HDRCOLMERGE=: 1 1
-
-HDRROW=: city
-HDRROWALIGN=: 1
-HDRROWMERGE=: 1
-HDRSTYLE=: 2
-COLMINWIDTH=: 50
-
-grid_gridhandler=: 3 : 0
-if. y -: 'change' do.
-  changex__grid''
-  CELLDATA__grid=: sumdata 10 12 {. CELLDATA__grid
-  0 [ show__grid''
-end.
-()
-
-CELLDATA=: sumdata ?. 10 12$1000
-CELLFMT=: 'c'
-CELLEDIT=: ((10 12$1),0),.0
-)
-3 : 0''
-if. IFWINCE do.
-  DGRID=: DGRIDCE
-end.
-)
-
 CFINANCIAL=: 'jzgrid'
 
 NFINANCIAL=: 0 : 0
@@ -952,13 +912,8 @@ wd 'pn *Grid - ',y
 griddemo_close=: destroy
 formselect=: 3 : 'wd ''psel '',":formhwnd'
 3 : 0 ''
-if. IFWINCE do.
-  griddemo_actrl_fkey=: griddemo_next_button
-  griddemo_actrlshift_fkey=: griddemo_prev_button
-else.
-  griddemo_f12_fkey=: griddemo_next_button
-  griddemo_f12shift_fkey=: griddemo_prev_button
-end.
+griddemo_f12_fkey=: griddemo_next_button
+griddemo_f12shift_fkey=: griddemo_prev_button
 0
 )
 

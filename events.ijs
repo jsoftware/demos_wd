@@ -27,12 +27,7 @@ a=. conew 'jview'
 create__a y
 )
 
-wceshow=: 3 : 0
-txt=. (>{."1 wdq),.TAB,.>{:"1 wdq
-wceview 'wdq';'';(60 <. {:$txt) {."1 txt
-)
-
-showme=: IFWINCE pick wdqshow`wceshow
+showme=: wdqshow
 
 EVENTS=: 0 : 0
 pc events nomax nosize;pn "Events";
@@ -101,7 +96,6 @@ wd 'set blue value 1'
 wd 'pshow;'
 events_isigraph''
 
-if. IFWINCE do. wceview 'Events';'';TEXT;1 end.
 evtloop''
 )
 

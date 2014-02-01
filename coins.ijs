@@ -514,7 +514,7 @@ rem form end;
 NB. =========================================================
 coin_run=: 3 : 0
 DONE=: 0
-wd COIN
+wd ('minwh 500 500';'minwh 320 320')&stringreplace^:('Android'-:UNAME) COIN
 setparentname''
 wd 'pshow;pshow sw_hide'
 paint''
