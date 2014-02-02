@@ -158,7 +158,6 @@ wd 'set listbox items ',;DEL,each ({."1 TITLES),each DEL
 wd 'set listbox select 0'
 wd 'setfocus listbox'
 wd 'pshow;'
-evtloop''
 )
 
 NB. =========================================================

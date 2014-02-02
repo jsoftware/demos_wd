@@ -1,7 +1,6 @@
 NB. init
 
 require 'droidwd gl2 wdclass'
-require^:(-.IFJ6) ::0: 'gtkwd'
 
 coclass 'jcoins'
 
@@ -514,13 +513,12 @@ rem form end;
 NB. =========================================================
 coin_run=: 3 : 0
 DONE=: 0
-wd ('minwh 500 500';'minwh 320 320')&stringreplace^:('Android'-:UNAME) COIN
+wd ('minwh 500 500';'minwh 300 300')&stringreplace^:('Android'-:UNAME) COIN
 setparentname''
 wd 'pshow;pshow sw_hide'
 paint''
 wd 'pshow;'
 NB. coin_restart_button^:IFQT ''
-evtloop''
 )
 
 NB. =========================================================

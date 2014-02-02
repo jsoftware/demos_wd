@@ -1,6 +1,5 @@
 
 require 'droidwd wdclass'
-require^:(-.IFJ6) ::0: 'gtkwd'
 
 coclass 'jcitydemo'
 coinsert 'wdbase'

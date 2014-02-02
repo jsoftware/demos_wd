@@ -1,7 +1,6 @@
 NB. unisimple
 
 require 'droidwd wdclass'
-require^:(-.IFJ6) ::0: 'gtkwd'
 
 coclass 'judmeo'
 coinsert 'wdbase'
@@ -58,7 +57,6 @@ btext=: c_name
 wd'set b text *',btext
 wd'set em text *',c_all
 wd 'pshow;'
-evtloop''
 )
 
 NB. =========================================================

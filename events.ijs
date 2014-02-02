@@ -1,7 +1,6 @@
 NB. illustrates events in J
 
 require 'droidwd gl2 numeric trig wdclass'
-require^:(-.IFJ6) ::0: 'gtkwd'
 coclass 'jevents'
 coinsert 'jgl2 wdbase'
 droidwd_run=: events_run
@@ -95,8 +94,6 @@ wd 'set red value 0'
 wd 'set blue value 1'
 wd 'pshow;'
 events_isigraph''
-
-evtloop''
 )
 
 NB. =========================================================

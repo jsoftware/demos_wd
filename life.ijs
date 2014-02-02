@@ -19,7 +19,6 @@ NB. INDEX is a n x 9 table of indices that gives the 9 surrounding cells for eac
 NB. TRANS is a list of length 512=2^9, that gives the new life state for each old value.
 
 require 'droidwd'
-require^:(-.IFJ6) ::0: 'gtkwd'
 require 'gl2'
 coclass 'jlife'
 

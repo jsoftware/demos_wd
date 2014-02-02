@@ -1,5 +1,4 @@
 require 'droidwd'
-require^:(-.IFJ6) ::0: 'gtkwd'
 require 'gl2'
 
 coclass 'jprintdemo'
@@ -53,7 +52,6 @@ gltext data
 print_run=: 3 : 0
 wd'mbprinter'
 '"print demo" "" "" copies 2' print 'page one';'这首歌很好听'
-evtloop''
 )
 
 print_run`start_droidwd@.IFJCDROID coname''

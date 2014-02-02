@@ -35,7 +35,6 @@ wd 'set clist select ',":(#BNAMES)|.BNAMES i. <'Antwerp'
 wd 'set Kilometers value 1'
 wd 'set Alphabetic value 1'
 wd 'pshow'
-evtloop''
 )
 
 cities_cancel_button=: wd bind 'pclose'
