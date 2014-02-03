@@ -586,6 +586,13 @@ coin_exit_button=: coin_close
 coin_about_button=: 3 : 'info ABOUT'
 coin_help_button=: 3 : 'info HELP'
 
+NB. =========================================================
+coin_f10_fkey=: 3 : 0
+glsel 'g'
+'w h'=. glqwh ''
+rgb=. (h,w) $ glqpixels 0,0,w,h
+rgb writeimg_jqtide_ jpath '~temp/coin.png'
+)
 
 NB. run
 
