@@ -425,9 +425,6 @@ ndx=. j i.&> ' '
 GRIDEXAMS=: ndx {.each j
 GRIDNAMES=: (ndx+1) }.each j
 
-3 : 0 ''
-)
-
 GRIDALL=: 'D', each GRIDEXAMS
 CCOLORS=: 'jzgrid'
 NCOLORS=: 0 : 0
