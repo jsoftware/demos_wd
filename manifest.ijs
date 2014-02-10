@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.70'
+VERSION=: '1.0.71'
 
 RELEASE=: 'j801'
 
@@ -38,7 +38,6 @@ name.ijs
 printer.ijs
 regdemo.ijs
 rtf.ijs
-unicode.ijs
 unisimple.ijs
 vgriddemo.ijs
 document-page-setup.png

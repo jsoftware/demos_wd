@@ -30,7 +30,6 @@ socket_client dsockclient
 splitter dsplitter
 treeview dtreeview
 unicode_simple dunisimple
-unicode dunicode
 )
 
 NB. allout dallout
@@ -53,11 +52,9 @@ plot dplot
 pousse dpousse
 printer dprinter
 regular_expressions dregex
-scriptdoc dscriptdoc
 solitaire dsolitaire
 tabula dtabula
 treemap dtreemap
-unicode dunicode
 unicode_simple dunisimple
 )
 
@@ -73,7 +70,6 @@ life dlife
 minesweeper dminesweeper
 plot dplot
 pousse dpousse
-unicode dunicode
 unicode_simple dunisimple
 )
 
@@ -93,9 +89,7 @@ opengl_simple dopenglsim
 plot dplot
 pousse dpousse
 qt_demo dqtdemo
-scriptdoc dscriptdoc
 solitaire dsolitaire
-unicode dunicode
 unicode_simple dunisimple
 )
 
@@ -115,9 +109,7 @@ opengl_simple dopenglsim
 plot dplot
 pousse dpousse
 qt_demo dqtdemo
-scriptdoc dscriptdoc
 solitaire dsolitaire
-unicode dunicode
 unicode_simple dunisimple
 )
 
@@ -203,7 +195,6 @@ dregex=: load bind (jpath '~addons/demos/wd/regdemo.ijs')
 dsolitaire=: load bind (jpath '~addons/games/solitaire/solitaire.ijs')
 dtabula=: load bind (jpath '~addons/math/tabula/tabula.ijs')
 dtreemap=: load bind (jpath '~addons/graphics/treemap/demo.ijs')
-dunicode=: load bind (jpath '~addons/demos/wd/unicode.ijs')
 dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
 
 NB. =========================================================
@@ -219,12 +210,6 @@ NB. =========================================================
 dformedit=: 3 : 0
 (<f=. jpath '~temp/formedit.ijs') 1!:2~ (1!:1) <jpath '~addons/demos/wd/life.ijs'
 wdformedit f
-)
-
-NB. =========================================================
-dscriptdoc=: 3 : 0
-load 'scriptdoc'
-scriptdoc jpath '~system/main/task.ijs'
 )
 
 NB. =========================================================
