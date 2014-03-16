@@ -1,8 +1,8 @@
 NB. illustrates events in J
 
-require 'droidwd gl2 numeric trig wdclass'
+require 'droidwd gl2 numeric trig'
 coclass 'jevents'
-coinsert 'jgl2 wdbase'
+coinsert 'jgl2e'
 droidwd_run=: events_run
 
 TEXT=: 0 : 0

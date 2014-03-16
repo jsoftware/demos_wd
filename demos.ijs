@@ -1,10 +1,10 @@
 NB. demosel.ijs      - main selection dialog
 
-require 'droidwd wdclass gl2 numeric stats'
+require 'droidwd gl2 numeric stats'
 
 18!:55 <'jdemos'
 coclass 'jdemos'
-coinsert 'jgl2 wdbase'
+coinsert 'jgl2'
 droidwd_run=: demos_run
 
 sububar=: I. @(e.&'_')@]}

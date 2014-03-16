@@ -23,7 +23,7 @@ require 'gl2'
 coclass 'jlife'
 
 
-coinsert 'jgl2 wdbase'
+coinsert 'jgl2'
 droidwd_run=: run
 
 SCALE=: ('Android'-:UNAME){4 2

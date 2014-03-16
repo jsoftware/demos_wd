@@ -63,7 +63,7 @@ msk=. n ~: i.#BNAMES
 dist=. <.0.5+rad*msk#citydistance n
 txt=. (msk#ONAMES),.(":,.dist),"1 '   '
 if. d do. txt=. txt /: dist end.
-72 list txt
+,(72 list txt),.LF
 )
 
 NB. cityfmts

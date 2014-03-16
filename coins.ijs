@@ -1,11 +1,9 @@
 NB. init
 
-require 'droidwd gl2 wdclass'
+require 'droidwd gl2'
 
 coclass 'jcoins'
-
-
-coinsert 'jgl2 wdbase'
+coinsert 'jgl2'
 droidwd_run=: coins_run
 
 BOARD=: 0

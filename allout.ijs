@@ -308,12 +308,12 @@ wd 'pshow;'
 
 NB. =========================================================
 main_helpcmd_button=: 3 : 0
-wdview COMMANDS
+textview COMMANDS
 )
 
 NB. =========================================================
 main_helpsrc_button=: 3 : 0
-wdview 1!:1 <jpath '~addons/demos/wd/allout.ijs'
+textview 1!:1 <jpath '~addons/demos/wd/allout.ijs'
 )
 
 NB. =========================================================

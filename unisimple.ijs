@@ -1,9 +1,8 @@
 NB. unisimple
 
-require 'droidwd wdclass'
+require 'droidwd'
 
 coclass 'judmeo'
-coinsert 'wdbase'
 droidwd_run=: abc_run
 
 ABC=: 0 : 0

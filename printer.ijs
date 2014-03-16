@@ -2,7 +2,7 @@ require 'droidwd'
 require 'gl2'
 
 coclass 'jprintdemo'
-coinsert'jgl2 wdbase'
+coinsert 'jgl2'
 droidwd_run=: print_run
 
 NB. print 'page one'

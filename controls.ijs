@@ -4,7 +4,6 @@ NB. examples of windows controls
 
 require 'droidwd'
 coclass 'wincontroldemo'
-coinsert 'wdbase'
 droidwd_run=: wincontrol_run
 
 p=. jpath '~addons/demos/wd/control'

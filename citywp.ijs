@@ -51,7 +51,7 @@ bydist=. ".Distance
 txt=. cityfmt miles,bydist,ndx
 hdr=. ' from ',(>ndx{BNAMES),':'
 hdr=. (>miles{'Kilometers';'Miles'),hdr
-'City Distances' wdview hdr;txt
+textview 'City Distances';hdr;txt
 )
 
 cities_clist_button=: cities_ok_button

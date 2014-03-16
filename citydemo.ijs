@@ -1,8 +1,7 @@
 
-require 'droidwd wdclass'
+require 'droidwd'
 
 coclass 'jcitydemo'
-coinsert 'wdbase'
 droidwd_run=: cities_run
 
 load '~addons/demos/wd/citycalc.ijs'
