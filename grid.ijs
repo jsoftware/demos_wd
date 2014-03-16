@@ -1,7 +1,7 @@
 load 'jdgrid jsgrid jtgrid jvgrid jzgrid'
 
 coclass 'jgriddemo'
-coinsert 'jgl2'
+coinsert 'jgl2 wdbase'
 droidwd_run=: griddemo_run
 grid=: ''
 

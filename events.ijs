@@ -21,11 +21,6 @@ SHOWMBLUP=: 1
 SHOWMBRUP=: 1
 syseventlast=: ''
 
-wceview=: 3 : 0
-a=. conew 'jview'
-create__a y
-)
-
 showme=: wdqshow
 
 EVENTS=: 0 : 0
