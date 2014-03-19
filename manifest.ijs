@@ -6,9 +6,27 @@ DESCRIPTION=: 0 : 0
 wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.74'
+VERSION=: '1.0.75'
 
 RELEASE=: 'j801'
+
+DEPENDS=: 0 : 0
+demos/isigraph
+demos/wdplot
+games/minesweeper
+games/nurikabe
+games/pousse
+games/solitaire
+general/misc
+graphics/gl1ut
+graphics/grid
+graphics/plot
+graphics/print
+graphics/viewmat
+math/deoptim
+math/misc
+stats/base
+)
 
 FILES=: 0 : 0
 manifest.ijs
