@@ -6,11 +6,13 @@ DESCRIPTION=: 0 : 0
 wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.75'
+VERSION=: '1.0.76'
 
 RELEASE=: 'j801'
 
 DEPENDS=: 0 : 0
+demos/gldemo
+demos/glsimple
 demos/isigraph
 demos/wdplot
 games/minesweeper
