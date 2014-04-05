@@ -10,53 +10,8 @@ droidwd_run=: demos_run
 sububar=: I. @(e.&'_')@]}
 maketitle=: ' '&sububar each @ cutopen ;._2
 fexist=: 1:@(1!:4)@boxopen ::0:
-
-TITLESWIN=: maketitle 0 : 0
-cities dcities
-coins dcoins
-controls dcontrols
-eigenpictures deigenpic
-events devents
-grid dgrid
-life dlife
-isigraph... disigraph
-opengl_simple... dopengllab
-plot dplot
-pousse dpousse
-regular_expressions dregex
-solitaire dsolitaire
-socket_server dsockserver
-socket_client dsockclient
-splitter dsplitter
-treeview dtreeview
-unicode_simple dunisimple
-)
-
-NB. allout dallout
-
-TITLESALL=: maketitle 0 : 0
-cities dcities
-cobrowse dcobrowse
-coins dcoins
-controls dcontrols
-deoptim ddeoptim
-eigenpictures deigenpic
-events devents
-form_edit dformedit
-grid dgrid
-isigraph... disigraph
-life dlife
-minesweeper dminesweeper
-nurikabe dnurikabe
-plot dplot
-pousse dpousse
-printer dprinter
-regular_expressions dregex
-solitaire dsolitaire
-tabula dtabula
-treemap dtreemap
-unicode_simple dunisimple
-)
+qtmajor=: 0 ". ({.~ i.&'.') '/s' -.~ (}.~ i.&'/') wd 'version'
+qtslim=: 's' e. wd 'version'
 
 TITLESANDROID=: maketitle 0 : 0
 cities dcities
@@ -88,38 +43,17 @@ opengl_demo dopengldem
 opengl_simple dopenglsim
 plot dplot
 pousse dpousse
-qt_demo dqtdemo
-solitaire dsolitaire
-unicode_simple dunisimple
-)
-
-TITLESQT2=: maketitle 0 : 0
-cities dcities
-coins dcoins
-controls dcontrols
-deoptim ddeoptim
-events devents
-isigraph... disigraph
-grid dgrid
-life dlife
-minesweeper dminesweeper
-nurikabe dnurikabe
-opengl_demo dopengldem
-opengl_simple dopenglsim
-plot dplot
-pousse dpousse
-qt_demo dqtdemo
+samegame dsamegame
+snake dsnake
 solitaire dsolitaire
 unicode_simple dunisimple
 )
 
 TITLES=: 3 : 0''
 if. IFQT do.
-  ('s' e. wd 'version') {:: TITLESQT ;< TITLESQT2
+  TITLESQT
 elseif. 'Android'-:UNAME do.
   TITLESANDROID
-elseif. do.
-  TITLESALL
 end.
 )
 
@@ -182,20 +116,21 @@ disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
 dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
 dminesweeper=: load bind (jpath '~addons/games/minesweeper/uiwd.ijs')
 dnurikabe=: nurikabe__ @: (load bind (jpath '~addons/games/nurikabe/nurikabe.ijs'))
-dopengl=: load bind (jpath '~addons/demos/wdopengl/gldemo/gldemo.ijs')`notsupport@.('Android'-:UNAME)
-dopengllab=: load bind (jpath '~addonsr/demos/wdopengl/glsimple/gldemos.ijs')`notsupport@.('Android'-:UNAME)
+dopengl=: load bind (jpath '~addons/demos/wdopengl/gldemo/gldemo.ijs')`notsupport@.(qtslim+.'Android'-:UNAME)
+dopengllab=: load bind (jpath '~addonsr/demos/wdopengl/glsimple/gldemos.ijs')`notsupport@.(qtslim+.'Android'-:UNAME)
 dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
-dopenglsim=: load bind (jpath '~addons/demos/glsimple/gldemos.ijs')`notsupport@.('Android'-:UNAME)
-dopengldem=: load bind (jpath '~addons/demos/gldemo/gldemo.ijs')`notsupport@.('Android'-:UNAME)
+dopenglsim=: load bind (jpath '~addons/demos/glsimple/gldemos.ijs')`notsupport@.(qtslim+.'Android'-:UNAME)
+dopengldem=: load bind (jpath '~addons/demos/gldemo/gldemo.ijs')`notsupport@.(qtslim+.'Android'-:UNAME)
 dplot=: load bind (jpath '~addons/demos/wdplot/plotdemo.ijs')
 dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
 dprinter=: load bind (jpath '~addons/demos/wd/printer.ijs')
-dqtdemo=: load bind (jpath '~addons/ide/qt/demo/qtdemo.ijs')
 dregex=: load bind (jpath '~addons/demos/wd/regdemo.ijs')
 dsolitaire=: load bind (jpath '~addons/games/solitaire/solitaire.ijs')
 dtabula=: load bind (jpath '~addons/math/tabula/tabula.ijs')
 dtreemap=: load bind (jpath '~addons/graphics/treemap/demo.ijs')
 dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
+dsamegame=: wd bind ('quickview samegame "', '"',~jpath '~addons/demos/wd/samegame/samegame.qml')`notsupport@.(qtslim+.qtmajor=4)
+dsnake=: wd bind ('quickview snake "', '"',~jpath '~addons/demos/wd/snake/qml/snake/snake.qml')`notsupport@.(qtslim+.qtmajor=5)
 
 NB. =========================================================
 deigenpic=: 3 : 0
@@ -214,7 +149,7 @@ wdformedit f
 
 NB. =========================================================
 notsupport=: 3 : 0
-sminfo 'This demo is not supported on ', UNAME
+sminfo 'This demo is not supported on ', UNAME, ' ', wd 'version'
 )
 
 demos_run`start_droidwd@.IFJCDROID coname''

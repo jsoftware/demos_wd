@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.77'
+VERSION=: '1.0.78'
 
 RELEASE=: 'j801'
 
@@ -65,4 +65,14 @@ filenew.png
 object-rotate-left.png
 zoom-in.png
 zoom-out.png
+samegame/
+samegame/content/
+samegame/content/+blackberry/
+samegame/content/gfx/
+samegame/content/levels/
+snake/
+snake/qml/
+snake/qml/snake/
+snake/qml/snake/content/
+snake/qml/snake/content/pics/
 )
