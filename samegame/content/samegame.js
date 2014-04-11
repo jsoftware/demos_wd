@@ -40,7 +40,7 @@
 
 /* This script file handles the game logic */
 .pragma library
-.import QtQuick.LocalStorage 2.0 as Sql
+// .import QtQuick.LocalStorage 2.0 as Sql
 
 var maxColumn = 10;
 var maxRow = 13;
@@ -464,6 +464,7 @@ function puzzleVictoryCheck(clearedAll)//gameOver has also been set if no more m
 
 function getHighScore()
 {
+/*
     var db = Sql.LocalStorage.openDatabaseSync(
         "SameGame",
         "2.0",
@@ -482,10 +483,12 @@ function getHighScore()
                 gameCanvas.highScore = 0;
         }
     );
+*/
 }
 
 function saveHighScore(score)
 {
+/*
     // Offline storage
     var db = Sql.LocalStorage.openDatabaseSync(
         "SameGame",
@@ -509,10 +512,12 @@ function saveHighScore(score)
             tx.executeSql(dataStr, data);
         }
     );
+*/
 }
 
 function getLevelHistory()
 {
+/*
     var db = Sql.LocalStorage.openDatabaseSync(
         "SameGame",
         "2.0",
@@ -532,10 +537,12 @@ function getLevelHistory()
             }
         }
     );
+*/
 }
 
 function saveLevelHistory()
 {
+/*
     var db = Sql.LocalStorage.openDatabaseSync(
         "SameGame",
         "2.0",
@@ -557,6 +564,7 @@ function saveLevelHistory()
             tx.executeSql(dataStr, data);
         }
     );
+*/
 }
 
 function nuke() //For "Debug mode"
