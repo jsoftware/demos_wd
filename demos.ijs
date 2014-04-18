@@ -43,8 +43,6 @@ opengl_demo dopengldem
 opengl_simple dopenglsim
 plot dplot
 pousse dpousse
-samegame dsamegame
-snake dsnake
 solitaire dsolitaire
 unicode_simple dunisimple
 )
