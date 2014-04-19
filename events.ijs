@@ -92,13 +92,17 @@ events_isigraph''
 )
 
 NB. =========================================================
-events_isigraph=: 3 : 0
+events_g_paint=: 3 : 0
 wh=. 2}.wdqchildxywh 'g'
 wh=. glqwh''
 glrgb 0 255 255
 glbrush''
 glrect 0 0,wh
-NB. glpaint ''
+)
+
+NB. =========================================================
+events_isigraph=: 3 : 0
+glpaintx ''
 )
 
 NB. =========================================================

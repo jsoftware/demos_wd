@@ -1,5 +1,3 @@
-NB. init
-
 require 'droidwd gl2'
 
 coclass 'jcoins'
@@ -7,8 +5,6 @@ coinsert 'jgl2'
 droidwd_run=: coins_run
 
 BOARD=: 0
-
-NB. =========================================================
 init=: 3 : 0
 getboard ''
 DONE=: 0
@@ -20,9 +16,6 @@ MBRDOWN=: 0
 getmoves''
 ENDPOS=: EMPTY
 )
-
-NB. util
-
 getnum=: 3 : '".;._2 [ 0 : 0'
 index1=: # (| - =) i.&1
 intersect=: e. # [
@@ -35,9 +28,6 @@ where=: #~
 
 info=: sminfo @ ('Coins'&;)
 query=: wdquery @ ('Coins'&;)
-
-NB. =========================================================
-NB. colors:
 COLORSTD=: getnum''
 192 0 0
 192 192 192
@@ -51,68 +41,37 @@ COLORHIGH=: getnum''
 0 248 0
 0 160 248
 )
-
-NB. =========================================================
 clearmark=: 3 : 0
 if. #HIGH do.
   HIGH=: ''
   paint''
 end.
 )
-
-NB. =========================================================
-NB. get board
 getboard=: 3 : 0
 'COLORS LAYOUT POS MOVES'=: ". 'BOARD',": BOARD
 CLRSTD=: COLORS { COLORSTD
 CLRHIGH=: COLORS { COLORHIGH
 ALLPOS=: i. #LAYOUT
-NB. split MOVES into color and positions:
 MOVECLR=: {."1 MOVES
 MOVEPOS=: }."1 MOVES
 )
-
-NB. =========================================================
 gethit=: 3 : 0
 ACTIVECTR inrect 2 {. 0 ". sysdata
 )
-
-NB. =========================================================
-NB. get active positions (that can move to empty)
 getmoves=: 3 : 0
 EMPTY=: {. ALLPOS -. {:"1 POS
 msk=. +/"1 EMPTY = MOVEPOS
 pot=. (msk # MOVECLR) ,. (msk # MOVEPOS) -."1 EMPTY
 ACTIVE=: EMPTY -.~ , }."1 pot intersect POS
 )
-
-NB. =========================================================
-NB. test rects for hit
-NB. form: centers inrects pos
-NB. returns hit index, or _1 if none
 inrect=: 4 : 0
 index1 *./"1 RAD >: | x -"1 y
 )
-
-NB. =========================================================
 setparentname=: 3 : 0
 wd 'pn *Coins ',BOARD pick BOARDS
 )
-
-
-NB. boards
-NB.
-NB. stored as 4 items:
-NB.   color      indices (first color has to move to empty space)
-NB.   layout     xy pairs
-NB.   positions  token positions as: color, layout index
-NB.   moves      color, end 1, end 2
 BOARDS=: '8-2-48';'8-3-44';'9-2-66';'11-2-118'
 BOARDIDS=: 'b' (,":) each i.#BOARDS
-
-NB. =========================================================
-NB. board0 = 8-2-48
-
 COLORS=: 0 1
 
 LAYOUT=: getnum''
@@ -155,10 +114,6 @@ MOVES=: getnum''
 )
 
 BOARD0=: COLORS;LAYOUT;POS;MOVES
-
-NB. =========================================================
-NB. board1 =  8-3-44
-
 COLORS=: 3 2 0
 
 LAYOUT=: getnum''
@@ -200,10 +155,6 @@ MOVES=: getnum''
 )
 
 BOARD1=: COLORS;LAYOUT;POS;MOVES
-
-NB. =========================================================
-NB. board2 =  9-2-66
-
 COLORS=: 1 0
 
 LAYOUT=: getnum''
@@ -249,10 +200,6 @@ MOVES=: getnum''
 )
 
 BOARD2=: COLORS;LAYOUT;POS;MOVES
-
-NB. =========================================================
-NB. board3 = 11-2-118
-
 COLORS=: 1 0
 
 LAYOUT=: getnum''
@@ -307,23 +254,14 @@ MOVES=: getnum''
 )
 
 BOARD3=: COLORS;LAYOUT;POS;MOVES
-
-
-NB. draw
-
 FATPEN=: 6 0
-
-NB. =========================================================
-NB. paint does the draw and then glpaint
 paint=: 3 : 0
-draw''
-glpaint`glpaintx@.IFJCDROID''
+glpaintx''
 )
-
-NB. =========================================================
 draw=: 3 : 0
 drawcenters''
 drawnet''
+drawhighs''
 wd 'set cnt text ',":BUFNDX
 wd 'setenable restart ',":COUNT > 0
 wd 'setenable undo ',":BUFNDX > 0
@@ -333,9 +271,6 @@ wd 'setfocus g'
 getmoves''
 ACTIVECTR=: ACTIVE { CTR
 )
-
-NB. =========================================================
-NB. drawcenters v calculate vertex centers in display
 drawcenters=: 3 : 0
 max=. >./ LAYOUT
 wh=. _2 {. wdqchildxywh 'g'
@@ -348,30 +283,30 @@ x=. ({.div) * 1 + {."1 LAYOUT
 y=. ({:div) * 1 + ({:max) - {:"1 LAYOUT
 CTR=: roundint x,.y
 )
-
-NB. =========================================================
-NB. drawnet v draw the network
+drawhigh=: 3 : 0
+HIGH=: POS where ({:"1 POS) e. y
+paint''
+)
+drawhighs=: 3 : 0
+for_p. HIGH do.
+  'c x'=. p
+  glbrush glrgb c { CLRHIGH
+  glrect x { CRC2
+end.
+)
 drawnet=: 3 : 0
 glclear''
 mxy=. MOVECLR </. MOVEPOS
-
-NB. lines
 for_i. i.#mxy do.
   glpen FATPEN [ glrgb i { CLRSTD
   gllines ,"2 CTR {~ i pick mxy
 end.
-
-NB. vertices
 CRC=: (CTR-RAD) ,"1 +:RAD,RAD
 glpen 1 0 [ glrgb 0 0 0
 glbrush glrgb 255 255 255
 glrect CRC
-
-NB. end vertex
 glpen FATPEN [ glrgb {.CLRSTD
 glrect 0 0 1 1 + ENDPOS { CRC
-
-NB. tokens
 glpen 1 0 [ glrgb 0 0 0
 CRC2=: (CTR-RAD2) ,"1 +:RAD2,RAD2
 for_i. i.#mxy do.
@@ -379,12 +314,7 @@ for_i. i.#mxy do.
   glrect (i lookup POS) { CRC2
 end.
 )
-
-
-NB. help
-
-NB. =========================================================
-ABOUT=: 0 : 0
+ABOUT=: topara 0 : 0
 These are Bob Hearn's Coin Puzzles, featured in www.mathpuzzle.com on 21 Nov 2005.
 They are copyright Bob Hearn 2005, and used with permission.
 
@@ -394,9 +324,7 @@ for a crisper screen display, otherwise the puzzles are the same.
 The name '8-2-48' refers to 8 vertices, 2 colors, solvable in 48 moves.
 
 )
-
-NB. =========================================================
-HELP=: 0 : 0
+HELP=: topara 0 : 0
 The marked square is initially empty. The goal is to slide a token of the
 same color into the marked square.
 
@@ -407,11 +335,6 @@ possible new moves if more than one. If no new move is available, it will
 undo the previous move.
 
 )
-
-
-NB. mouse handling
-
-NB. =========================================================
 mmove=: 3 : 0
 if. DONE do. return. end.
 ndx=. gethit''
@@ -421,8 +344,6 @@ else.
   drawhigh ndx { ACTIVE
 end.
 )
-
-NB. =========================================================
 mbldown=: 3 : 0
 MBRDOWN=: 0
 if. DONE do. return. end.
@@ -430,35 +351,14 @@ ndx=. gethit''
 if. ndx < 0 do. return. end.
 movemark ndx { ACTIVE
 )
-
-NB. =========================================================
-drawhigh=: 3 : 0
-HIGH=: POS where ({:"1 POS) e. y
-for_p. HIGH do.
-  'c x'=. p
-  glbrush glrgb c { CLRHIGH
-  glrect x { CRC2
-end.
-glpaint`glpaintx@.IFJCDROID''
-)
-
-NB. =========================================================
 mbrdown=: 3 : 0
 MBRDOWN=: 1
 coin_helper''
 )
-
-NB. =========================================================
 mbrup=: 3 : 0
 MBRDOWN=: 0
 clearmark''
 )
-
-
-NB. move
-
-NB. =========================================================
-NB. movemark v move the marked coin
 movemark=: 3 : 0
 pos=. {.y
 mov=. sort pos,.EMPTY
@@ -473,10 +373,6 @@ if. DONE do.
   info 'Finished.'
 end.
 )
-
-
-NB. win
-
 COIN=: 0 : 0
 pc coin;pn "Coins";
 menupop "File";
@@ -507,8 +403,6 @@ bin z;
 pas 0 0;pcenter;
 rem form end;
 )
-
-NB. =========================================================
 coin_run=: 3 : 0
 DONE=: 0
 wd ('minwh 500 500';'minwh 300 300')&stringreplace^:('Android'-:UNAME) COIN
@@ -516,10 +410,13 @@ setparentname''
 wd 'pshow;pshow sw_hide'
 paint''
 wd 'pshow;'
-NB. coin_restart_button^:IFQT ''
 )
-
-NB. =========================================================
+coin_f10_fkey=: 3 : 0
+glsel 'g'
+'w h'=. glqwh ''
+rgb=. (h,w) $ glqpixels 0,0,w,h
+rgb writeimg_jqtide_ jpath '~temp/coin.png'
+)
 coin_helper=: 3 : 0
 act=. ACTIVE -. LASTEMPTY
 select. #act
@@ -531,8 +428,6 @@ case. do.
   drawhigh act
 end.
 )
-
-NB. =========================================================
 coin_newbutton=: 3 : 0
 BOARD=: y
 init''
@@ -544,15 +439,11 @@ coin_b0_button=: coin_newbutton bind 0
 coin_b1_button=: coin_newbutton bind 1
 coin_b2_button=: coin_newbutton bind 2
 coin_b3_button=: coin_newbutton bind 3
-
-NB. =========================================================
 coin_redo_button=: 3 : 0
 BUFNDX=: (<:#BUFFER) <. >: BUFNDX
 POS=: BUFNDX pick BUFFER
 paint''
 )
-
-NB. =========================================================
 coin_restart_button=: 3 : 0
 if. 'Android'-:UNAME do. paint@init '' return. end.
 if. 0 = query`0:@.('Android'-:UNAME) 'OK to restart?' do.
@@ -560,20 +451,14 @@ if. 0 = query`0:@.('Android'-:UNAME) 'OK to restart?' do.
   paint''
 end.
 )
-
-NB. =========================================================
 coin_viewcode_button=: 3 : 0
 fview jpath '~addons/demos/wd/coins.ijs'
 )
-
-NB. =========================================================
 coin_undo_button=: 3 : 0
 BUFNDX=: 0 >. <: BUFNDX
 POS=: BUFNDX pick BUFFER
 paint''
 )
-
-NB. =========================================================
 coin_g_paint=: draw
 coin_g_mmove=: mmove
 coin_g_mbldown=: mbldown
@@ -583,18 +468,7 @@ coin_close=: wd bind 'pclose'
 coin_exit_button=: coin_close
 coin_about_button=: 3 : 'info ABOUT'
 coin_help_button=: 3 : 'info HELP'
-
-NB. =========================================================
-coin_f10_fkey=: 3 : 0
-glsel 'g'
-'w h'=. glqwh ''
-rgb=. (h,w) $ glqpixels 0,0,w,h
-rgb writeimg_jqtide_ jpath '~temp/coin.png'
-)
-
-NB. run
-
-NB. =========================================================
+-
 coins_run=: 3 : 0
 init''
 coin_run''

@@ -24,7 +24,6 @@ grid dgrid
 life dlife
 minesweeper dminesweeper
 plot dplot
-pousse dpousse
 unicode_simple dunisimple
 )
 
@@ -42,10 +41,14 @@ nurikabe dnurikabe
 opengl_demo dopengldem
 opengl_simple dopenglsim
 plot dplot
-pousse dpousse
+samegame dsamegame
+snake dsnake
 solitaire dsolitaire
 unicode_simple dunisimple
 )
+
+NB. pousse dpousse
+NB. pousse dpousse
 
 TITLES=: 3 : 0''
 if. IFQT do.
@@ -128,7 +131,7 @@ dtabula=: load bind (jpath '~addons/math/tabula/tabula.ijs')
 dtreemap=: load bind (jpath '~addons/graphics/treemap/demo.ijs')
 dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
 dsamegame=: wd bind ('quickview2 samegame "', '"',~jpath '~addons/demos/wd/samegame/samegame.qml')`notsupport@.((qtslim>'Android'-:UNAME)+.qtmajor=4)
-dsnake=: wd bind ('quickview1 snake "', '"',~jpath '~addons/demos/wd/snake/qml/snake/snake.qml')`notsupport@.((qtmajor=4)+.(qtslim+.'Android'-:UNAME))
+dsnake=: wd bind ('quickview1 snake "', '"',~jpath '~addons/demos/wd/snake/qml/snake/snake.qml')`notsupport@.((qtslim+.'Android'-:UNAME))
 
 NB. =========================================================
 deigenpic=: 3 : 0

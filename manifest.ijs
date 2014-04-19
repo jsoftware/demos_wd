@@ -6,9 +6,9 @@ DESCRIPTION=: 0 : 0
 wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.85'
+VERSION=: '1.0.86'
 
-RELEASE=: 'j801'
+RELEASE=: 'j802'
 
 DEPENDS=: 0 : 0
 demos/gldemo

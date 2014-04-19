@@ -1,28 +1,6 @@
-NB. built from project: ~Source/examples/life/life
-NB. init
-NB.
-NB. life rules
-NB. For a space that is occupied:
-NB.     Each cell with one or no neighbors dies
-NB.     Each cell with four or more neighbors dies
-NB.     Each cell with two or three neighbors survives.
-NB. For a space that is empty:
-NB.     Each cell with three neighbors becomes populated.
-NB.
-NB. Each step is computed as follows:
-NB.
-NB. STATE=: TRANS {~ #. INDEX { STATE
-NB.
-NB. Suppose n is the number of cells in the board.
-NB. STATE is the ravelled board, a boolean of length n with 1=alive.
-NB. INDEX is a n x 9 table of indices that gives the 9 surrounding cells for each cell.
-NB. TRANS is a list of length 512=2^9, that gives the new life state for each old value.
-
 require 'droidwd'
 require 'gl2'
 coclass 'jlife'
-
-
 coinsert 'jgl2'
 droidwd_run=: run
 
@@ -85,10 +63,8 @@ wd^:(-.'Android'-:UNAME) 'setwh g ',": _2{. GXYWHX + 0 0,del
 wd^:(-.'Android'-:UNAME) 'pmove ',": MINFORMX >. FORMX + 0 0,del
 )
 settimer=: 3 : 0
-NB. if. 'Android'-:UNAME do. TIMER=. 10 * TIMER end.
 wd 'timer ',":TIMER * y
 )
-
 boardinit=: 3 : 0
 INDEX=: buildneighbor BOARD
 RECTS=: buildrect BOARD
@@ -128,8 +104,6 @@ new=. (ctr=0) *. cnt = 3
 old=. (ctr=1) *. cnt e. 3 4
 new +. old
 )
-
-
 LIFS=: ;: 'acorn bigun coerake1 glider glidergun puftrain rabbits relay spacegun spiral'
 ACORN=: 0 : 0
 #Life 1.05
@@ -736,8 +710,6 @@ SPIRAL=: 0 : 0
 .**
 *.*
 )
-
-
 LIF=: 0 : 0
 pc lif owner;
 cc run button;cn "&Run";
@@ -773,7 +745,6 @@ if. 0 e. ('#Life 1.05';'#N') e. dat do.
 end.
 buildlif dat
 )
-
 ABOUT=: 0 : 0
 This is Conway's Game of Life. The rules are:
 
@@ -809,9 +780,6 @@ Code:
 See help file: User Manual|Project Manager|Example: Life Project.
 
 )
-
-
-
 life=: 3 : 0
 whilst. RUN | COUNT do.
   buffer''
@@ -823,6 +791,14 @@ draw=: 3 : 0
 if. _1=4!:0<'STATE' do. return. end.
 wd 'psel ',HWNDP
 glsel 'g'
+wd 'set cnt text ',":COUNT
+wd 'setenable stepback ',":HASBUF
+if. COUNT >: MAXITER do.
+  settimer 0 return.
+end.
+glpaintx''
+)
+drawit=: 3 : 0
 glclear''
 glrgb BOARDCOLOR
 glbrush''
@@ -834,12 +810,6 @@ if. SCALE > 1 do.
   glrect STATE#RECTS
 else.
   glpixel 2 {."1 STATE#RECTS
-end.
-glpaint''
-wd 'set cnt text ',":COUNT
-wd 'setenable stepback ',":HASBUF
-if. COUNT >: MAXITER do.
-  settimer 0 return.
 end.
 )
 3 : 0''
@@ -854,7 +824,6 @@ step=: 3 : 0
 STATE=: TRANS {~ #. INDEX { STATE
 COUNT=: >: COUNT
 )
-
 COUNTS=: 0 : 0
 The undo buffer takes one byte per cell per iteration, e.g. 1 MB for 1024x1024 cells. Reduce the buffer size for large boards and limited memory.
 )
@@ -949,6 +918,7 @@ bin z;
 pas 4 4;pcenter;
 rem form end;
 )
+
 wcfg_run=: 3 : 0
 Nboard=: BOARD
 Nscale=: SCALE
@@ -970,14 +940,15 @@ wcfg_nosize''
 wcfg_show''
 wd 'pshow;'
 )
+
 wcfg_bbcolor_button=: 3 : 0
 c=. mbcolor Nbcolor
 if. #c do.
   Nbcolor=: c
   wcfg_show''
 end.
-
 )
+
 wcfg_bccolor_button=: 3 : 0
 c=. mbcolor Nccolor
 if. #c do.
@@ -985,28 +956,36 @@ if. #c do.
   wcfg_show''
 end.
 )
+
 wcfg_bfd_button=: 3 : 0
 Nboard=: |. <. MAXXYWHX % Nscale
 wcfg_show''
 )
+
 wcfg_close=: 3 : 0
 wdx 'psel wcfg;pclose'
 )
+
 wcfg_newratio=: 3 : 0
 Nboard=: ({.Nboard) * 1,y
 wcfg_show''
 )
+
 wcfg_newrows=: 3 : 0
 ratio=. 1 1.25 1.5 2 1 {~ (bc1,bc125,bc15,bc2) i. '1'
 Nboard=: y * 1,ratio
+
 wcfg_show''
 )
+
 wcfg_noratio=: 3 : 0
 wd 'set bc1 value 0;set bc125 value 0;set bc15 value 0;set bc2 value 0'
 )
+
 wcfg_nosize=: 3 : 0
 wd 'set b64 value 0;set b128 value 0;set b256 value 0;set b512 value 0;set b1024 value 0;'
 )
+
 wcfg_ok_button=: 3 : 0
 if. -. wcfg_read'' do. return. end.
 MAXITER=: Nmaxiter
@@ -1027,12 +1006,14 @@ if. (-.Nboard -: BOARD) +. Nscale ~: SCALE do.
 end.
 draw''
 )
+
 wcfg_read=: 3 : 0
 board=. 0 ". ' ' (I. ecells e. ',xX') } ecells
 if. (2 ~: #board) > board -: <. board do.
   info 'Board size should be two integers'
   0 return.
 end.
+
 bclr=. 0 ". bcolor
 if. -.iscolor bclr do.
   info 'Board color should be three integers (RGB)'
@@ -1053,10 +1034,12 @@ Nmaxiter=: {. (0 ". emaxiter),_
 Ntimer=: 1 >. 0 ". etimer
 1
 )
+
 wcfg_reshow=: 3 : 0
 wcfg_read''
 wcfg_show''
 )
+
 wcfg_show=: 3 : 0
 wd 'set ecells text *',fmtsize Nboard
 wd 'set escale select ',": Nscale-1
@@ -1080,6 +1063,7 @@ wd 'set etimer text ',":Ntimer
 wd 'set bcolor text *',":Nbcolor
 wd 'set ccolor text *',":Nccolor
 )
+
 wcfg_default=: wcfg_reshow
 
 wcfg_b64_button=: wcfg_newrows bind 64
@@ -1095,7 +1079,6 @@ wcfg_bc2_button=: wcfg_newratio bind 2
 
 wcfg_cancel_button=: wcfg_close
 wcfg_cancel=: wcfg_close
-
 LIFE=: 0 : 0
 pc life nomax nosize;pn "Life";
 menupop "File";
@@ -1185,6 +1168,7 @@ RUN=: 1
 life''
 RUN=: MINRUN
 )
+life_g_paint=: drawit
 life_stepback_button=: 3 : 0
 settimer 0
 if. HASBUF do.
@@ -1200,13 +1184,13 @@ end.
 enableback=: 3 : 0
 wd 'setenable stepback ',":HASBUF
 )
+
 life_about_button=: 3 : 'info ABOUT'
 life_cfg_button=: wcfg_run
 life_help_button=: 3 : 'info HELP'
 life_exit_button=: life_close
 life_pause_button=: settimer bind 0
 life_run_button=: settimer bind 1
-
 run=: 3 : 0
 dat=. y
 if. 0=#dat do.
@@ -1239,5 +1223,4 @@ runlife_z_=: 3 : 0
 a=. conew 'jlife'
 run__a`start_droidwd__a@.IFJCDROID IFJCDROID{::'';a
 )
-
 runlife''
