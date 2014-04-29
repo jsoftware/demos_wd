@@ -1,10 +1,30 @@
 NB. demosel.ijs      - main selection dialog
 
-require 'droidwd gl2 numeric stats'
+NB. require 'droidwd gl2 numeric stats'
+NB. coinsert 'jgl2'
+NB.
 
 18!:55 <'jdemos'
 coclass 'jdemos'
-coinsert 'jgl2'
+
+REQ=: 0 : 0
+demos/gldemo/gldemo.ijs
+demos/glsimple/gldemos.ijs
+demos/isigraph/isdemo.ijs
+demos/wdplot/plotdemo.ijs
+games/minesweeper/uiwd.ijs
+games/nurikabe/nurikabe.ijs
+games/solitaire/solitaire.ijs
+general/misc/numeric.ijs
+graphics/bmp/bmp.ijs
+graphics/color/rgb.ijs
+graphics/gl2/gl2.ijs
+graphics/viewmat/viewmat.ijs
+math/deoptim/demo/eg_deoptim.ijs
+math/misc/trig.ijs
+stats/base/base.ijs
+)
+
 droidwd_run=: demos_run
 
 sububar=: I. @(e.&'_')@]}
@@ -20,7 +40,6 @@ controls dcontrols
 deoptim ddeoptim
 events devents
 isigraph... disigraph
-grid dgrid
 life dlife
 minesweeper dminesweeper
 plot dplot
@@ -34,7 +53,6 @@ controls dcontrols
 deoptim ddeoptim
 events devents
 isigraph... disigraph
-grid dgrid
 life dlife
 minesweeper dminesweeper
 nurikabe dnurikabe
@@ -74,7 +92,30 @@ rem form end;
 )
 
 NB. =========================================================
+checkrequires=: 3 : 0
+r=. <;._2 REQ
+b=. fexist &> (<jpath '~addons/') ,each r
+if. *./ b do. 1 return. end.
+p=. (#~ 2>[: +/\'/'=]) each (-.b)#r
+m=. 'This demo requires additional packages to be installed.'
+m=. m,LF,;LF,&>p
+m=. m,LF2,'Installation may take a few seconds.'
+m=. m,' OK to install now?'
+if. 0~:wdquery m do. 0 return. end.
+load 'pacman'
+'update' jpkg ''
+'install' jpkg p
+1
+)
+
+NB. =========================================================
 demos_run=: 3 : 0
+if. -. checkrequires'' do. return. end.
+require 'gl2'
+coinsert 'jgl2'
+if. IFJCDROID do.
+  start_droidwd coname'' return.
+end.
 if. wdisparent 'demos' do.
   wd 'psel demos;pshow;pactive' return.
 end.
@@ -112,7 +153,6 @@ ddeoptim=: load bind (jpath '~addons/math/deoptim/demo/eg_deoptim.ijs')
 ddialogs=: load bind (jpath '~addons/demos/wd/demoall.ijs')
 deigenpic=: load bind (jpath '~addons/math/eigenpic/eigenpic.ijs')
 devents=: load bind (jpath '~addons/demos/wd/events.ijs')
-dgrid=: load bind (jpath '~addons/demos/wd/grid.ijs')
 disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
 dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
 dminesweeper=: load bind (jpath '~addons/games/minesweeper/uiwd.ijs')
@@ -153,4 +193,4 @@ notsupport=: 3 : 0
 sminfo 'This demo is not supported on ', UNAME, ' ', wd 'version'
 )
 
-demos_run`start_droidwd@.IFJCDROID coname''
+demos_run''

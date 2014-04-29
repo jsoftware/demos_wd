@@ -13,4 +13,3 @@ run.ijs
 
 t=. T&, each (#S) }.each f
 empty t fcopynew each f
-
