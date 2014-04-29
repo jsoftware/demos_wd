@@ -21,6 +21,7 @@ graphics/color/rgb.ijs
 graphics/gl2/gl2.ijs
 graphics/viewmat/viewmat.ijs
 math/deoptim/demo/eg_deoptim.ijs
+math/eigenpic/eigenpic.ijs
 math/misc/trig.ijs
 stats/base/base.ijs
 )
@@ -38,6 +39,7 @@ cities dcities
 coins dcoins
 controls dcontrols
 deoptim ddeoptim
+eigenpictures deigenpic
 events devents
 isigraph... disigraph
 life dlife
@@ -51,6 +53,7 @@ cities dcities
 coins dcoins
 controls dcontrols
 deoptim ddeoptim
+eigenpictures deigenpic
 events devents
 isigraph... disigraph
 life dlife
@@ -144,14 +147,13 @@ demos_enter=: demos_ok_button=: demos_listbox_button
 demos_cancel_button=: demos_close
 
 NB. =========================================================
-dallout=: load bind (jpath '~addons/demos/wd/allout.ijs')
 dcities=: load bind (jpath '~addons/demos/wd/citydemo.ijs')
 dcobrowse=: load bind (jpath '~addons/gui/util/cobrowse.ijs')
 dcoins=: load bind (jpath '~addons/demos/wd/coins.ijs')
 dcontrols=: load bind (jpath '~addons/demos/wd/controls.ijs')
 ddeoptim=: load bind (jpath '~addons/math/deoptim/demo/eg_deoptim.ijs')
 ddialogs=: load bind (jpath '~addons/demos/wd/demoall.ijs')
-deigenpic=: load bind (jpath '~addons/math/eigenpic/eigenpic.ijs')
+deigenpic=: load bind (jpath '~addons/math/eigenpic/eigenpic.ijs')`notsupport@.('Android'-:UNAME)
 devents=: load bind (jpath '~addons/demos/wd/events.ijs')
 disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
 dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
@@ -172,21 +174,6 @@ dtreemap=: load bind (jpath '~addons/graphics/treemap/demo.ijs')
 dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
 dsamegame=: wd bind ('quickview2 samegame "', '"',~jpath '~addons/demos/wd/samegame/samegame.qml')`notsupport@.((qtslim>'Android'-:UNAME)+.qtmajor=4)
 dsnake=: wd bind ('quickview1 snake "', '"',~jpath '~addons/demos/wd/snake/qml/snake/snake.qml')`notsupport@.((qtslim+.'Android'-:UNAME))
-
-NB. =========================================================
-deigenpic=: 3 : 0
-if. fexist jpath '~addons/math/lapack/lapack.ijs' do.
-  load '~addons/math/eigenpic/eigenpic.ijs'
-else.
-  sminfo 'Eigenpicture';'This demo requires the LAPACK Addon'
-end.
-)
-
-NB. =========================================================
-dformedit=: 3 : 0
-(<f=. jpath '~temp/formedit.ijs') 1!:2~ (1!:1) <jpath '~addons/demos/wd/life.ijs'
-wdformedit f
-)
 
 NB. =========================================================
 notsupport=: 3 : 0
