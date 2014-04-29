@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.87'
+VERSION=: '1.0.88'
 
 RELEASE=: 'j802'
 
@@ -21,7 +21,6 @@ games/pousse
 games/solitaire
 general/misc
 graphics/gl1ut
-graphics/grid
 graphics/plot
 graphics/print
 graphics/viewmat
@@ -48,7 +47,6 @@ demos.ijs
 editfile.ijs
 events.ijs
 form.ijs
-grid.ijs
 j.bmp
 jr4.rtf
 jy.ico
@@ -59,7 +57,6 @@ printer.ijs
 regdemo.ijs
 rtf.ijs
 unisimple.ijs
-vgriddemo.ijs
 document-page-setup.png
 filenew.png
 object-rotate-left.png
