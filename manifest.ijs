@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.90'
+VERSION=: '1.0.91'
 
 RELEASE=: 'j802'
 
@@ -18,7 +18,6 @@ games/nurikabe
 games/pousse
 games/solitaire
 general/misc
-graphics/gl1ut
 graphics/plot
 graphics/print
 graphics/viewmat
