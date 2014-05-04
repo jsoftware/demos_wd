@@ -59,8 +59,6 @@ isigraph... disigraph
 life dlife
 minesweeper dminesweeper
 nurikabe dnurikabe
-opengl_demo dopengldem
-opengl_simple dopenglsim
 plot dplot
 samegame dsamegame
 snake dsnake
@@ -159,11 +157,7 @@ disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
 dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
 dminesweeper=: load bind (jpath '~addons/games/minesweeper/uiwd.ijs')
 dnurikabe=: nurikabe__ @: (load bind (jpath '~addons/games/nurikabe/nurikabe.ijs'))
-dopengl=: load bind (jpath '~addons/demos/wdopengl/gldemo/gldemo.ijs')`notsupport@.(qtslim+.'Android'-:UNAME)
-dopengllab=: load bind (jpath '~addonsr/demos/wdopengl/glsimple/gldemos.ijs')`notsupport@.(qtslim+.'Android'-:UNAME)
 dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
-dopenglsim=: load bind (jpath '~addons/demos/glsimple/gldemos.ijs')`notsupport@.(qtslim+.'Android'-:UNAME)
-dopengldem=: load bind (jpath '~addons/demos/gldemo/gldemo.ijs')`notsupport@.(qtslim+.'Android'-:UNAME)
 dplot=: load bind (jpath '~addons/demos/wdplot/plotdemo.ijs')
 dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
 dprinter=: load bind (jpath '~addons/demos/wd/printer.ijs')
