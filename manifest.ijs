@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.91'
+VERSION=: '1.0.92'
 
 RELEASE=: 'j802'
 

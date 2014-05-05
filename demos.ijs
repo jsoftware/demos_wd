@@ -8,8 +8,6 @@ NB.
 coclass 'jdemos'
 
 REQ=: 0 : 0
-demos/gldemo/gldemo.ijs
-demos/glsimple/gldemos.ijs
 demos/isigraph/isdemo.ijs
 demos/wdplot/plotdemo.ijs
 games/minesweeper/uiwd.ijs
