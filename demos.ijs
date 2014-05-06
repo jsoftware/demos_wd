@@ -1,9 +1,5 @@
 NB. demosel.ijs      - main selection dialog
 
-NB. require 'droidwd gl2 numeric stats'
-NB. coinsert 'jgl2'
-NB.
-
 18!:55 <'jdemos'
 coclass 'jdemos'
 
