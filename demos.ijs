@@ -15,6 +15,7 @@ graphics/color/rgb.ijs
 graphics/gl2/gl2.ijs
 graphics/viewmat/viewmat.ijs
 math/deoptim/demo/eg_deoptim.ijs
+math/lapack/lapack.ijs
 math/eigenpic/eigenpic.ijs
 math/misc/trig.ijs
 stats/base/base.ijs
@@ -100,6 +101,10 @@ if. 0~:wdquery m do. 0 return. end.
 load 'pacman'
 'update' jpkg ''
 'install' jpkg p
+if. (UNAME-:'Android') *. (<'math/lapack') e. p do.
+  require 'math/lapack'
+  install_jlapack_ ::0: ''
+end.
 1
 )
 
@@ -161,7 +166,7 @@ dtabula=: load bind (jpath '~addons/math/tabula/tabula.ijs')
 dtreemap=: load bind (jpath '~addons/graphics/treemap/demo.ijs')
 dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
 dsamegame=: wd bind ('quickview2 samegame "', '"',~jpath '~addons/demos/wd/samegame/samegame.qml')`notsupport@.((qtslim>'Android'-:UNAME)+.qtmajor=4)
-dsnake=: wd bind ('quickview1 snake "', '"',~jpath '~addons/demos/wd/snake/qml/snake/snake.qml')`notsupport@.((qtslim+.'Android'-:UNAME))
+dsnake=: wd bind ('quickview1 snake "', '"',~jpath '~addons/demos/wd/snake/qml/snake/snake.qml')`notsupport@.((qtslim+.'Android'-:UNAME)+.qtmajor=5)
 
 NB. =========================================================
 notsupport=: 3 : 0
