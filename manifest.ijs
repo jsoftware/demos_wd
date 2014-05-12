@@ -55,4 +55,3 @@ snake/qml/snake/
 snake/qml/snake/content/
 snake/qml/snake/content/pics/
 )
-PLATFORMS=: 'linux win darwin android'
