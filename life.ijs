@@ -4,7 +4,13 @@ coclass 'jlife'
 coinsert 'jgl2'
 droidwd_run=: run
 
-SCALE=: ('Android'-:UNAME){4 2
+SCALE=: 3 : 0''
+if. 'Android'-:UNAME do.
+  2*DM_density_ja_
+else.
+  4
+end.
+)
 BOARD=: 128 160
 PATH=: ''
 TIMER=: 1
@@ -806,6 +812,7 @@ glrect 0 0,SCALE*|.BOARD
 glrgb CELLCOLOR
 glbrush''
 glpen 1 0
+if. _1=4!:0<'STATE' do. return. end.
 if. SCALE > 1 do.
   glrect STATE#RECTS
 else.
