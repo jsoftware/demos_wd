@@ -256,7 +256,7 @@ MOVES=: getnum''
 BOARD3=: COLORS;LAYOUT;POS;MOVES
 FATPEN=: 6 0
 paint=: 3 : 0
-glpaintx''
+glpaint''
 )
 draw=: 3 : 0
 drawcenters''
