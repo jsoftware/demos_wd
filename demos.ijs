@@ -32,7 +32,6 @@ qtslim=: 's' e. wd 'version'
 TITLESANDROID=: maketitle 0 : 0
 cities dcities
 coins dcoins
-controls dcontrols
 deoptim ddeoptim
 eigenpictures deigenpic
 events devents
@@ -46,7 +45,6 @@ unicode_simple dunisimple
 TITLESQT=: maketitle 0 : 0
 cities dcities
 coins dcoins
-controls dcontrols
 deoptim ddeoptim
 eigenpictures deigenpic
 events devents
@@ -147,7 +145,6 @@ NB. =========================================================
 dcities=: load bind (jpath '~addons/demos/wd/citydemo.ijs')
 dcobrowse=: load bind (jpath '~addons/gui/util/cobrowse.ijs')
 dcoins=: load bind (jpath '~addons/demos/wd/coins.ijs')
-dcontrols=: load bind (jpath '~addons/demos/wd/controls.ijs')
 ddeoptim=: load bind (jpath '~addons/math/deoptim/demo/eg_deoptim.ijs')
 ddialogs=: load bind (jpath '~addons/demos/wd/demoall.ijs')
 deigenpic=: load bind (jpath '~addons/math/eigenpic/eigenpic.ijs')

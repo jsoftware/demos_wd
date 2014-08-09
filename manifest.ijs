@@ -6,9 +6,9 @@ DESCRIPTION=: 0 : 0
 wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.97'
+VERSION=: '1.0.98'
 
-RELEASE=: 'j802 j803'
+RELEASE=: 'j803'
 
 DEPENDS=: 0 : 0
 demos/isigraph
@@ -34,10 +34,6 @@ citycalc.ijs
 citydemo.ijs
 citywp.ijs
 coins.ijs
-control1.ijs
-control2.ijs
-control3.ijs
-controls.ijs
 demos.ijs
 events.ijs
 j.bmp
