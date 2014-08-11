@@ -80,6 +80,7 @@ minwh 200 400;cc listbox listbox lbs_nosel;
 bin v;
 cc ok button;cn "OK";
 cc cancel button;cn "Cancel";
+cc view button;cn "View Source";
 bin szzz;
 pas 4 2;pcenter;
 rem form end;
@@ -140,6 +141,28 @@ fn~0
 NB. =========================================================
 demos_enter=: demos_ok_button=: demos_listbox_button
 demos_cancel_button=: demos_close
+
+NB. =========================================================
+demos_view_button=: 3 : 0
+f=. }. > {: (".listbox_select) { TITLES
+select. <f
+case. 'cities' do. textview f;1!:1 <jpath '~addons/demos/wd/citydemo.ijs'
+case. 'coins' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/coins/'
+case. 'deoptim' do. textview f;1!:1 <jpath '~addons/math/deoptim/demo/eg_deoptim.ijs'
+case. 'eigenpic' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/math/eigenpic/'
+case. 'events' do. textview f;1!:1 <jpath '~addons/demos/wd/',f,'.ijs'
+case. 'isigraph' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/demos/isigraph/'
+case. 'life' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/life/'
+case. 'minesweeper' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/minesweeper'
+case. 'nurikabe' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/nurikabe'
+case. 'plot' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/graphics/plot/source/dev/demo'
+case. 'pousse' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/coins/'
+case. 'solitaire' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/solitaire/'
+case. 'unisimple' do. textview f;1!:1 <jpath '~addons/demos/wd/',f,'.ijs'
+case. 'samegame' do. textview f;1!:1 <jpath '~addons/demos/wd/samegame/samegame.qml'
+case. 'snake' do. textview f;1!:1 <jpath '~addons/demos/wd/snake/qml/snake/snake.qml'
+end.
+)
 
 NB. =========================================================
 dcities=: load bind (jpath '~addons/demos/wd/citydemo.ijs')
