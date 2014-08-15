@@ -35,7 +35,7 @@ coins dcoins
 deoptim ddeoptim
 eigenpictures deigenpic
 events devents
-isigraph... disigraph
+isigraph disigraph
 life dlife
 minesweeper dminesweeper
 plot dplot
@@ -48,7 +48,7 @@ coins dcoins
 deoptim ddeoptim
 eigenpictures deigenpic
 events devents
-isigraph... disigraph
+isigraph disigraph
 life dlife
 minesweeper dminesweeper
 nurikabe dnurikabe
