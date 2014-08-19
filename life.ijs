@@ -811,7 +811,7 @@ glbrush''
 glrect 0 0,SCALE*|.BOARD
 glrgb CELLCOLOR
 glbrush''
-glpen 1 0
+glpen 1 1
 if. _1=4!:0<'STATE' do. return. end.
 if. SCALE > 1 do.
   glrect STATE#RECTS
