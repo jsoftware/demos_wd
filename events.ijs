@@ -131,8 +131,6 @@ if. sysevent-:'events_showmbrup_button' do. SHOWMBRUP=: -. SHOWMBRUP end.
 if. SHOWMBRUP < sysevent-:'events_g_mbrup' do. return. end.
 
 if. -. sysevent -: 'events_cancel_button' do.
-NB.   showme~''
-smoutput wdq
 end.
 
 if. (<sysevent) e. 'events_close';'events_cancel_button';'events_exit_button' do.

@@ -1,7 +1,7 @@
 NB. cities.dat
 NB. layout - each row contains:
 NB. city: latitude longitude (each is degrees minutes)
-NB. north and east is +ve 
+NB. north and east is +ve
 
 Abu Dhabi: 24 28 54 25
 Addis Ababa: 9 3 38 42
