@@ -1,4 +1,6 @@
 
+coclass 'jgriddemo'
+
 Formp=: ''
 
 SOH=: 1{a.
@@ -62,12 +64,6 @@ The demo initially shows only columns in a hierarchy. Select View Definition, se
 )
 largedemo=: 3 : 0
 Grid=: 'large'
-Rws=. 1000
-Cls=. 1000
-Tab=. 10000+?(Rws,Cls)$90000
-Tax=. ;(,-.&' ' each 'c0.0'8!:0 Tab) ,each 1{a.
-Hdr=. (<'Hdr')(,":) each i.Cls
-Lab=. (<'Lab')(,":) each i.Rws
 wd FormHeader
 wd 'cc g isigrid'
 wd 'set g shape ',":Rws,Cls
@@ -80,6 +76,12 @@ wd 'pshow'
 largehelp=: 0 : 0
 Shows a grid with 1 million elements (1000x1000).
 )
+Rws=: 1000
+Cls=: 1000
+Tab=. 10000+?(Rws,Cls)$90000
+Tax=: ;(,-.&' ' each 'c0.0'8!:0 Tab) ,each 1{a.
+Hdr=: (<'Hdr')(,":) each i.Cls
+Lab=: (<'Lab')(,":) each i.Rws
 reportdemo=: 3 : 0
 Grid=: 'report'
 Tab=. (,.+/"1) (,+/) ?. 10 12$1500
