@@ -3,6 +3,7 @@ coclass 'jgriddemo'
 
 Formp=: ''
 
+intersect=: e. # [
 SOH=: 1{a.
 toSOH=: [:;(SOH,~":)each
 setnewwin=: 3 : 0
