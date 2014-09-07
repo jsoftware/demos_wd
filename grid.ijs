@@ -44,7 +44,7 @@ wd 'pshow'
 cubehelp=: 0 : 0
 Displays multi-dimensional data.
 
-The slices through the data are at top left.
+Any slices through the data are at top left.
 
 The rows and columns are at bottom left and top right.
 
