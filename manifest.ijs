@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.102'
+VERSION=: '1.0.103'
 
 RELEASE=: 'j803'
 
@@ -36,6 +36,7 @@ citywp.ijs
 coins.ijs
 demos.ijs
 events.ijs
+grid.ijs
 j.bmp
 life.ijs
 printer.ijs
