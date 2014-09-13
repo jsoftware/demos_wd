@@ -1,9 +1,10 @@
 
-coclass 'jgriddemo'
+coclass 'jisigriddemo'
 
 Formp=: ''
 
 intersect=: e. # [
+toLF=: [:;(LF,~":)each
 SOH=: 1{a.
 toSOH=: [:;(SOH,~":)each
 setnewwin=: 3 : 0
@@ -33,10 +34,10 @@ CellData=. d,"1 0 +/"1 d=. d,"5 4 +/"5 d
 Data=. (' ',~":,CellData) rplc ' ',SOH
 wd FormHeader
 wd 'cc g isigrid cube'
-wd 'set g shape ',toSOH $CellData
-wd 'set g names ',toSOH AxisNames
-wd 'set g labels ',toSOH ;AxisLabels
-wd 'set g order ',toSOH AxisOrder
+wd 'set g shape ',toLF $CellData
+wd 'set g names ',toLF AxisNames
+wd 'set g labels ',toLF ;AxisLabels
+wd 'set g order ',toLF AxisOrder
 wd 'set g data ',Data
 setnewwin wd 'qhwndp'
 wd 'pshow'
@@ -50,8 +51,13 @@ The rows and columns are at bottom left and top right.
 
 Drag and drop to rearrange. Dropped dimensions are moved to the end of the axis or slice list.
 )
+cuberun=: 3 : 0
+wd 'pc isigriddemo escclose closeok;'
+cubedemo''
+wd 'pmove 100 10 600 300'
+)
 hierHelp=: 0 : 0
-Displays hierarchical data in a grid.
+Displays hierarchical data in a isigrid.
 
 Data is numeric, and subtotalled in groups.
 
@@ -68,25 +74,25 @@ Grid=: 'large'
 wd FormHeader
 wd 'cc g isigrid'
 wd 'set g shape ',":Rws,Cls
-wd 'set g hdr ',toSOH Hdr
-wd 'set g lab ',toSOH Lab
-wd 'set g data ', Tax
+wd 'set g hdr ',Hdr
+wd 'set g lab ',Lab
+wd 'set g data ',Tax
 setnewwin wd 'qhwndp'
 wd 'pshow'
 )
 largehelp=: 0 : 0
-Shows a grid with 1 million elements (1000x1000).
+Shows an isigrid with 1 million elements (1000x1000).
 )
 Rws=: 1000
 Cls=: 1000
 Tab=. 10000+?(Rws,Cls)$90000
-Tax=: ;(,-.&' ' each 'c0.0'8!:0 Tab) ,each 1{a.
-Hdr=: (<'Hdr')(,":) each i.Cls
-Lab=: (<'Lab')(,":) each i.Rws
+Tax=: toSOH ,-.&' ' each 'c0.0'8!:0 Tab
+Hdr=: toSOH (<'Hdr')(,":) each i.Cls
+Lab=: toSOH (<'Lab')(,":) each i.Rws
 reportdemo=: 3 : 0
 Grid=: 'report'
 Tab=. (,.+/"1) (,+/) ?. 10 12$1500
-Data=. deb toSOH 'c9.0' 8!:0 Tab
+Data=. deb toLF 'c9.0' 8!:0 Tab
 'Rws Cls'=. $Tab
 j=. 'Lyon';'Nice';'Paris';'Berlin';'Bonn';'Dresden'
 city=. j,'Hamburg';'Munich';'Milan';'Rome';'Total'
@@ -102,23 +108,28 @@ LabMerge=. 3 5 2 1,(#city)#1
 wd FormHeader
 wd 'cc g isigrid'
 wd 'set g shape ',":Rws,Cls
-wd 'set g hdr ',toSOH Hdr
+wd 'set g hdr ',toLF Hdr
 wd 'set g hdrmerge ',":HdrMerge
-wd 'set g lab ',toSOH Lab
+wd 'set g lab ',toLF Lab
 wd 'set g labmerge ',":LabMerge
 wd 'set g data *',Data
 setnewwin wd 'qhwndp'
 wd 'pshow'
 )
 reporthelp=: 0 : 0
-Shows merged row and column headers.
+Shows multi-level and merged row and column headers.
 
 Column widths are autofit.
 )
+reportrun=: 3 : 0
+wd 'pc isigriddemo escclose closeok;'
+reportdemo''
+wd 'pmove 100 10 600 300'
+)
 FormHeader=: 0 : 0
-pc griddemo escclose closeok;
+pc isigriddemo escclose closeok;
 pn Grid;
-menupop "&Options";
+menupop "&File";
 menu quit "&Quit";
 menupopz;
 menupop "&Gallery";
@@ -132,19 +143,22 @@ menusep;
 menu doc "&Grid Documentation";
 menupopz;
 )
-griddemo_cube_button=: 3 : 0
+isigriddemo_cube_button=: 3 : 0
 cubedemo''
 )
-griddemo_help_button=: 3 : 0
+isigriddemo_help_button=: 3 : 0
 wdinfo 'Grid Notes';(Grid,'help')~
 )
-griddemo_doc_button=: 3 : 0
-browse_j_ 'http://www.jsoftware.com/jwiki/Grid'
+isigriddemo_doc_button=: 3 : 0
+browse_j_ 'http://www.jsoftware.com/jwiki/Guides/JQtChildClasses/Isigrid'
 )
-griddemo_large_button=: 3 : 0
+isigriddemo_large_button=: 3 : 0
 largedemo''
 )
-griddemo_report_button=: 3 : 0
+isigriddemo_report_button=: 3 : 0
 reportdemo''
+)
+isigriddemo_quit_button=: 3 : 0
+wd 'pclose'
 )
 reportdemo''

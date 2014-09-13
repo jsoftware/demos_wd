@@ -48,8 +48,8 @@ coins dcoins
 deoptim ddeoptim
 eigenpictures deigenpic
 events devents
-grid dgrid
 isigraph disigraph
+isigrid disigrid
 life dlife
 minesweeper dminesweeper
 nurikabe dnurikabe
@@ -149,7 +149,7 @@ case. 'coins' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/coi
 case. 'deoptim' do. textview f;1!:1 <jpath '~addons/math/deoptim/demo/eg_deoptim.ijs'
 case. 'eigenpic' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/math/eigenpic/'
 case. 'events' do. textview f;1!:1 <jpath '~addons/demos/wd/',f,'.ijs'
-case. 'grid' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/grid'
+case. 'isigrid' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/isigrid'
 case. 'isigraph' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/demos/isigraph/'
 case. 'life' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/life/'
 case. 'minesweeper' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/minesweeper'
@@ -171,7 +171,7 @@ ddeoptim=: load bind (jpath '~addons/math/deoptim/demo/eg_deoptim.ijs')
 ddialogs=: load bind (jpath '~addons/demos/wd/demoall.ijs')
 deigenpic=: load bind (jpath '~addons/math/eigenpic/eigenpic.ijs')
 devents=: load bind (jpath '~addons/demos/wd/events.ijs')
-dgrid=: load bind (jpath '~addons/demos/wd/grid.ijs')
+disigrid=: load bind (jpath '~addons/demos/wd/isigrid.ijs')
 disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
 dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
 dminesweeper=: load bind (jpath '~addons/games/minesweeper/uiwd.ijs')
