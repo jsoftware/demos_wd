@@ -35,10 +35,10 @@ Data=. (' ',~":,CellData) rplc ' ',LF
 wd FormHeader
 wd 'cc g isigrid cube'
 wd 'set g shape ',toLF $CellData
+wd 'set g data ',Data
 wd 'set g names ',toLF AxisNames
 wd 'set g labels ',toLF ;AxisLabels
 wd 'set g order ',toLF AxisOrder
-wd 'set g data ',Data
 setnewwin wd 'qhwndp'
 wd 'pshow'
 )
