@@ -31,7 +31,7 @@ AxisNames=. ;: 'Model Year Finance State Group'
 AxisOrder=. 1 3;4;2 0;0 2
 d=. 3 + ?. 17 $~ _1 0 0 0 _1 + # &> AxisLabels
 CellData=. d,"1 0 +/"1 d=. d,"5 4 +/"5 d
-Data=. (' ',~":,CellData) rplc ' ',SOH
+Data=. (' ',~":,CellData) rplc ' ',LF
 wd FormHeader
 wd 'cc g isigrid cube'
 wd 'set g shape ',toLF $CellData
