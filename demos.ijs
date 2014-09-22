@@ -61,10 +61,10 @@ unicode_simple dunisimple
 )
 
 TITLES=: 3 : 0''
-if. IFQT do.
-  TITLESQT
-elseif. 'Android'-:UNAME do.
+if. IFJCDROID do.
   TITLESANDROID
+else.
+  TITLESQT
 end.
 )
 
@@ -122,7 +122,7 @@ NB. TODO
 wd 'set listbox items ',;DEL,each ({."1 TITLES),each DEL
 wd 'set listbox select 0'
 wd 'setfocus listbox'
-wd 'pshow;'
+wd 'pshow'
 )
 
 NB. =========================================================
