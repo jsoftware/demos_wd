@@ -9,12 +9,13 @@ init=: 3 : 0
 getboard ''
 DONE=: 0
 HIGH=: ''
-LASTEMPTY=: ''
+LASTAVAIL=: ''
 BUFFER=: ,<POS
 BUFNDX=: COUNT=: 0
 MBRDOWN=: 0
 getmoves''
-ENDPOS=: EMPTY
+ENDPOS=: AVAIL
+EMPTY
 )
 getnum=: 3 : '".;._2 [ 0 : 0'
 index1=: # (| - =) i.&1
@@ -59,10 +60,10 @@ gethit=: 3 : 0
 ACTIVECTR inrect 2 {. 0 ". sysdata
 )
 getmoves=: 3 : 0
-EMPTY=: {. ALLPOS -. {:"1 POS
-msk=. +/"1 EMPTY = MOVEPOS
-pot=. (msk # MOVECLR) ,. (msk # MOVEPOS) -."1 EMPTY
-ACTIVE=: EMPTY -.~ , }."1 pot intersect POS
+AVAIL=: {. ALLPOS -. {:"1 POS
+msk=. +/"1 AVAIL = MOVEPOS
+pot=. (msk # MOVECLR) ,. (msk # MOVEPOS) -."1 AVAIL
+ACTIVE=: AVAIL -.~ , }."1 pot intersect POS
 )
 inrect=: 4 : 0
 index1 *./"1 RAD >: | x -"1 y
@@ -361,11 +362,11 @@ clearmark''
 )
 movemark=: 3 : 0
 pos=. {.y
-mov=. sort pos,.EMPTY
+mov=. sort pos,.AVAIL
 clr=. MOVECLR {~ MOVEPOS i. mov
-DONE=: (clr=0) *. EMPTY = ENDPOS
-POS=: (clr,EMPTY), POS -. clr,pos
-LASTEMPTY=: EMPTY
+DONE=: (clr=0) *. AVAIL = ENDPOS
+POS=: (clr,AVAIL), POS -. clr,pos
+LASTAVAIL=: AVAIL
 COUNT=: BUFNDX=: >: BUFNDX
 BUFFER=: (BUFNDX {. BUFFER), <POS
 paint''
@@ -418,7 +419,7 @@ rgb=. (h,w) $ glqpixels 0,0,w,h
 rgb writeimg_jqtide_ jpath '~temp/coin.png'
 )
 coin_helper=: 3 : 0
-act=. ACTIVE -. LASTEMPTY
+act=. ACTIVE -. LASTAVAIL
 select. #act
 case. 0 do.
   coin_undo_button''
