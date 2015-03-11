@@ -6,9 +6,9 @@ DESCRIPTION=: 0 : 0
 wd demos using qt, droidwd
 )
 
-VERSION=: '1.0.107'
+VERSION=: '1.0.108'
 
-RELEASE=: 'j803'
+RELEASE=: 'j803 j804'
 
 DEPENDS=: 0 : 0
 demos/isigraph
