@@ -1087,7 +1087,7 @@ wcfg_bc2_button=: wcfg_newratio bind 2
 wcfg_cancel_button=: wcfg_close
 wcfg_cancel=: wcfg_close
 LIFE=: 0 : 0
-pc life nomax nosize;pn "Life";
+pc life nosize;pn "Life";
 menupop "File";
 menu load "&Load Pattern File..." "" "" "";
 menusep;

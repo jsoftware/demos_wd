@@ -7,14 +7,17 @@ droidwd_run=: coins_run
 BOARD=: 0
 init=: 3 : 0
 getboard ''
+ACTIVECTR=: -1000
 DONE=: 0
 HIGH=: ''
-LASTEMPTY=: ''
+LASTAVAIL=: ''
 BUFFER=: ,<POS
 BUFNDX=: COUNT=: 0
 MBRDOWN=: 0
+RAD=: 0
 getmoves''
-ENDPOS=: EMPTY
+ENDPOS=: AVAIL
+EMPTY
 )
 getnum=: 3 : '".;._2 [ 0 : 0'
 index1=: # (| - =) i.&1
@@ -407,7 +410,7 @@ coin_run=: 3 : 0
 DONE=: 0
 wd ('minwh 500 500';'minwh 300 300')&stringreplace^:('Android'-:UNAME) COIN
 setparentname''
-wd 'pshow;pshow sw_hide'
+wd 'pshow hide'
 paint''
 wd 'pshow;'
 )
