@@ -6,6 +6,7 @@ droidwd_run=: run
 
 SCALE=: 3 : 0''
 if. 'Android'-:UNAME do.
+  android_getdisplaymetrics 0
   2*DM_density_ja_
 else.
   4
