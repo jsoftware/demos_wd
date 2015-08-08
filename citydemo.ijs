@@ -1,10 +1,7 @@
 
-require 'droidwd'
-
 coclass 'jcitydemo'
-droidwd_run=: cities_run
 
 load '~addons/demos/wd/citycalc.ijs'
 load '~addons/demos/wd/citywp.ijs'
 
-cities_run`start_droidwd@.IFJCDROID coname''
+cities_run ''

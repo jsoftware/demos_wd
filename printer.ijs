@@ -1,9 +1,7 @@
-require 'droidwd'
 require 'gl2'
 
 coclass 'jprintdemo'
 coinsert 'jgl2'
-droidwd_run=: print_run
 
 NB. print 'page one'
 NB. print 'page one';'page two'
@@ -54,4 +52,4 @@ wd'mbprinter'
 '"print demo" "" "" copies 2' print 'page one';'这首歌很好听'
 )
 
-print_run`start_droidwd@.IFJCDROID coname''
+print_run ''

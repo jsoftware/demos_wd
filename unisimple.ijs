@@ -1,9 +1,6 @@
 NB. unisimple
 
-require 'droidwd'
-
 coclass 'judmeo'
-droidwd_run=: abc_run
 
 ABC=: 0 : 0
 pc abc;pn "Unicode";
@@ -90,4 +87,4 @@ abc_close=: 3 : 0
 wd'pclose'
 )
 
-abc_run`start_droidwd@.IFJCDROID coname''
+abc_run ''

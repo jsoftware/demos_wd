@@ -1,8 +1,6 @@
-require 'droidwd'
 require 'gl2'
 coclass 'jlife'
 coinsert 'jgl2'
-droidwd_run=: run
 
 SCALE=: 3 : 0''
 if. 'Android'-:UNAME do.
@@ -821,11 +819,7 @@ else.
 end.
 )
 3 : 0''
-if. IFJCDROID do.
-  life_g_paint=: 0:
-else.
-  life_g_paint=: 3 : 'if. 0=RUN|COUNT do. draw'''' end.'
-end.
+life_g_paint=: 3 : 'if. 0=RUN|COUNT do. draw'''' end.'
 EMPTY
 )
 step=: 3 : 0
@@ -1229,6 +1223,6 @@ life_run''
 )
 runlife_z_=: 3 : 0
 a=. conew 'jlife'
-run__a`start_droidwd__a@.IFJCDROID IFJCDROID{::'';a
+run__a''
 )
 runlife''

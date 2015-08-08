@@ -21,8 +21,6 @@ math/misc/trig.ijs
 stats/base/base.ijs
 )
 
-droidwd_run=: demos_run
-
 sububar=: I. @(e.&'_')@]}
 maketitle=: ' '&sububar each @ cutopen ;._2
 fexist=: 1:@(1!:4)@boxopen ::0:
@@ -61,7 +59,7 @@ unicode_simple dunisimple
 )
 
 TITLES=: 3 : 0''
-if. IFJCDROID do.
+if. IFJA do.
   TITLESANDROID
 else.
   TITLESQT
@@ -110,8 +108,8 @@ demos_run=: 3 : 0
 if. -. checkrequires'' do. return. end.
 require 'gl2'
 coinsert 'jgl2'
-if. IFJCDROID do.
-  start_droidwd coname'' return.
+if. IFJA do.
+  wd 'activity ', >coname'' return.
 end.
 if. wdisparent 'demos' do.
   wd 'psel demos;pshow;pactive' return.

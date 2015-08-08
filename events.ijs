@@ -1,9 +1,8 @@
 NB. illustrates events in J
 
-require 'droidwd gl2 numeric trig'
+require 'gl2 numeric trig'
 coclass 'jevents'
-coinsert 'jgl2 wdbase'
-droidwd_run=: events_run
+coinsert 'jgl2'
 
 TEXT=: 0 : 0
 This form illustrates various events in J. Click the controls or press Enter to see the event messages generated.
@@ -142,4 +141,4 @@ end.
 syseventlast=: sysevent
 )
 
-events_run`start_droidwd@.IFJCDROID coname''
+events_run ''

@@ -1,8 +1,5 @@
-require 'droidwd gl2'
-
 coclass 'jcoins'
 coinsert 'jgl2'
-droidwd_run=: coins_run
 
 BOARD=: 0
 init=: 3 : 0
@@ -477,4 +474,4 @@ init''
 coin_run''
 )
 
-coins_run`start_droidwd@.IFJCDROID coname''
+coins_run''
