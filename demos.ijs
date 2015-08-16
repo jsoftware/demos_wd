@@ -53,16 +53,21 @@ minesweeper dminesweeper
 nurikabe dnurikabe
 plot dplot
 samegame dsamegame
-snake dsnake
 solitaire dsolitaire
 unicode_simple dunisimple
 )
+
+NB. this doesn't seem to work on any platform:
+NB. snake dsnake
 
 TITLES=: 3 : 0''
 if. IFJA do.
   TITLESANDROID
 else.
-  TITLESQT
+  t=. TITLESQT
+  if. (qtslim>'Android'-:UNAME)+.qtmajor=4 do.
+    t=. t #~ -. ({."1 t) = <'samegame'
+  end.
 end.
 )
 
@@ -76,7 +81,6 @@ minwh 200 400;cc listbox listbox;
 bin v;
 cc ok button;cn "OK";
 cc cancel button;cn "Cancel";
-cc view button;cn "View Source";
 bin szzz;
 pas 4 2;pcenter;
 rem form end;
@@ -116,7 +120,6 @@ if. wdisparent 'demos' do.
 end.
 wd DEMOS
 wd 'set static1 text *Select a demo from the list below:'
-NB. TODO
 wd 'set listbox items ',;DEL,each ({."1 TITLES),each DEL
 wd 'set listbox select 0'
 wd 'setfocus listbox'
@@ -183,12 +186,7 @@ dsolitaire=: load bind (jpath '~addons/games/solitaire/solitaire.ijs')
 dtabula=: load bind (jpath '~addons/math/tabula/tabula.ijs')
 dtreemap=: load bind (jpath '~addons/graphics/treemap/demo.ijs')
 dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
-dsamegame=: wd bind ('quickview2 samegame "', '"',~jpath '~addons/demos/wd/samegame/samegame.qml')`notsupport@.((qtslim>'Android'-:UNAME)+.qtmajor=4)
-dsnake=: wd bind ('quickview1 snake "', '"',~jpath '~addons/demos/wd/snake/qml/snake/snake.qml')`notsupport@.((qtslim+.'Android'-:UNAME)+.qtmajor=5)
-
-NB. =========================================================
-notsupport=: 3 : 0
-sminfo 'This demo is not supported on ', UNAME, ' ', wd 'version'
-)
+dsamegame=: wd bind ('quickview2 samegame "', '"',~jpath '~addons/demos/wd/samegame/samegame.qml')
+dsnake=: wd bind ('quickview1 snake "', '"',~jpath '~addons/demos/wd/snake/qml/snake/snake.qml')
 
 demos_run''
