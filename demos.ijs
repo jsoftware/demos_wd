@@ -58,9 +58,6 @@ solitaire dsolitaire
 unicode_simple dunisimple
 )
 
-NB. this doesn't seem to work on any platform:
-NB. snake dsnake
-
 TITLES=: 3 : 0''
 if. IFJA do.
   TITLESANDROID
@@ -173,11 +170,9 @@ case. 'life' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/life
 case. 'minesweeper' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/minesweeper'
 case. 'nurikabe' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/nurikabe'
 case. 'plot' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/graphics/plot/source/dev/demo'
-case. 'pousse' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/coins/'
 case. 'solitaire' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/solitaire/'
 case. 'unisimple' do. textview f;1!:1 <jpath '~addons/demos/wd/',f,'.ijs'
 case. 'samegame' do. textview f;1!:1 <jpath '~addons/demos/wd/samegame/samegame.qml'
-case. 'snake' do. textview f;1!:1 <jpath '~addons/demos/wd/snake/qml/snake/snake.qml'
 end.
 )
 
@@ -196,7 +191,6 @@ dminesweeper=: load bind (jpath '~addons/games/minesweeper/uiwd.ijs')
 dnurikabe=: nurikabe__ @: (load bind (jpath '~addons/games/nurikabe/nurikabe.ijs'))
 dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
 dplot=: load bind (jpath '~addons/demos/wdplot/plotdemo.ijs')
-dpousse=: load bind (jpath '~addons/games/pousse/pousse.ijs')
 dprinter=: load bind (jpath '~addons/demos/wd/printer.ijs')
 dregex=: load bind (jpath '~addons/demos/wd/regdemo.ijs')
 dsolitaire=: load bind (jpath '~addons/games/solitaire/solitaire.ijs')
@@ -204,7 +198,6 @@ dtabula=: load bind (jpath '~addons/math/tabula/tabula.ijs')
 dtreemap=: load bind (jpath '~addons/graphics/treemap/demo.ijs')
 dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
 dsamegame=: wd bind ('quickview2 samegame "', '"',~jpath '~addons/demos/wd/samegame/samegame.qml')
-dsnake=: wd bind ('quickview1 snake "', '"',~jpath '~addons/demos/wd/snake/qml/snake/snake.qml')
 
 demos_dialog_positive=: 3 : 0
 wd 'mb toast "install addons" 0'

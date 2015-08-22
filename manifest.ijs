@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using qt and jandroid
 )
 
-VERSION=: '1.0.112'
+VERSION=: '1.0.113'
 
 RELEASE=: 'j804'
 
@@ -15,7 +15,6 @@ demos/isigraph
 demos/wdplot
 games/minesweeper
 games/nurikabe
-games/pousse
 games/solitaire
 general/misc
 graphics/plot
@@ -46,9 +45,4 @@ samegame/content/
 samegame/content/+blackberry/
 samegame/content/gfx/
 samegame/content/levels/
-snake/
-snake/qml/
-snake/qml/snake/
-snake/qml/snake/content/
-snake/qml/snake/content/pics/
 )
