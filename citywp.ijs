@@ -1,5 +1,7 @@
 NB.cities demo -  windows program
 
+onCreate=: cities_run
+
 CITIES=: 0 : 0
 pc cities closeok;pn "City Distances";
 bin hvh;
@@ -23,10 +25,35 @@ pas 6 6;pcenter;
 rem form end;
 )
 
+CITIESJA=: 0 : 0
+pc cities closeok;pn "City Distances";
+bin v;
+cc s0 static;cn "From:";
+wh  _1 _2;cc clist combolist;
+bin h;
+bin v;
+wh  _1 _2;cc groupbox1 static;cn dist;
+cc Kilometers radiobutton;
+cc Miles radiobutton group;
+bin zsv;
+wh  _1 _2;cc groupbox2 static;cn sort;
+cc Alphabetic radiobutton;
+cc Distance radiobutton group;cn "By Distance";
+bin z;
+bin z;
+bin hs;
+cc ok button;cn "OK";
+cc cancel button;cn "Cancel";
+bin z;
+bin z;
+pas 6 6;pcenter;
+rem form end;
+)
+
 cities_run=: 3 : 0
 cityread''
-wd CITIES
-if. IFQT do.  NB. TODO jqt LF bug
+wd IFJA{::CITIES;CITIESJA
+if. IFJA+.IFQT do.  NB. TODO jqt LF bug
   wd 'set clist items ',; ('"'&,)&.> BNAMES,&.>'"'
 else.
   wd 'set clist items *',;BNAMES,&.>LF

@@ -4,7 +4,7 @@ coinsert 'jgl2'
 
 SCALE=: 3 : 0''
 if. 'Android'-:UNAME do.
-  android_getdisplaymetrics 0
+  DM_density_ja_=: {. ". wd 'dm'
   2*DM_density_ja_
 else.
   4
@@ -28,7 +28,7 @@ FILE=: ''
 create=: ]
 destroy=: life_close
 fix=: 0: ". ];._2
-info=: sminfo @ ('Life'&;)
+info=: (sminfo @ ('Life'&;))`(wd @ ('textview *|Life||'&,))@.IFJA
 ischar=: 2: = 3!:0
 isempty=: 0: e. $
 pathname=: 3 : '(b#y);(-.b=.+./\.''/''=jpathsep y)#y'
@@ -1081,6 +1081,8 @@ wcfg_bc2_button=: wcfg_newratio bind 2
 
 wcfg_cancel_button=: wcfg_close
 wcfg_cancel=: wcfg_close
+onCreate=: life_run
+
 LIFE=: 0 : 0
 pc life nosize;pn "Life";
 menupop "File";
@@ -1122,8 +1124,48 @@ bin z;
 pas 0 0;pcenter;
 rem form end;
 )
+
+LIFEJA=: 0 : 0
+pc life nosize;pn "Life";
+menupop "File";
+menu load "&Load Pattern File..." "" "" "";
+menusep;
+menu exit "&Exit" "" "" "";
+menupopz;
+menupop "Patterns";
+menu acorn "&Acorn" "" "" "";
+menu bigun "&Bi-Gun" "" "" "";
+menu glider "Glider" "" "" "";
+menu glidergun "&Glider Gun" "" "" "";
+menu puftrain "&Puffer Train" "" "" "";
+menu rabbits "&Rabbits" "" "" "";
+menu coerake1 "Rake" "" "" "";
+menu relay "Relay" "" "" "";
+menu spacegun "Space Gun" "" "" "";
+menu spiral "Spiral Decay" "" "" "";
+menusep;
+menu random "&Random" "" "" "";
+menupopz;
+menupop "Help";
+menu help "&Help" "" "" "";
+menusep;
+menu about "&About" "" "" "";
+menupopz;
+bin vh;
+cc run button;cn "Run";
+cc pause button;cn "Pause";
+cc stepback button;cn "Back";
+cc step button;cn "Step";
+cc siz static center;cn "";
+cc cnt static center;cn "";
+bin z;
+wh _1 _1;cc g isigraph flush;
+bin z;
+pas 0 0;pcenter;
+rem form end;
+)
 life_run=: 3 : 0
-wd LIFE
+wd IFJA{::LIFE;LIFEJA
 if. HWNDP e. 1 {"1 wdforms'' do. return. end.
 HWNDP=: wd 'qhwndp'
 FORMX=: 0 ". wd 'qform'
@@ -1193,6 +1235,7 @@ life_help_button=: 3 : 'info HELP'
 life_exit_button=: life_close
 life_pause_button=: settimer bind 0
 life_run_button=: settimer bind 1
+onCreate=: run bind ''
 run=: 3 : 0
 dat=. y
 if. 0=#dat do.
@@ -1223,6 +1266,10 @@ life_run''
 )
 runlife_z_=: 3 : 0
 a=. conew 'jlife'
-run__a''
+if. IFJA do.
+  wd 'activity ', >a
+else.
+  run__a''
+end.
 )
 runlife''

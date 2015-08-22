@@ -1,5 +1,8 @@
+require 'gl2'
 coclass 'jcoins'
 coinsert 'jgl2'
+
+onCreate=: coins_run
 
 BOARD=: 0
 init=: 3 : 0
@@ -403,12 +406,47 @@ bin z;
 pas 0 0;pcenter;
 rem form end;
 )
+
+COINJA=: 0 : 0
+pc coin;pn "Coins";
+menupop "File";
+menu b0 "&Load 8-2-48" "" "" "";
+menu b1 "&Load 8-3-44" "" "" "";
+menu b2 "&Load 9-2-66" "" "" "";
+menu b3 "&Load 11-2-118" "" "" "";
+menusep;
+menu viewcode "&View Code" "" "" "";
+menusep;
+menu exit "&Exit" "" "" "";
+menupopz;
+menupop "Help";
+menu help "&Help" "" "" "";
+menusep;
+menu about "&About" "" "" "";
+menupopz;
+bin vh;
+cc restart button;cn "Restart";
+cc undo button;cn "Undo";
+cc redo button;cn "Redo";
+cc cnt static center;cn "";
+bin sz;
+wh _1 _1;cc g isigraph flush;
+bin z;
+pas 0 0;pcenter;
+rem form end;
+)
 coin_run=: 3 : 0
 DONE=: 0
-wd ('minwh 500 500';'minwh 300 300')&stringreplace^:('Android'-:UNAME) COIN
+if. IFJA do.
+  wd COINJA
+else.
+  wd ('minwh 500 500';'minwh 300 300')&stringreplace^:('Android'-:UNAME) COIN
+end.
 setparentname''
-wd 'pshow hide'
-paint''
+if. -.IFJA do.
+  wd 'pshow hide'
+  paint''
+end.
 wd 'pshow;'
 )
 coin_f10_fkey=: 3 : 0
@@ -474,4 +512,4 @@ init''
 coin_run''
 )
 
-coins_run''
+coins_run`wd@.IFJA 'activity ', >coname''

@@ -3,6 +3,8 @@ NB. demosel.ijs      - main selection dialog
 18!:55 <'jdemos'
 coclass 'jdemos'
 
+onCreate=: demos_run
+
 REQ=: 0 : 0
 demos/isigraph/isdemo.ijs
 demos/wdplot/plotdemo.ijs
@@ -30,13 +32,12 @@ qtslim=: 's' e. wd 'version'
 TITLESANDROID=: maketitle 0 : 0
 cities dcities
 coins dcoins
-deoptim ddeoptim
-eigenpictures deigenpic
-events devents
 isigraph disigraph
 life dlife
 minesweeper dminesweeper
+nurikabe dnurikabe
 plot dplot
+solitaire dsolitaire
 unicode_simple dunisimple
 )
 
@@ -87,6 +88,17 @@ rem form end;
 )
 
 NB. =========================================================
+DEMOSJA=: 0 : 0
+pc demos closeok;pn "Demos Select";
+bin v;
+cc static1 static;cn "static1";
+wh _1 _2;cc listbox listbox;
+bin z;
+pas 4 2;pcenter;
+rem form end;
+)
+
+NB. =========================================================
 checkrequires=: 3 : 0
 r=. <;._2 REQ
 b=. fexist &> (<jpath '~addons/') ,each r
@@ -96,6 +108,11 @@ m=. 'This demo requires additional packages to be installed.'
 m=. m,LF,;LF,&>p
 m=. m,LF2,'Installation may take a few seconds.'
 m=. m,' OK to install now?'
+if. IFJA do.
+  missing=: p
+  'yes no' wdquery m
+  return.
+end.
 if. 0~:wdquery m do. 0 return. end.
 load 'pacman'
 'update' jpkg ''
@@ -109,21 +126,21 @@ end.
 
 NB. =========================================================
 demos_run=: 3 : 0
-if. -. checkrequires'' do. return. end.
+if. -.IFJA do.
+  if. -. checkrequires'' do. return. end.
+end.
 require 'gl2'
 coinsert 'jgl2'
-if. IFJA do.
-  wd 'activity ', >coname'' return.
-end.
 if. wdisparent 'demos' do.
   wd 'psel demos;pshow;pactive' return.
 end.
-wd DEMOS
+wd IFJA{::DEMOS;DEMOSJA
 wd 'set static1 text *Select a demo from the list below:'
 wd 'set listbox items ',;DEL,each ({."1 TITLES),each DEL
 wd 'set listbox select 0'
 wd 'setfocus listbox'
 wd 'pshow'
+checkrequires^:IFJA ''
 )
 
 NB. =========================================================
@@ -132,7 +149,7 @@ wd 'pclose'
 )
 
 NB. =========================================================
-demos_listbox_button=: 3 : 0
+demos_listbox_select=: 3 : 0
 fn=. > {: (".listbox_select) { TITLES
 fn~0
 )
@@ -142,7 +159,7 @@ demos_enter=: demos_ok_button=: demos_listbox_button
 demos_cancel_button=: demos_close
 
 NB. =========================================================
-demos_view_button=: 3 : 0
+demos_listbox_button=: 3 : 0
 f=. }. > {: (".listbox_select) { TITLES
 select. <f
 case. 'cities' do. textview f;1!:1 <jpath '~addons/demos/wd/citydemo.ijs'
@@ -189,4 +206,16 @@ dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
 dsamegame=: wd bind ('quickview2 samegame "', '"',~jpath '~addons/demos/wd/samegame/samegame.qml')
 dsnake=: wd bind ('quickview1 snake "', '"',~jpath '~addons/demos/wd/snake/qml/snake/snake.qml')
 
-demos_run''
+demos_dialog_positive=: 3 : 0
+wd 'mb toast "install addons" 0'
+load 'pacman'
+'update' jpkg ''
+'install' jpkg missing
+if. (UNAME-:'Android') *. (<'math/lapack') e. missing do.
+  require 'math/lapack'
+  install_jlapack_ ::0: ''
+end.
+wd 'mb toast finished'
+)
+
+demos_run`wd@.IFJA 'activity ', >coname''

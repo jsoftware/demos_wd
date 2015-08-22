@@ -2,11 +2,26 @@ NB. unisimple
 
 coclass 'judmeo'
 
+onCreate=: abc_run
+
 ABC=: 0 : 0
 pc abc;pn "Unicode";
 cc b button;
 minwh 312 104;cc em editm;
 cc viewsource button;cn "View Source";
+pas 6 6;pcenter;
+rem form end;
+)
+
+ABCJA=: 0 : 0
+pc abc;pn "Unicode";
+bin v;
+bin h;
+cc b button;
+cc viewsource button;cn "View Source";
+bin z;
+wh _1 _2;cc em editm;
+bin z;
 pas 6 6;pcenter;
 rem form end;
 )
@@ -46,7 +61,7 @@ t_all=: t_problem,LF,t_weather,LF,t_nice
 
 NB. =========================================================
 abc_run=: 3 : 0
-wd ABC
+wd IFJA{::ABC;ABCJA
 wd'setfont b ',font
 wd'setfont em ',font
 btext=: c_name
@@ -87,4 +102,4 @@ abc_close=: 3 : 0
 wd'pclose'
 )
 
-abc_run ''
+abc_run`wd@.IFJA 'activity ', >coname''
