@@ -2,7 +2,7 @@ require 'gl2'
 coclass 'jcoins'
 coinsert 'jgl2'
 
-onCreate=: coins_run
+onStart=: coins_run
 
 BOARD=: 0
 init=: 3 : 0

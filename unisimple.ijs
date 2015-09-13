@@ -2,7 +2,7 @@ NB. unisimple
 
 coclass 'judmeo'
 
-onCreate=: abc_run
+onStart=: abc_run
 
 ABC=: 0 : 0
 pc abc;pn "Unicode";

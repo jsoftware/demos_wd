@@ -1,6 +1,6 @@
 NB.cities demo -  windows program
 
-onCreate=: cities_run
+onStart=: cities_run
 
 CITIES=: 0 : 0
 pc cities closeok;pn "City Distances";

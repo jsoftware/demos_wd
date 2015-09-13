@@ -1081,7 +1081,7 @@ wcfg_bc2_button=: wcfg_newratio bind 2
 
 wcfg_cancel_button=: wcfg_close
 wcfg_cancel=: wcfg_close
-onCreate=: life_run
+onStart=: life_run
 
 LIFE=: 0 : 0
 pc life nosize;pn "Life";
@@ -1235,7 +1235,7 @@ life_help_button=: 3 : 'info HELP'
 life_exit_button=: life_close
 life_pause_button=: settimer bind 0
 life_run_button=: settimer bind 1
-onCreate=: run bind ''
+onStart=: run bind ''
 run=: 3 : 0
 dat=. y
 if. 0=#dat do.

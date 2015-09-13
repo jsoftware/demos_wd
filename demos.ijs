@@ -3,7 +3,7 @@ NB. demosel.ijs      - main selection dialog
 18!:55 <'jdemos'
 coclass 'jdemos'
 
-onCreate=: demos_run
+onStart=: demos_run
 
 REQ=: 0 : 0
 demos/isigraph/isdemo.ijs
