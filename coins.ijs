@@ -443,10 +443,6 @@ else.
   wd ('minwh 500 500';'minwh 300 300')&stringreplace^:('Android'-:UNAME) COIN
 end.
 setparentname''
-if. -.IFJA do.
-  wd 'pshow hide'
-  paint''
-end.
 wd 'pshow;'
 )
 coin_f10_fkey=: 3 : 0
