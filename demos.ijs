@@ -152,7 +152,7 @@ fn~0
 )
 
 NB. =========================================================
-demos_enter=: demos_ok_button=: demos_listbox_button
+demos_enter=: demos_ok_button=: demos_listbox_select
 demos_cancel_button=: demos_close
 
 NB. =========================================================
