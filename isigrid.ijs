@@ -150,7 +150,7 @@ isigriddemo_help_button=: 3 : 0
 wdinfo 'Grid Notes';(Grid,'help')~
 )
 isigriddemo_doc_button=: 3 : 0
-browse_j_ 'http://www.jsoftware.com/jwiki/Guides/JQtChildClasses/Isigrid'
+browse_j_ 'http://code.jsoftware.com/wiki/Guides/JQtChildClasses/Isigrid'
 )
 isigriddemo_large_button=: 3 : 0
 largedemo''
