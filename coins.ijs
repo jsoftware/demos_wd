@@ -272,6 +272,7 @@ wd 'setenable redo ',":BUFNDX < COUNT
 wd ; ';set '&, each BOARDIDS ,each (<' checked ') ,each ": each BOARD=i.#BOARDS
 wd 'setfocus g'
 getmoves''
+glpaint^:IFJA ''
 ACTIVECTR=: ACTIVE { CTR
 )
 drawcenters=: 3 : 0
