@@ -262,9 +262,11 @@ paint=: 3 : 0
 glpaint''
 )
 draw=: 3 : 0
+glmark^:IFJA ''
 drawcenters''
 drawnet''
 drawhighs''
+glpaints^:IFJA ''
 wd 'set cnt text ',":BUFNDX
 wd 'setenable restart ',":COUNT > 0
 wd 'setenable undo ',":BUFNDX > 0
@@ -272,7 +274,6 @@ wd 'setenable redo ',":BUFNDX < COUNT
 wd ; ';set '&, each BOARDIDS ,each (<' checked ') ,each ": each BOARD=i.#BOARDS
 wd 'setfocus g'
 getmoves''
-glpaint^:IFJA ''
 ACTIVECTR=: ACTIVE { CTR
 )
 drawcenters=: 3 : 0
