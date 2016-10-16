@@ -793,17 +793,15 @@ whilst. RUN | COUNT do.
 end.
 )
 draw=: 3 : 0
-glmark^:IFJA ''
-if. _1=4!:0<'STATE' do. gltrash^:IFJA '' return. end.
+if. _1=4!:0<'STATE' do. return. end.
 wd 'psel ',HWNDP
 glsel 'g'
 wd 'set cnt text ',":COUNT
 wd 'setenable stepback ',":HASBUF
 if. COUNT >: MAXITER do.
-  gltrash^:IFJA '' [ settimer 0 return.
+  settimer 0 return.
 end.
 glpaintx''
-glpaints^:IFJA ''
 )
 drawit=: 3 : 0
 glmark^:IFJA ''
@@ -814,7 +812,7 @@ glrect 0 0,SCALE*|.BOARD
 glrgb CELLCOLOR
 glbrush''
 glpen 1 1
-if. _1=4!:0<'STATE' do. gltrash^:IFJA '' return. end.
+if. _1=4!:0<'STATE' do. glpaints^:IFJA '' return. end.
 if. SCALE > 1 do.
   glrect STATE#RECTS
 else.
