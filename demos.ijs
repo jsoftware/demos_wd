@@ -9,7 +9,6 @@ REQ=: 0 : 0
 demos/isigraph/isdemo.ijs
 demos/wdplot/plotdemo.ijs
 games/minesweeper/uiwd.ijs
-games/nurikabe/nurikabe.ijs
 games/solitaire/solitaire.ijs
 general/misc/numeric.ijs
 graphics/bmp/bmp.ijs
@@ -35,7 +34,6 @@ coins dcoins
 isigraph disigraph
 life dlife
 minesweeper dminesweeper
-nurikabe dnurikabe
 plot dplot
 solitaire dsolitaire
 unicode_simple dunisimple
@@ -51,7 +49,6 @@ isigraph disigraph
 isigrid disigrid
 life dlife
 minesweeper dminesweeper
-nurikabe dnurikabe
 plot dplot
 samegame dsamegame
 solitaire dsolitaire
@@ -168,7 +165,6 @@ case. 'isigrid' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/i
 case. 'isigraph' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/demos/isigraph/'
 case. 'life' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/life/'
 case. 'minesweeper' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/minesweeper'
-case. 'nurikabe' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/nurikabe'
 case. 'plot' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/graphics/plot/source/dev/demo'
 case. 'solitaire' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/solitaire/'
 case. 'unisimple' do. textview f;1!:1 <jpath '~addons/demos/wd/',f,'.ijs'
@@ -188,7 +184,6 @@ disigrid=: load bind (jpath '~addons/demos/wd/isigrid.ijs')
 disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
 dlife=: load bind (jpath '~addons/demos/wd/life.ijs')
 dminesweeper=: load bind (jpath '~addons/games/minesweeper/uiwd.ijs')
-dnurikabe=: nurikabe__ @: (load bind (jpath '~addons/games/nurikabe/nurikabe.ijs'))
 dpaint=: load bind (jpath '~addons/demos/isigraph/paint.ijs')
 dplot=: load bind (jpath '~addons/demos/wdplot/plotdemo.ijs')
 dprinter=: load bind (jpath '~addons/demos/wd/printer.ijs')
