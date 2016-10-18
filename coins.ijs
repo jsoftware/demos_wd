@@ -271,7 +271,7 @@ wd 'set cnt text ',":BUFNDX
 wd 'setenable restart ',":COUNT > 0
 wd 'setenable undo ',":BUFNDX > 0
 wd 'setenable redo ',":BUFNDX < COUNT
-wd ; ';set '&, each BOARDIDS ,each (<' checked ') ,each ": each BOARD=i.#BOARDS
+wd^:(-.IFJA) ; ';set '&, each BOARDIDS ,each (<' checked ') ,each ": each BOARD=i.#BOARDS
 wd 'setfocus g'
 getmoves''
 ACTIVECTR=: ACTIVE { CTR
@@ -439,11 +439,7 @@ rem form end;
 )
 coin_run=: 3 : 0
 DONE=: 0
-if. IFJA do.
-  wd COINJA
-else.
-  wd ('minwh 500 500';'minwh 300 300')&stringreplace^:('Android'-:UNAME) COIN
-end.
+wd IFJA{::COIN;COINJA
 setparentname''
 wd 'pshow;'
 )
