@@ -266,7 +266,7 @@ glmark^:IFJA ''
 drawcenters''
 drawnet''
 drawhighs''
-glpaints^:IFJA ''
+glcmds@gltrash^:IFJA ''
 wd 'set cnt text ',":BUFNDX
 wd 'setenable restart ',":COUNT > 0
 wd 'setenable undo ',":BUFNDX > 0

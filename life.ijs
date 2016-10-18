@@ -812,13 +812,13 @@ glrect 0 0,SCALE*|.BOARD
 glrgb CELLCOLOR
 glbrush''
 glpen 1 1
-if. _1=4!:0<'STATE' do. glpaints^:IFJA '' return. end.
+if. _1=4!:0<'STATE' do. glcmds@gltrash^:IFJA '' return. end.
 if. SCALE > 1 do.
   glrect STATE#RECTS
 else.
   glpixel 2 {."1 STATE#RECTS
 end.
-glpaints^:IFJA ''
+glcmds@gltrash^:IFJA ''
 )
 3 : 0''
 life_g_paint=: 3 : 'if. 0=RUN|COUNT do. draw'''' end.'
