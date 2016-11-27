@@ -140,6 +140,7 @@ if. (<sysevent) e. 'events_close';'events_cancel_button';'events_exit_button' do
 end.
 
 syseventlast=: sysevent
+smoutput ": wdq
 )
 
 events_run ''
