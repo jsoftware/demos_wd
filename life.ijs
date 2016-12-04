@@ -801,7 +801,6 @@ wd 'setenable stepback ',":HASBUF
 if. COUNT >: MAXITER do.
   settimer 0 return.
 end.
-drawit''
 glpaintx''
 )
 drawit=: 3 : 0
@@ -1122,7 +1121,7 @@ cc step button;cn "Step";
 cc siz static center;cn "";
 cc cnt static center;cn "";
 bin z;
-minwh 640 512;cc g isidraw flush;
+minwh 640 512;cc g isigraph flush;
 bin z;
 pas 0 0;pcenter;
 rem form end;
@@ -1162,7 +1161,7 @@ cc step button;cn "Step";
 cc siz static center;cn "";
 cc cnt static center;cn "";
 bin z;
-wh _1 _1;cc g isidraw flush;
+wh _1 _1;cc g isigraph flush;
 bin z;
 pas 0 0;pcenter;
 rem form end;
