@@ -49,7 +49,7 @@ gltext data
 
 print_run=: 3 : 0
 wd'mbprinter'
-'"print demo" "" "" copies 2' print 'page one';'这首歌很好听'
+'"print demo" "" "" copies 2' print 'page one';'這首歌很好聽'
 )
 
 print_run ''

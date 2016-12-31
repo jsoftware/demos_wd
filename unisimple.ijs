@@ -31,7 +31,7 @@ font=: IFUNIX pick '"Fixedsys" 14' ; ('Android'-:UNAME) pick '"Kochi Mincho" 14'
 c_name=: '漢語'
 c_problem=: '沒有問題'
 c_weather=: '今日は良い天気です'
-c_nice=: '这首歌很好听'
+c_nice=: '這首歌很好聽'
 c_all=: c_problem,LF,c_weather,LF,c_nice
 
 e_name=: 'English'
