@@ -262,11 +262,9 @@ paint=: 3 : 0
 glpaint''
 )
 draw=: 3 : 0
-glmark^:IFJA ''
 drawcenters''
 drawnet''
 drawhighs''
-glcmds@gltrash^:IFJA ''
 wd 'set cnt text ',":BUFNDX
 wd 'setenable restart ',":COUNT > 0
 wd 'setenable undo ',":BUFNDX > 0
@@ -275,6 +273,7 @@ wd^:(-.IFJA) ; ';set '&, each BOARDIDS ,each (<' checked ') ,each ": each BOARD=
 wd 'setfocus g'
 getmoves''
 ACTIVECTR=: ACTIVE { CTR
+glpaintx^:IFJA ''
 )
 drawcenters=: 3 : 0
 max=. >./ LAYOUT

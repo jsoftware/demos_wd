@@ -801,10 +801,9 @@ wd 'setenable stepback ',":HASBUF
 if. COUNT >: MAXITER do.
   settimer 0 return.
 end.
-glpaintx''
+glpaint''
 )
 drawit=: 3 : 0
-glmark^:IFJA ''
 glclear''
 glrgb BOARDCOLOR
 glbrush''
@@ -812,13 +811,13 @@ glrect 0 0,SCALE*|.BOARD
 glrgb CELLCOLOR
 glbrush''
 glpen 1 1
-if. _1=4!:0<'STATE' do. glcmds@gltrash^:IFJA '' return. end.
+if. _1=4!:0<'STATE' do. glpaintx^:IFJA '' return. end.
 if. SCALE > 1 do.
   glrect STATE#RECTS
 else.
   glpixel 2 {."1 STATE#RECTS
 end.
-glcmds@gltrash^:IFJA ''
+glpaintx^:IFJA ''
 )
 3 : 0''
 life_g_paint=: 3 : 'if. 0=RUN|COUNT do. draw'''' end.'
