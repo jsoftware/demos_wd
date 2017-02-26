@@ -257,7 +257,7 @@ MOVES=: getnum''
 )
 
 BOARD3=: COLORS;LAYOUT;POS;MOVES
-FATPEN=: 6 1
+FATPEN=: 6,PS_SOLID
 paint=: 3 : 0
 glpaint''
 )
@@ -300,18 +300,19 @@ end.
 )
 drawnet=: 3 : 0
 glclear''
+glfill 255 255 255 255
 mxy=. MOVECLR </. MOVEPOS
 for_i. i.#mxy do.
   glpen FATPEN [ glrgb i { CLRSTD
   gllines ,"2 CTR {~ i pick mxy
 end.
 CRC=: (CTR-RAD) ,"1 +:RAD,RAD
-glpen 1 1 [ glrgb 0 0 0
+glpen 1,PS_SOLID [ glrgb 0 0 0
 glbrush glrgb 255 255 255
 glrect CRC
 glpen FATPEN [ glrgb {.CLRSTD
 glrect 0 0 1 1 + ENDPOS { CRC
-glpen 1 1 [ glrgb 0 0 0
+glpen 1,PS_SOLID [ glrgb 0 0 0
 CRC2=: (CTR-RAD2) ,"1 +:RAD2,RAD2
 for_i. i.#mxy do.
   glbrush glrgb i { CLRSTD
