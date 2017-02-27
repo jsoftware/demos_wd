@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using qt and jandroid
 )
 
-VERSION=: '1.0.127'
+VERSION=: '1.0.128'
 
 RELEASE=: 'j804 j805'
 

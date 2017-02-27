@@ -813,9 +813,9 @@ glbrush''
 glpen 1 1
 if. _1=4!:0<'STATE' do. glpaintx^:IFJA '' return. end.
 if. SCALE > 1 do.
-  glrect STATE#RECTS
+  glrect"1 STATE#RECTS
 else.
-  glpixel 2 {."1 STATE#RECTS
+  glpixel"1[ 2 {."1 STATE#RECTS
 end.
 glpaintx^:IFJA ''
 )
