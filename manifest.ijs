@@ -6,9 +6,9 @@ DESCRIPTION=: 0 : 0
 wd demos using qt and jandroid
 )
 
-VERSION=: '1.0.128'
+VERSION=: '1.0.129'
 
-RELEASE=: 'j804 j805'
+RELEASE=: 'j804 j805 j806'
 
 DEPENDS=: 0 : 0
 demos/isigraph
