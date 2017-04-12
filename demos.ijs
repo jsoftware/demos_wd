@@ -60,7 +60,7 @@ if. IFJA do.
   TITLESANDROID
 else.
   t=. TITLESQT
-  if. (qtslim>'Android'-:UNAME)+.qtmajor=4 do.
+  if. (805<{.0".}.({.~ i.&'/')9!:14'')+.(qtslim>'Android'-:UNAME)+.qtmajor=4 do.
     t=. t #~ -. ({."1 t) = <'samegame'
   end.
 end.
