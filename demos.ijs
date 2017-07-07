@@ -13,7 +13,6 @@ games/solitaire/solitaire.ijs
 general/misc/numeric.ijs
 graphics/bmp/bmp.ijs
 graphics/color/rgb.ijs
-graphics/gl2/gl2.ijs
 graphics/viewmat/viewmat.ijs
 math/deoptim/demo/eg_deoptim.ijs
 math/lapack/lapack.ijs
