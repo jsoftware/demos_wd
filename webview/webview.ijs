@@ -255,9 +255,9 @@ case. 'd3plot' do.
   wd 'cmd w call d3plot *',('run_',w_value)~0
 case. 'error' do.
   echo w_name,' ',w_value
+case. 'name';'return' do.
 case. do.
   fn=. 'run_',w_name
-  echo fn;w_value
   wd 'cmd w call report *',fn~w_value
 end.
 )

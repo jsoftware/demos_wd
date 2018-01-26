@@ -619,7 +619,7 @@ has the form:</p>
  <p>Try the examples below. You can cut and paste from this display, or open
  the following script with the examples and step through the lines:
 
- <pre> open '~addons/demos/webview/comms.ijs'</pre>
+ <pre> open '~addons/demos/wd/webview/comms.ijs'</pre>
 
 <h3>Form controls</h3>
 
