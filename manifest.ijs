@@ -6,9 +6,9 @@ DESCRIPTION=: 0 : 0
 wd demos using qt and jandroid
 )
 
-VERSION=: '1.0.131'
+VERSION=: '1.0.132'
 
-RELEASE=: 'j804 j805 j806'
+RELEASE=: 'j807'
 
 DEPENDS=: 0 : 0
 demos/isigraph
@@ -44,4 +44,5 @@ samegame/content/
 samegame/content/+blackberry/
 samegame/content/gfx/
 samegame/content/levels/
+webview/
 )

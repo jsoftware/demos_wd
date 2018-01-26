@@ -8,6 +8,7 @@ onStart=: demos_run
 REQ=: 0 : 0
 demos/isigraph/isdemo.ijs
 demos/wdplot/plotdemo.ijs
+games/2048/ui_wd.ijs
 games/minesweeper/uiwd.ijs
 games/solitaire/solitaire.ijs
 general/misc/numeric.ijs
@@ -39,6 +40,7 @@ unicode_simple dunisimple
 )
 
 TITLESQT=: maketitle 0 : 0
+2048 d2048
 cities dcities
 coins dcoins
 deoptim ddeoptim
@@ -52,6 +54,7 @@ plot dplot
 samegame dsamegame
 solitaire dsolitaire
 unicode_simple dunisimple
+webview dwebview
 )
 
 TITLES=: 3 : 0''
@@ -61,6 +64,9 @@ else.
   t=. TITLESQT
   if. (805<{.0".}.({.~ i.&'/')9!:14'')+.(qtslim>'Android'-:UNAME)+.qtmajor=4 do.
     t=. t #~ -. ({."1 t) = <'samegame'
+  end.
+  if. JQTVER_jqtide_ < 5006000 do.
+    t=. t #~ -. ({."1 t) = <'webview'
   end.
 end.
 )
@@ -155,6 +161,7 @@ NB. =========================================================
 demos_listbox_button=: 3 : 0
 f=. }. > {: (".listbox_select) { TITLES
 select. <f
+case. '2048' do. textview f;1!:1 <jpath '~addons/games/2048/engine.ijs'
 case. 'cities' do. textview f;1!:1 <jpath '~addons/demos/wd/citydemo.ijs'
 case. 'coins' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/coins/'
 case. 'deoptim' do. textview f;1!:1 <jpath '~addons/math/deoptim/demo/eg_deoptim.ijs'
@@ -168,10 +175,12 @@ case. 'plot' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/graphics/plot
 case. 'solitaire' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/solitaire/'
 case. 'unisimple' do. textview f;1!:1 <jpath '~addons/demos/wd/',f,'.ijs'
 case. 'samegame' do. textview f;1!:1 <jpath '~addons/demos/wd/samegame/samegame.qml'
+case. 'webview' do. textview f;1!:1 <jpath '~addons/demos/wd/webview/webview.js'
 end.
 )
 
 NB. =========================================================
+d2048=: load bind (jpath '~addons/games/2048/ui_wd.ijs')
 dcities=: load bind (jpath '~addons/demos/wd/citydemo.ijs')
 dcobrowse=: load bind (jpath '~addons/gui/util/cobrowse.ijs')
 dcoins=: load bind (jpath '~addons/demos/wd/coins.ijs')
@@ -192,6 +201,7 @@ dtabula=: load bind (jpath '~addons/math/tabula/tabula.ijs')
 dtreemap=: load bind (jpath '~addons/graphics/treemap/demo.ijs')
 dunisimple=: load bind (jpath '~addons/demos/wd/unisimple.ijs')
 dsamegame=: wd bind ('quickview2 samegame "', '"',~jpath '~addons/demos/wd/samegame/samegame.qml')
+dwebview=: load bind (jpath '~addons/demos/wd/webview/webview.ijs')
 
 demos_dialog_positive=: 3 : 0
 wd 'mb toast "install addons" 0'
