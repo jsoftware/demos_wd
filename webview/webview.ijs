@@ -18,7 +18,9 @@ normalrand=: 3 : '(2 o. +: o. rand01 y) * %: - +: ^. rand01 y'
 rand01=: ?@$ 0:
 round=: [ * [: <. 0.5 + %~
 roundint=: <.@:+&0.5
+tolist=: }. @ ; @: (LF&, @ , @ ": each)
 xrnd=: 4 : '^ x * 2 limit normalrand y'
+
 
 NB. =========================================================
 NB. constrained random walk
