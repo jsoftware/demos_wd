@@ -241,6 +241,7 @@ wd 'cc reload button;cn Reload'
 wd 'bin p8zv'
 wd 'cc w webview'
 wd 'bin zz'
+wd 'pmove _1 _1 1000 700'
 wd 'pshow hide'
 webview_load''
 )
@@ -290,7 +291,6 @@ coclass 'qtwebview'
 
 Axis=: Cube=: Order=: Piv=: Table=: $0
 
-Format=: 'barchart'
 Format=: 'table'
 NB. util
 
@@ -674,8 +674,6 @@ NB. for perspective, gross=total
 end.
 
 NB. sort pages:
-NB. tab=. tabsort tab;<}:0 pick tab
-NB. using sym indices:
 tabindex tab;/: joins }:2 pick tab
 )
 cocurrent 'ptab'

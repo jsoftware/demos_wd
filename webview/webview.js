@@ -439,10 +439,12 @@ The data is a table of 400K insurance records with values generated at random, i
 
 <p>The axes are shown in two rows: at the top are pages into the data,
 and below are the rows and columns. Each axis may be subset, and the
-axis tiles may be dragged and dropped to pivot the data.</p>
+axis tiles may be dragged and dropped to pivot the data. After any change,
+the display data is recalculated in J and sent to the webview.<p>
 
 <p>Page selections are subtotalled, except for <i>perspective</i> where totals allow
 for gross=net+ceded.</p>
+
 
 <p>The table display is an ordinary HTML table. The rendering will take a
 few seconds if the entire dataset is displayed, i.e. with no pages or axis selections.</p>
