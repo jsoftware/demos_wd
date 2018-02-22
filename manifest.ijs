@@ -6,13 +6,14 @@ DESCRIPTION=: 0 : 0
 wd demos using qt and jandroid
 )
 
-VERSION=: '1.0.136'
+VERSION=: '1.0.137'
 
 RELEASE=: 'j807'
 
 DEPENDS=: 0 : 0
 demos/isigraph
 demos/wdplot
+games/2048
 games/minesweeper
 games/solitaire
 general/misc

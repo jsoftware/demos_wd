@@ -16,8 +16,8 @@ graphics/bmp/bmp.ijs
 graphics/color/rgb.ijs
 graphics/viewmat/viewmat.ijs
 math/deoptim/demo/eg_deoptim.ijs
-math/lapack/lapack.ijs
 math/eigenpic/eigenpic.ijs
+math/lapack/lapack.ijs
 math/misc/trig.ijs
 stats/base/base.ijs
 )
