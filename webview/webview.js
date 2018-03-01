@@ -707,6 +707,7 @@ function d3plot(s) {
 function plotinit() {
  getid("page2select").selectedIndex = ((d3name === "price") ? 0 : 1);
  d3draw = getid("draw");
+ ifInit = false;
  jpost("d3plot", d3name);
 }
 
@@ -1712,18 +1713,23 @@ function define_paint() {
 
 // ---------------------------------------------------------------------
 function paint_scatter() {
+ let selall = function() {
+  Selected = Array(nubcountry.length).fill(true);
+ }
  if (!ifInit) {
   define_paint();
-  Selected = Array(nubcountry.length).fill(true);
+  selall();
   ifInit = true;
  } else {
   if (SelectedNms.length) {
    if (has(SelectedNms, "Show All"))
-    Selected = Array(nubcountry.length).fill(true);
+    selall();
    else
     Selected = arraymember(nubcountry, SelectedNms);
    SelectedNms = [];
-  }
+  } else
+  if (Selected.length !== nubcountry.length)
+   selall();
  }
 
  filter_data();
@@ -1972,7 +1978,6 @@ function slicer_select(id, ndx, cap, names, sel, cb) {
 var qcom;
 var Random;
 var resizeTimer;
-var resizer;
 
 // ---------------------------------------------------------------------
 function initpage(n) {
