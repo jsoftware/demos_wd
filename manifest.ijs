@@ -10,6 +10,8 @@ VERSION=: '1.0.138'
 
 RELEASE=: 'j807'
 
+FOLDER=: 'demos/wd'
+
 DEPENDS=: 0 : 0
 demos/isigraph
 demos/wdplot

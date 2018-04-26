@@ -1,0 +1,13 @@
+NB. project:
+NB.
+NB. defines list of source files.
+NB. path defaults to project directory.
+
+init.ijs
+util.ijs
+cube.ijs
+hier.ijs
+large.ijs
+report.ijs
+win.ijs
+runs.ijs

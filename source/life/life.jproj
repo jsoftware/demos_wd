@@ -1,0 +1,15 @@
+NB. project:
+NB.
+NB. defines list of source files.
+NB. path defaults to project directory.
+
+init.ijs
+util.ijs
+builds.ijs
+data.ijs
+file.ijs
+help.ijs
+main.ijs
+wcfg.ijs
+win.ijs
+runs.ijs
