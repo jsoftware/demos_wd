@@ -6,8 +6,10 @@ T=: jpath '~addons/demos/wd/webview'
 mkdir_j_ R,'/js'
 mkdir_j_ T,'/js'
 
-hostcmd 'rsync -c -r ',S,'/lib/js/* ',R,'/js'
-hostcmd 'rsync -c -r ',S,'/lib/js/* ',T,'/js'
+hostcmd=: [: 2!:0 '(' , ,&' || true)'
+
+hostcmd^:IFUNIX 'rsync -c -r ',S,'/lib/js/* ',R,'/js'
+hostcmd^:IFUNIX 'rsync -c -r ',S,'/lib/js/* ',T,'/js'
 
 f=: 3 : 0
 'f t'=. 2$boxxopen y

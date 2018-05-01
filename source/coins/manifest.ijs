@@ -8,7 +8,9 @@ This is a sample project based on the coins demo.
 
 VERSION=: '1.0.14'
 
-RELEASE=: 'j804 j805 j806 j807'
+RELEASE=: ''
+
+FOLDER=: 'demos/coins'
 
 DEPENDS=: 0 : 0
 graphics/gl2
