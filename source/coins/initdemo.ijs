@@ -1,7 +1,5 @@
 NB. init
 
-require 'gl2'
-
 coinsert 'jgl2'
 
 BOARD=: 0

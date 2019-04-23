@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 wd demos using qt and jandroid
 )
 
-VERSION=: '1.0.138'
+VERSION=: '1.0.139'
 
 RELEASE=: 'j807'
 
@@ -23,7 +23,6 @@ graphics/plot
 graphics/print
 graphics/viewmat
 math/deoptim
-math/eigenpic
 math/misc
 stats/base
 )
@@ -42,10 +41,5 @@ j.bmp
 life.ijs
 printer.ijs
 unisimple.ijs
-samegame/
-samegame/content/
-samegame/content/+blackberry/
-samegame/content/gfx/
-samegame/content/levels/
 webview/
 )

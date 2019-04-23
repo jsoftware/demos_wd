@@ -1,6 +1,5 @@
 NB. init
 
-require 'gl2'
 coclass 'jcoins'
 coinsert 'jgl2'
 

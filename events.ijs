@@ -1,6 +1,6 @@
 NB. illustrates events in J
 
-require 'gl2 numeric trig'
+require 'numeric trig'
 coclass 'jevents'
 coinsert 'jgl2'
 

@@ -1,4 +1,3 @@
-require 'gl2'
 
 coclass 'jprintdemo'
 coinsert 'jgl2'

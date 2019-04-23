@@ -1,4 +1,3 @@
-require 'gl2'
 coclass 'jlife'
 coinsert 'jgl2'
 

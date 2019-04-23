@@ -12,10 +12,6 @@ RELEASE=: ''
 
 FOLDER=: 'demos/coins'
 
-DEPENDS=: 0 : 0
-graphics/gl2
-)
-
 FILES=: 0 : 0
 boards.ijs
 build.ijs

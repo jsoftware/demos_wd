@@ -16,8 +16,6 @@ graphics/bmp/bmp.ijs
 graphics/color/rgb.ijs
 graphics/viewmat/viewmat.ijs
 math/deoptim/demo/eg_deoptim.ijs
-math/eigenpic/eigenpic.ijs
-math/lapack/lapack.ijs
 math/misc/trig.ijs
 stats/base/base.ijs
 )
@@ -44,7 +42,6 @@ TITLESQT=: maketitle 0 : 0
 cities dcities
 coins dcoins
 deoptim ddeoptim
-eigenpictures deigenpic
 events devents
 isigraph disigraph
 isigrid disigrid
@@ -116,10 +113,6 @@ if. 0~:wdquery m do. 0 return. end.
 load 'pacman'
 'update' jpkg ''
 'install' jpkg p
-if. (UNAME-:'Android') *. (<'math/lapack') e. p do.
-  require 'math/lapack'
-  install_jlapack_ ::0: ''
-end.
 1
 )
 
@@ -128,7 +121,6 @@ demos_run=: 3 : 0
 if. -.IFJA do.
   if. -. checkrequires'' do. return. end.
 end.
-require 'gl2'
 coinsert 'jgl2'
 if. wdisparent 'demos' do.
   wd 'psel demos;pshow;pactive' return.
@@ -165,7 +157,6 @@ case. '2048' do. textview f;1!:1 <jpath '~addons/games/2048/engine.ijs'
 case. 'cities' do. textview f;1!:1 <jpath '~addons/demos/wd/citydemo.ijs'
 case. 'coins' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/coins/'
 case. 'deoptim' do. textview f;1!:1 <jpath '~addons/math/deoptim/demo/eg_deoptim.ijs'
-case. 'eigenpic' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/math/eigenpic/'
 case. 'events' do. textview f;1!:1 <jpath '~addons/demos/wd/',f,'.ijs'
 case. 'isigrid' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/isigrid'
 case. 'isigraph' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/demos/isigraph/'
@@ -186,7 +177,6 @@ dcobrowse=: load bind (jpath '~addons/gui/util/cobrowse.ijs')
 dcoins=: load bind (jpath '~addons/demos/wd/coins.ijs')
 ddeoptim=: load bind (jpath '~addons/math/deoptim/demo/eg_deoptim.ijs')
 ddialogs=: load bind (jpath '~addons/demos/wd/demoall.ijs')
-deigenpic=: load bind (jpath '~addons/math/eigenpic/eigenpic.ijs')
 devents=: load bind (jpath '~addons/demos/wd/events.ijs')
 disigrid=: load bind (jpath '~addons/demos/wd/isigrid.ijs')
 disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')
@@ -208,10 +198,6 @@ wd 'mb toast "install addons" 0'
 load 'pacman'
 'update' jpkg ''
 'install' jpkg missing
-if. (UNAME-:'Android') *. (<'math/lapack') e. missing do.
-  require 'math/lapack'
-  install_jlapack_ ::0: ''
-end.
 wd 'mb toast finished'
 )
 
