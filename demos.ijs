@@ -16,6 +16,7 @@ graphics/bmp/bmp.ijs
 graphics/color/rgb.ijs
 graphics/viewmat/viewmat.ijs
 math/deoptim/demo/eg_deoptim.ijs
+math/eigenpic/eigenpic.ijs
 math/misc/trig.ijs
 stats/base/base.ijs
 )
@@ -42,6 +43,7 @@ TITLESQT=: maketitle 0 : 0
 cities dcities
 coins dcoins
 deoptim ddeoptim
+eigenpictures deigenpic
 events devents
 isigraph disigraph
 isigrid disigrid
@@ -155,15 +157,16 @@ f=. }. > {: (".listbox_select) { TITLES
 select. <f
 case. '2048' do. textview f;1!:1 <jpath '~addons/games/2048/engine.ijs'
 case. 'cities' do. textview f;1!:1 <jpath '~addons/demos/wd/citydemo.ijs'
-case. 'coins' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/coins/'
+case. 'coins' do. browse_j_ 'https://github.com/jsoftware/demos_wd/tree/master/source/coins'
 case. 'deoptim' do. textview f;1!:1 <jpath '~addons/math/deoptim/demo/eg_deoptim.ijs'
+case. 'eigenpic' do. browse_j_ 'https://github.com/jsoftware/math_eigenpic'
 case. 'events' do. textview f;1!:1 <jpath '~addons/demos/wd/',f,'.ijs'
-case. 'isigrid' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/isigrid'
-case. 'isigraph' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/demos/isigraph/'
-case. 'life' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/demos/wd/life/'
-case. 'minesweeper' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/minesweeper'
-case. 'plot' do. browse_j_ 'http://jsoftware.com/wsvn/public/trunk/graphics/plot/source/dev/demo'
-case. 'solitaire' do. browse_j_ 'http://jsoftware.com/wsvn/addons/trunk/games/solitaire/'
+case. 'isigrid' do. browse_j_ 'https://github.com/jsoftware/demos_wd/blob/master/isigrid.ijs'
+case. 'isigraph' do. browse_j_ 'https://github.com/jsoftware/demos_isigraph'
+case. 'life' do. browse_j_ 'https://github.com/jsoftware/demos_wd/tree/master/source/life'
+case. 'minesweeper' do. browse_j_ 'https://github.com/jsoftware/games_minesweeper'
+case. 'plot' do. browse_j_ 'https://github.com/jsoftware/graphics_plot/tree/master/source/dev/demo'
+case. 'solitaire' do. browse_j_ 'https://github.com/jsoftware/games_solitaire'
 case. 'unisimple' do. textview f;1!:1 <jpath '~addons/demos/wd/',f,'.ijs'
 case. 'samegame' do. textview f;1!:1 <jpath '~addons/demos/wd/samegame/samegame.qml'
 case. 'webview' do. textview f;1!:1 <jpath '~addons/demos/wd/webview/webview.js'
@@ -177,6 +180,7 @@ dcobrowse=: load bind (jpath '~addons/gui/util/cobrowse.ijs')
 dcoins=: load bind (jpath '~addons/demos/wd/coins.ijs')
 ddeoptim=: load bind (jpath '~addons/math/deoptim/demo/eg_deoptim.ijs')
 ddialogs=: load bind (jpath '~addons/demos/wd/demoall.ijs')
+deigenpic=: load bind (jpath '~addons/math/eigenpic/eigenpic.ijs')
 devents=: load bind (jpath '~addons/demos/wd/events.ijs')
 disigrid=: load bind (jpath '~addons/demos/wd/isigrid.ijs')
 disigraph=: load bind (jpath '~addons/demos/isigraph/isdemo.ijs')

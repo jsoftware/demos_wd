@@ -6,9 +6,9 @@ DESCRIPTION=: 0 : 0
 wd demos using qt and jandroid
 )
 
-VERSION=: '1.0.139'
+VERSION=: '1.0.140'
 
-RELEASE=: 'j807'
+RELEASE=: 'j901'
 
 FOLDER=: 'demos/wd'
 
@@ -23,6 +23,7 @@ graphics/plot
 graphics/print
 graphics/viewmat
 math/deoptim
+math/eigenpic
 math/misc
 stats/base
 )
