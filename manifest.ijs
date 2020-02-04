@@ -6,13 +6,14 @@ DESCRIPTION=: 0 : 0
 wd demos using qt and jandroid
 )
 
-VERSION=: '1.0.140'
+VERSION=: '1.0.141'
 
 RELEASE=: 'j901'
 
 FOLDER=: 'demos/wd'
 
 DEPENDS=: 0 : 0
+convert/pjson
 demos/isigraph
 demos/wdplot
 games/2048
