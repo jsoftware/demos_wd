@@ -1,6 +1,4 @@
 cocurrent 'ptab'
-d=. (('Win';'Linux';'Darwin')i.<UNAME) pick 'jd.dll';'libjd.so';'libjd.dylib'
-LIBJD_jd_=: '"',(jpath'~addons/data/jd/cd/'),d,'"'
 col=: ,.@:>each :($:@([ {.each ]))
 commasep=: }.@;@:((',' , ":)each)
 isboxed=: 0 < L.
@@ -8,20 +6,29 @@ ischar=: 2=3!:0
 isnum=: 3!:0 e. 1 4 8"_
 joins=: >@(,.&.>/)
 remsep=: }.~ '/' -@= {:
+
+sfe=: 6!:16
+efs=: 6!:17
 fmtdp=: 4 : 0
 if. 8 ~: 3!:0 y do. y return. end.
 d=. 10 ^ x
-'a b'=. |:  0 1 #: ,y
+'a b'=. |: 0 1 #: ,y
 ":,.a + (<.0.5+b*d) % d
 )
 date2num=: 3 : 0
-efs_jd_ y
+efs y
 )
 num2date=: 3 : 0
-'  d' sfe_jd_ y
+'  d' sfe y
 )
 num2datetime=: 3 : 0
-'  t' sfe_jd_ y
+'  0' sfe y
+)
+num2datetimem=: 3 : 0
+'.  3' sfe y
+)
+num2datetimen=: 3 : 0
+'.  9' sfe y
 )
 boxgrade=: /:@|:@:((i.~ { /:@/:)&>)
 boxindexof=: i.&>~@[ i.&|: i.&>
@@ -314,11 +321,11 @@ j=. cutopen 0 : 0
 1 bool 1          # 0 1 0
 2 int 8           # 2 3 5
 3 float 8         # 3.123
-9 sym 8           # 'hello'
-11 date 8         # 2017-03-14
-12 datetime 8     # 2017-03-14T15:07:34
-13 datetimem 8    # 2017-03-14T15:07:34.925
-14 datetimen 8    # 2017-03-14T15:07:34.925902831
+4 sym 8           # 'hello'
+11 date 8         # 2019-08-14
+12 datetime 8     # 2019-08-14T15:07:34
+13 datetimem 8    # 2019-08-14T15:07:34.925
+14 datetimen 8    # 2019-08-14T15:07:34.925902831
 15 time 8         # 15:07:34
 16 timem 8        # 15:07:34.925
 17 timen 8        # 15:07:34.925902831
@@ -385,69 +392,3 @@ fromsym_z_=: fromsym_psym_
 tosym_z_=: tosym_psym_
 tosymx_z_=: tosymx_psym_
 
-NB. Copyright 2014, Jsoftware Inc.  All rights reserved.
-coclass 'jd'
-
-NB. datetime epoch
-
-NB. e unix style epoch but in nanoseconds with 2000-01-01 base
-NB. s iso 8601 (relaxed/stricter rules)
-
-NB. conversion utils preserve rank
-
-NB. e from s
-NB. efs '2014-06-07T08:09:10.123456789+05'
-NB. efs '2014-06-07T08:09:10.123Z'
-NB. efs '2014-06-07T08:09:10.123'
-NB. efs '2014-06-07T08:09:10+05'
-NB. efs '2014-06-07'
-NB. delimiter (-T:+-Z or blank) ends field, but is not validated
-NB. 7:8:9 treated same as 07:08:09
-NB. x is allow errors, ignore offset, return offset
-efs=: 3 : 0
-0 0 0 efs y
-:
-s=. $y
-p=. }:s
-rows=. */p
-cols=. {:s
-y=. (rows,cols) ($,) y
-if. 1=2{x do.  off=. rows$-1 else. off=. <0 end.
-r=. (LIBJD_jd_,' efs x x x *c *x *x x')cd rows;cols;y;(rows$-1);off;1{x
-if. 1~:{.x do. 'invalid iso 8601 datetime' assert 0=>{.r end.
-if. 1={:x do. (p$>4{r);p$>5{r else. p$>4{r end.
-)
-
-efsx=: 1 0 0&efs NB. allow errors, do not ignore offset, do not return offset
-
-eofs=: 0 0 1&efs NB. do not allow errors, do not ignore offset, return offset
-
-NB. s from e - efs invers
-NB. 0{x is ',' or '.' for hh:mm:ss,nnnnnnnnn
-NB. 1{x is 'Z' for a final Z
-sfe=: 3 : 0
-', n'sfe y
-:
-s=. $y
-y=. ,y
-r=. #y
-c=. ('Z'=1{x)+10 19 23 29{~'dtmn'i.2{x
-
-NB. kludge display of min/max aggregation of epchdt cols
-if. (1=#y)*.+./_ __="0 1 y do.
- y=. ,(_=y){0 6342969599999999999
-end.
-
-s$>3{(LIBJD_jd_,' sfe x x x *c *x *c')cd r;c;((r,c)$' ');y;x
-)
-
-NB. stuff for old sylte datetime yyyymmddhhmmss
-
-NB. e from yyyymmddhhmmss
-eft=: 3 : 0
-r=. #y
-t=. 0=$$y
-r=. >2{(LIBJD_jd_,' eft x x *x *x')cd r;(r$2-2);,y
-if. t do. r=. ''$r end.
-)
-cocurrent 'base'

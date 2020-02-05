@@ -12,7 +12,6 @@ roundint=: <.@:+&0.5
 tolist=: }. @ ; @: (LF&, @ , @ ": each)
 xrnd=: 4 : '^ x * 2 limit normalrand y'
 
-
 NB. =========================================================
 NB. constrained random walk
 NB. a max movement per step

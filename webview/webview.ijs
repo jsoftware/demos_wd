@@ -96,6 +96,15 @@ roundint (size + ? count#<.size*0.7) * 0.5 >. 2 <. v*a+((%{:v)-a) * int01 count-
 )
 
 NB. =========================================================
+show_webview_events=: 3 : 0
+n=. {."1 wdq
+v=. {:"1 wdq
+if. -. (,'w') -: (n i. <'syschild') pick v do. return. end.
+m=. (n e. ;:'sysevent') +. (<'w_') = 2 {.each n
+smoutput m#wdq
+)
+
+NB. =========================================================
 NB. volume profile - random times, weighted toward ends
 NB. y=# of buckets, total count
 volprof=: 3 : 0
@@ -119,6 +128,9 @@ e=. 2-(?c$0) ^ p
 m=. ?(count-2*c)$0
 m,0.5*b,e
 )
+
+NB. =========================================================
+wdhandler_debug_z_=: show_webview_events_qtwebview_
 NB. price
 
 PriceInit=: 0
@@ -159,25 +171,6 @@ p=. 1,.cgen @ (0.0375 3&,) &> cnt##dates
 p=. choleskicor ccf;p
 (prc % {."1 p) * p *"1 [ 1.1 ^ int01 #dates
 )
-
-
-NB. =========================================================
-rundemo=: 3 : 0
-webview''
-)
-NB. util
-
-NB. =========================================================
-show_webview_events_z_=: 3 : 0
-n=. {."1 wdq
-v=. {:"1 wdq
-if. -. (,'w') -: (n i. <'syschild') pick v do. return. end.
-m=. (n e. ;:'sysevent') +. (<'w_') = 2 {.each n
-smoutput m#wdq
-)
-
-NB. =========================================================
-wdhandler_debug_z_=: show_webview_events_qtwebview_
 NB. scatterplot data
 
 SPinit=: 0
@@ -249,6 +242,7 @@ wd 'cc reload button;cn Reload'
 wd 'bin p8zv1'
 wd 'cc w webview'
 wd 'bin zz'
+wd 'pmove _1 _1 1000 700'
 wd 'pshow hide'
 webview_load''
 )
@@ -298,7 +292,6 @@ coclass 'qtwebview'
 
 Axis=: Cube=: Order=: Piv=: Table=: $0
 
-Format=: 'barchart'
 Format=: 'table'
 NB. util
 
@@ -682,8 +675,6 @@ NB. for perspective, gross=total
 end.
 
 NB. sort pages:
-NB. tab=. tabsort tab;<}:0 pick tab
-NB. using sym indices:
 tabindex tab;/: joins }:2 pick tab
 )
 cocurrent 'ptab'
@@ -1080,5 +1071,4 @@ fromsym_z_=: fromsym_psym_
 tosym_z_=: tosym_psym_
 tosymx_z_=: tosymx_psym_
 
-cocurrent 'base'
 webview_qtwebview_ 0
