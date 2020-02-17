@@ -69,7 +69,7 @@ wd 'pshow;'
 )
 
 NB. =========================================================
-coin_f10_fkey=: 3 : 0
+coin_f4_fkey=: 3 : 0
 glsel 'g'
 'w h'=. glqwh ''
 rgb=. (h,w) $ glqpixels 0,0,w,h
