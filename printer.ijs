@@ -17,16 +17,16 @@ glprint x                    NB. start printing
 
 print_g_print=: 3 : 0
 smoutput 'print event page pass: ',sysdata
-'page pass'=.".sysdata
+'page pass'=. ".sysdata
 select. pass
 case. _1 do. NB. printing finished - cleanup
- wd'pclose'
+  wd'pclose'
 case. 0 do.  NB. is there data to print?
- glprintmore PRINT_MORE
+  glprintmore PRINT_MORE
 case. 1 do.  NB. print page
- print_draw ''
+  print_draw ''
 case. 2 do.  NB. banding - print page again
- wd'mb Print *Printer banding not supported'
+  wd'mb Print *Printer banding not supported'
 end.
 )
 
