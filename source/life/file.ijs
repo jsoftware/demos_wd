@@ -5,12 +5,16 @@ NB. view and run lif file
 NB. =========================================================
 LIF=: 0 : 0
 pc lif owner;
+menupop "&File";
+menu quit "&Quit" "Ctrl+Q" "" "";
+menupopz;
 cc run button;cn "&Run";
 cc cancel button;cn "&Cancel";
 minwh 500 300;cc e editm readonly;
 pas 0 0;
 rem form end;
 )
+lif_quit_button=: lif_close
 
 NB. =========================================================
 lif_run=: 3 : 0

@@ -2,7 +2,10 @@ NB. win
 
 NB. =========================================================
 webview=: 3 : 0
-wd 'pc webview closeok escclose;pn Intro'
+wd 'pc webview escclose;pn Intro'
+wd 'menupop "&File";'
+wd 'menu quit "&Quit" "Ctrl+Q" "" "";'
+wd 'menupopz;'
 wd 'bin hvp8'
 wd 'cc intro button;cn Intro'
 wd 'cc comms button;cn Comms'
@@ -18,6 +21,7 @@ wd 'pmove _1 _1 1000 700'
 wd 'pshow hide'
 webview_load''
 )
+webview_quit_button=: webview_close
 
 NB. =========================================================
 webview_w_post=: 3 : 0

@@ -11,9 +11,13 @@ print=: 3 : 0
 DATA=: boxopen y
 PRINT_MORE=: #DATA
 wdpclose 'print'             NB. close old print form
-wd 'pc print; cc g isigraph flush'
+wd 'pc print closeok; cc g isigraph flush'
+wd 'menupop "&File";'
+wd 'menu quit "&Quit" "Ctrl+Q" "" "";'
+wd 'menupopz;'
 glprint x                    NB. start printing
 )
+print_quit_button=: wd bind 'pclose'
 
 print_g_print=: 3 : 0
 smoutput 'print event page pass: ',sysdata

@@ -716,12 +716,16 @@ SPIRAL=: 0 : 0
 )
 LIF=: 0 : 0
 pc lif owner;
+menupop "&File";
+menu quit "&Quit" "Ctrl+Q" "" "";
+menupopz;
 cc run button;cn "&Run";
 cc cancel button;cn "&Cancel";
 minwh 500 300;cc e editm readonly;
 pas 0 0;
 rem form end;
 )
+lif_quit_button=: lif_close
 lif_run=: 3 : 0
 wd LIF
 wd 'pn "',NAME,'"'
@@ -840,6 +844,9 @@ STDRATIOS=: 1 1.25 1.5 2
 
 WCFG=: 0 : 0
 pc wcfg owner;pn "Life Config";
+menupop "&File";
+menu quit "&Quit" "Ctrl+Q" "" "";
+menupopz;
 bin v;
 bin h;
 bin v;
@@ -920,6 +927,7 @@ bin z;
 pas 4 4;pcenter;
 rem form end;
 )
+wcfg_quit_button=: wcfg_close
 
 wcfg_run=: 3 : 0
 Nboard=: BOARD

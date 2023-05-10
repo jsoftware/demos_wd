@@ -69,7 +69,10 @@ end.
 
 NB. =========================================================
 DEMOS=: 0 : 0
-pc demos closeok;pn "Demos Select";
+pc demos;pn "Demos Select";
+menupop "&File";
+menu quit "&Quit" "Ctrl+Q" "" "";
+menupopz;
 bin v;
 cc static1 static;cn "static1";
 bin h;
@@ -81,10 +84,11 @@ bin szzz;
 pas 4 2;pcenter;
 rem form end;
 )
+demos_quit_button=: demos_close
 
 NB. =========================================================
 DEMOSJA=: 0 : 0
-pc demos closeok;pn "Demos Select";
+pc demos;pn "Demos Select";
 bin v;
 cc static1 static;cn "static1";
 wh _1 _2;cc listbox listbox;

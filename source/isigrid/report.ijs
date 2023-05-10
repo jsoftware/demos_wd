@@ -39,6 +39,10 @@ Column widths are autofit.
 NB. =========================================================
 reportrun=: 3 : 0
 wd 'pc isigriddemo escclose closeok;'
+wd 'menupop "&File";'
+wd 'menu quit "&Quit" "Ctrl+Q" "" "";'
+wd 'menupopz;'
 reportdemo''
 wd 'pmove 100 10 600 300'
 )
+isigriddemo_quit_button=: wd bind 'pclose'

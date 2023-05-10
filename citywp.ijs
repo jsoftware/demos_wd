@@ -4,6 +4,9 @@ onStart=: cities_run
 
 CITIES=: 0 : 0
 pc cities closeok;pn "City Distances";
+menupop "&File";
+menu quit "&Quit" "Ctrl+Q" "" "";
+menupopz;
 bin hvh;
 cc s0 static;cn "From:";
 cc clist combolist;
@@ -24,9 +27,13 @@ bin szsz;
 pas 6 6;pcenter;
 rem form end;
 )
+cities_quit_button=: wd bind 'pclose'
 
 CITIESJA=: 0 : 0
 pc cities closeok;pn "City Distances";
+wd 'menupop "&File";'
+wd 'menu quit "&Quit" "Ctrl+Q" "" "";'
+wd 'menupopz;'
 bin v;
 cc s0 static;cn "From:";
 wh  _1 _2;cc clist combolist;

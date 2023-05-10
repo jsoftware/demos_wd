@@ -14,6 +14,9 @@ STDRATIOS=: 1 1.25 1.5 2
 
 WCFG=: 0 : 0
 pc wcfg owner;pn "Life Config";
+menupop "&File";
+menu quit "&Quit" "Ctrl+Q" "" "";
+menupopz;
 bin v;
 bin h;
 bin v;
@@ -94,6 +97,7 @@ bin z;
 pas 4 4;pcenter;
 rem form end;
 )
+wcfg_quit_button=: wcfg_close
 
 wcfg_run=: 3 : 0
 Nboard=: BOARD

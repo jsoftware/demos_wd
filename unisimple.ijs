@@ -6,15 +6,22 @@ onStart=: abc_run
 
 ABC=: 0 : 0
 pc abc;pn "Unicode";
+menupop "&File";
+menu quit "&Quit" "Ctrl+Q" "" "";
+menupopz;
 cc b button;
 minwh 312 104;cc em editm;
 cc viewsource button;cn "View Source";
 pas 6 6;pcenter;
 rem form end;
 )
+abc_quit_button=: abc_close
 
 ABCJA=: 0 : 0
 pc abc;pn "Unicode";
+menupop "&File";
+menu quit "&Quit" "Ctrl+Q" "" "";
+menupopz;
 bin v;
 bin h;
 cc b button;

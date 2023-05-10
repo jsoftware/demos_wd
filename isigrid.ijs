@@ -53,9 +53,13 @@ Drag and drop to rearrange. Dropped dimensions are moved to the end of the axis 
 )
 cuberun=: 3 : 0
 wd 'pc isigriddemo escclose closeok;'
+wd 'menupop "&File";'
+wd 'menu quit "&Quit" "Ctrl+Q" "" "";'
+wd 'menupopz;'
 cubedemo''
 wd 'pmove 100 10 600 300'
 )
+isigriddemo_quit_button=: wd bind 'pclose'
 hierHelp=: 0 : 0
 Displays hierarchical data in a isigrid.
 
@@ -123,9 +127,13 @@ Column widths are autofit.
 )
 reportrun=: 3 : 0
 wd 'pc isigriddemo escclose closeok;'
+wd 'menupop "&File";'
+wd 'menu quit "&Quit" "Ctrl+Q" "" "";'
+wd 'menupopz;'
 reportdemo''
 wd 'pmove 100 10 600 300'
 )
+isigriddemo_quit_button=: wd bind 'pclose'
 FormHeader=: 0 : 0
 pc isigriddemo escclose closeok;
 pn Grid;
