@@ -6,9 +6,9 @@ DESCRIPTION=: 0 : 0
 This is a sample project based on the coins demo.
 )
 
-VERSION=: '1.0.14'
+VERSION=: '1.0.15'
 
-RELEASE=: ''
+RELEASE=: 'j901'
 
 FOLDER=: 'demos/coins'
 

@@ -24,13 +24,13 @@ win.ijs
 '~Addons/demos/coins/init.ijs' fcopynew '~Addons/demos/wd/source/coins/initdemo.ijs'
 
 NB. ---------------------------------------------------------
-t=. LF,'writesourcex_jp_ ''~Demos/coins'';''~Demos/release/coins.ijs'''
+t=. LF,'writesourcex_jp_ ''~Demos/coins'';''~Demos/coins/coins.ijs'''
 t fwrites '~Addons/demos/coins/build.ijs'
 
 NB. ---------------------------------------------------------
 t=. 0 : 0
 
-load '~Demos/release/coins.ijs'
+load '~Demos/coins/coins.ijs'
 
 NB. try BOARD=1, 2 or 3
 BOARD=: 0

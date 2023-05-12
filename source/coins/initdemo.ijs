@@ -1,6 +1,9 @@
 NB. init
 
+coclass 'jcoins'
 coinsert 'jgl2'
+
+onStart=: coins_run
 
 BOARD=: 0
 
