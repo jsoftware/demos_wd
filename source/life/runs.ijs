@@ -13,7 +13,6 @@ if. ischar dat do.
 end.
 runinit dat
 rundoit dat
-draw''
 )
 
 NB. =========================================================
@@ -30,19 +29,17 @@ runinit=: 3 : 0
 BOARD=: $ y
 boardinit ''
 TRANS=: buildtrans ''
-RUN=: MINRUN
-loc=. >coname''
-sys_timer_z_=: ('life_',loc,'_')~
+setsystimer 0
 life_run''
 )
 
 NB. =========================================================
 runlife_z_=: 3 : 0
-a=. conew 'jlife'
+LIFELOC_z_=: conew 'jlife'
 if. IFJA do.
-  wd 'activity ', >a
+  wd 'activity ', >LIFELOC
 else.
-  run__a''
+  run__LIFELOC''
 end.
 )
 

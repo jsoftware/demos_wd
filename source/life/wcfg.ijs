@@ -1,12 +1,11 @@
 NB. life configuration
 
-COUNTS=: 0 : 0
+COUNTS=: }:0 : 0
 The undo buffer takes one byte per cell per iteration, e.g. 1 MB for 1024x1024 cells. Reduce the buffer size for large boards and limited memory.
 )
 
-RUNS=: 0 : 0
-The minimum run is the number of steps taken without interruption. The delay is the time in milliseconds for the interrupt.
-For example, set run to 1 and delay to 1000 to step every second.
+STEPTIME=: }:0 : 0
+The step time is the time in milliseconds for each step, default 1.
 )
 
 STDSIZES=: 64 128 256 512 1024
@@ -17,9 +16,7 @@ pc wcfg owner;pn "Life Config";
 menupop "&File";
 menu quit "&Quit" "Ctrl+Q" "" "";
 menupopz;
-bin v;
-bin h;
-bin v;
+bin vhv;
 groupbox "Current Size";
 bin hv;
 cc s0 static;cn "Cells:";
@@ -32,15 +29,15 @@ cc spixels static;cn "712 x 712";
 bin szz;
 groupboxend;
 groupbox "New Size";
-bin hv;
+bin vg;
+grid shape 3 2;
 cc s4 static;cn "Cells:";
-cc s5 static;cn "Scale:";
-cc s6 static;cn "Pixels:";
-bin szv;
 cc ecells edit;
+cc s5 static;cn "Scale:";
 cc escale combolist;
+cc s6 static;cn "Pixels:";
 cc snewpixels static;cn "712 x 712";
-bin szz;
+bin zvszz;
 groupboxend;
 bin z;
 groupbox "Standard cell sizes";
@@ -60,8 +57,7 @@ cc bc2 radiobutton group;cn "2";
 bin szz;
 cc bfd button;cn "Best fit to desktop";
 groupboxend;
-bin v;
-bin v;
+bin vv;
 cc ok button;cn "OK";
 cc cancel button;cn "Cancel";
 bin sz;
@@ -76,35 +72,37 @@ groupboxend;
 bin szz;
 groupbox "Counts";
 cc scount static;
+bin hg;
+grid shape 3 2;
 cc s8 static;cn "Max Buffer:";
-cc emaxbuf edit;
-cc s10 static;cn "default = 100";
 cc s7 static;cn "Max Iterations:";
+maxwh 150 100;
+cc emaxbuf edit;
+maxwh 150 100;
 cc emaxiter edit;
+cc s10 static;cn "default = 100";
 cc s9 static;cn "empty if none";
+bin zsz;
 groupboxend;
-groupbox "Run";
+groupbox "Step Time";
+bin v;
 cc srun static;
-cc s11 static;cn "Min Run:";
-cc eminrun edit;
-cc s11 static;cn "default = 10";
-cc s11 static;cn "Delay:";
+bin h;
+cc s11 static;cn "Time:";
+maxwh 150 100;
 cc etimer edit;
-cc s12 static;cn "default = 1";
-cc s20 static;cn "Board:";
+bin szz;
 groupboxend;
 bin z;
 pas 4 4;pcenter;
 rem form end;
 )
-wcfg_quit_button=: wcfg_close
 
 wcfg_run=: 3 : 0
 Nboard=: BOARD
 Nscale=: SCALE
 Nmaxiter=: MAXITER
 Nmaxbuf=: MAXBUF
-Nminrun=: MINRUN
 Ntimer=: TIMER
 Nbcolor=: BOARDCOLOR
 Nccolor=: CELLCOLOR
@@ -114,7 +112,7 @@ wd 'set sscale text *',": SCALE
 wd 'set spixels text *',fmtsize BOARD * SCALE
 wd 'set escale items ',": 1 + i.8
 wd 'set scount text *',COUNTS
-wd 'set srun text *',RUNS
+wd 'set srun text *',STEPTIME
 wcfg_noratio''
 wcfg_nosize''
 wcfg_show''
@@ -146,6 +144,8 @@ wcfg_close=: 3 : 0
 wdx 'psel wcfg;pclose'
 )
 
+wcfg_quit_button=: wcfg_close
+
 wcfg_newratio=: 3 : 0
 Nboard=: ({.Nboard) * 1,y
 wcfg_show''
@@ -171,8 +171,6 @@ if. -. wcfg_read'' do. return. end.
 MAXITER=: Nmaxiter
 MAXBUF=: Nmaxbuf
 TIMER=: Ntimer
-MINRUN=: Nminrun
-RUN=: MINRUN
 BOARDCOLOR=: Nbcolor
 CELLCOLOR=: Nccolor
 wcfg_close''
@@ -208,10 +206,9 @@ Nboard=: board
 Nbcolor=: bclr
 Nccolor=: cclr
 Nscale=: 1 + 0 ". escale_select
-Nmaxbuf=. 0 ". emaxbuf
-Nminrun=: 1 >. 0 ". eminrun
+Nmaxbuf=. {. 0 ". emaxbuf
 Nmaxiter=: {. (0 ". emaxiter),_
-Ntimer=: 1 >. 0 ". etimer
+Ntimer=: 1 >. {. 0 ". etimer
 1
 )
 
@@ -238,13 +235,10 @@ else.
 end.
 wd 'set emaxiter text ',(Nmaxiter ~: _) # ":Nmaxiter
 wd 'set emaxbuf text ',":Nmaxbuf
-wd 'set eminrun text ',":Nminrun
 wd 'set etimer text ',":Ntimer
 wd 'set bcolor text *',":Nbcolor
 wd 'set ccolor text *',":Nccolor
 )
-
-wcfg_default=: wcfg_reshow
 
 wcfg_b64_button=: wcfg_newrows bind 64
 wcfg_b128_button=: wcfg_newrows bind 128

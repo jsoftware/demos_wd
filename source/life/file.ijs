@@ -14,7 +14,6 @@ minwh 500 300;cc e editm readonly;
 pas 0 0;
 rem form end;
 )
-lif_quit_button=: lif_close
 
 NB. =========================================================
 lif_run=: 3 : 0
@@ -37,6 +36,7 @@ wd 'pclose'
 
 NB. =========================================================
 lif_cancel_button=: lif_close
+lif_quit_button=: lif_close
 
 NB. =========================================================
 lif_run_button=: 3 : 0

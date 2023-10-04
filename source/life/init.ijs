@@ -28,13 +28,12 @@ else.
   4
 end.
 )
+
 BOARD=: 128 160
 PATH=: ''
-TIMER=: 1
+TIMER=: 1  NB. milliseconds
 MAXITER=: _
 MAXBUF=: 100
-MINRUN=: 10
-RUN=: MINRUN
 COUNT=: 0
 BOARDCOLOR=: 0 128 128
 CELLCOLOR=: 255 255 0

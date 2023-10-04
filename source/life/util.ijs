@@ -57,3 +57,14 @@ NB. =========================================================
 settimer=: 3 : 0
 wd 'timer ',":TIMER * y
 )
+
+NB. =========================================================
+setsystimer=: 3 : 0
+if. y do.
+  sys_timer_z_=: life__LIFELOC
+else.
+  settimer 0
+  sys_timer_z_=: ]
+end.
+EMPTY
+)

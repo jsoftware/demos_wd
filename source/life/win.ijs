@@ -38,7 +38,7 @@ cc step button;cn "Step";
 cc siz static center;cn "";
 cc cnt static center;cn "";
 bin z;
-minwh 640 512;cc g isigraph flush;
+minwh 640 512;cc g isidraw flush;
 bin z;
 pas 0 0;pcenter;
 rem form end;
@@ -78,7 +78,7 @@ cc step button;cn "Step";
 cc siz static center;cn "";
 cc cnt static center;cn "";
 bin z;
-wh _1 _1;cc g isigraph flush;
+wh _1 _1;cc g isidraw flush;
 bin z;
 pas 0 0;pcenter;
 rem form end;
@@ -139,9 +139,7 @@ rundoit STATE
 NB. =========================================================
 life_step_button=: 3 : 0
 settimer 0
-RUN=: 1
 life''
-RUN=: MINRUN
 )
 
 NB. =========================================================
@@ -166,9 +164,20 @@ enableback=: 3 : 0
 wd 'setenable stepback ',":HASBUF
 )
 
+NB. =========================================================
 life_about_button=: 3 : 'info ABOUT'
 life_cfg_button=: wcfg_run
 life_help_button=: 3 : 'info HELP'
 life_exit_button=: life_close
-life_pause_button=: settimer bind 0
-life_run_button=: settimer bind 1
+
+NB. =========================================================
+life_pause_button=: 3 : 0
+settimer 0
+)
+
+NB. =========================================================
+life_run_button=: 3 : 0
+settimer 1
+setsystimer 1
+life''
+)
