@@ -71,7 +71,7 @@ rem form end;
 
 events_run=: 3 : 0
 if. wdisparent 'events' do.
-  wd^:('Android'-.@-:UNAME) 'psel events;pactive;pshow' return.
+  wd^:(-.IFJA) 'psel events;pactive;pshow' return.
 end.
 wd EVENTS
 wd 'set s0 text *',TEXT
@@ -134,7 +134,7 @@ if. -. sysevent -: 'events_cancel_button' do.
 end.
 
 if. (<sysevent) e. 'events_close';'events_cancel_button';'events_exit_button' do.
-  if. 0= wdquery`0:@.('Android'-:UNAME) 'Events';'OK to close form?' do.
+  if. 0= wdquery`0:@.IFJA 'Events';'OK to close form?' do.
     try. wd 'psel events;pclose' catch. end.
   end.
 end.

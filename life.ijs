@@ -3,8 +3,12 @@ coinsert 'jgl2'
 
 SCALE=: 3 : 0''
 if. 'Android'-:UNAME do.
-  DM_density_ja_=: {. ". wd 'dm'
-  2*DM_density_ja_
+  if. IFJA do.
+    DM_density_ja_=: {. ". wd 'dm'
+    2*DM_density_ja_
+  else.
+    2
+  end.
 else.
   4
 end.
@@ -62,8 +66,8 @@ wd 'psel ',HWNDP
 wd 'set siz text *',fmtsize BOARD
 del=. ( SCALE * |. BOARD) - _2 {. GXYWHX
 if. 0 0 -: del do. return. end.
-wd^:(-.'Android'-:UNAME) 'setwh g ',": _2{. GXYWHX + 0 0,del
-wd^:(-.'Android'-:UNAME) 'pmove ',": MINFORMX >. FORMX + 0 0,del
+wd^:(-.IFJA) 'setwh g ',": _2{. GXYWHX + 0 0,del
+wd^:(-.IFJA) 'pmove ',": MINFORMX >. FORMX + 0 0,del
 )
 settimer=: 3 : 0
 wd 'timer ',":TIMER * y

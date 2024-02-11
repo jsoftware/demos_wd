@@ -22,8 +22,12 @@ coinsert 'jgl2'
 
 SCALE=: 3 : 0''
 if. 'Android'-:UNAME do.
-  DM_density_ja_=: {. ". wd 'dm'
-  2*DM_density_ja_
+  if. IFJA do.
+    DM_density_ja_=: {. ". wd 'dm'
+    2*DM_density_ja_
+  else.
+    2
+  end.
 else.
   4
 end.

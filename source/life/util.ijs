@@ -49,8 +49,8 @@ wd 'psel ',HWNDP
 wd 'set siz text *',fmtsize BOARD
 del=. ( SCALE * |. BOARD) - _2 {. GXYWHX
 if. 0 0 -: del do. return. end.
-wd^:(-.'Android'-:UNAME) 'setwh g ',": _2{. GXYWHX + 0 0,del
-wd^:(-.'Android'-:UNAME) 'pmove ',": MINFORMX >. FORMX + 0 0,del
+wd^:(-.IFJA) 'setwh g ',": _2{. GXYWHX + 0 0,del
+wd^:(-.IFJA) 'pmove ',": MINFORMX >. FORMX + 0 0,del
 )
 
 NB. =========================================================

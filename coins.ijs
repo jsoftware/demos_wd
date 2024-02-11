@@ -476,8 +476,8 @@ POS=: BUFNDX pick BUFFER
 paint''
 )
 coin_restart_button=: 3 : 0
-if. 'Android'-:UNAME do. paint@init '' return. end.
-if. 0 = query`0:@.('Android'-:UNAME) 'OK to restart?' do.
+if. IFJA do. paint@init '' return. end.
+if. 0 = query`0:@.IFJA 'OK to restart?' do.
   init''
   paint''
 end.
