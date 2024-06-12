@@ -22,6 +22,7 @@ getnum=: 3 : '".;._2 [ 0 : 0'
 index1=: # (| - =) i.&1
 intersect=: e. # [
 intable=: +./"1 @: =
+ischar=: 2 = 3!:0
 isempty=: 0: e. $
 lookup=: (= {."1) # {:"1@]
 round=: [ * [: <. 0.5"_ + %~
@@ -499,8 +500,8 @@ coin_close=: wd bind 'pclose'
 coin_exit_button=: coin_close
 coin_about_button=: 3 : 'info ABOUT'
 coin_help_button=: 3 : 'info HELP'
--
 coins_run=: 3 : 0
+if. -. ischar y do. BOARD=: {.y end.
 init''
 coin_run''
 )
