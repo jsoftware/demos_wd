@@ -1,6 +1,6 @@
 NB. demosel.ijs      - main selection dialog
 
-18!:55 <'jdemos'
+271828&(18!:55) ::(18!:55) ::0: <'jdemos'
 coclass 'jdemos'
 
 onStart=: demos_run
