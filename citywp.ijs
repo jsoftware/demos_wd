@@ -31,9 +31,9 @@ cities_quit_button=: wd bind 'pclose'
 
 CITIESJA=: 0 : 0
 pc cities closeok;pn "City Distances";
-wd 'menupop "&File";'
-wd 'menu quit "&Quit" "Ctrl+Q" "" "";'
-wd 'menupopz;'
+menupop "&File";
+menu quit "&Quit" "Ctrl+Q" "" "";
+menupopz;
 bin v;
 cc s0 static;cn "From:";
 wh  _1 _2;cc clist combolist;
